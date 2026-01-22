@@ -1,0 +1,216 @@
+name: Report Violation
+description: Document a real-world violation of the Open Ethics Standard
+title: "[Violation Report]: "
+labels: ["violation-report", "documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Reporting an OES Violation
+
+        Thank you for documenting unethical practices. Violation reports help establish the OES as a practical standard and create a body of case studies for the community.
+
+        **Important:**
+        - Reports should be **factual and well-documented**
+        - Include evidence (screenshots, links, documentation) where possible
+        - Avoid speculation or unverifiable claims
+        - This is for documentation purposes—the OES project cannot enforce compliance on external companies
+
+  - type: input
+    id: company-name
+    attributes:
+      label: Company/Product Name
+      description: The company or product exhibiting the violation
+      placeholder: "e.g., Example Corp, ExampleApp"
+    validations:
+      required: true
+
+  - type: input
+    id: company-website
+    attributes:
+      label: Company Website/Product URL
+      description: Link to the company or product
+      placeholder: "https://example.com"
+    validations:
+      required: false
+
+  - type: input
+    id: oes-provisions
+    attributes:
+      label: OES Provision(s) Violated
+      description: List the specific OES reference numbers that are violated (e.g., OES 1.2.5, 2.1.7)
+      placeholder: "OES 1.2.5, OES 2.1.11"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: violation-category
+    attributes:
+      label: Primary Violation Category
+      description: Which category best describes this violation?
+      options:
+        - "1. Pricing & Monetization Manipulation"
+        - "2. Dark Patterns in User Interface Design"
+        - "3. Data & Privacy Violations"
+        - "4. Service Quality Manipulation"
+        - "5. EdTech-Specific Ethical Concerns"
+        - "6. Market & Competition Manipulation"
+        - "Multiple Categories"
+    validations:
+      required: true
+
+  - type: textarea
+    id: violation-description
+    attributes:
+      label: Description of Violation
+      description: |
+        Describe the specific unethical practice in detail:
+        - What is the company doing?
+        - How does it affect users?
+        - How does it violate the cited OES provision(s)?
+      placeholder: |
+        [Company] is engaging in [specific practice] which violates OES [reference] because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: |
+        Provide documentation of the violation:
+        - Screenshots (attach or link to images)
+        - Links to relevant pages (use archive.org if the page may change)
+        - News articles or reports documenting the practice
+        - Personal experience with dates and specifics
+      placeholder: |
+        - Screenshot: [attach or link]
+        - Archive link: https://web.archive.org/...
+        - News article: [link]
+        - Observed on: [date]
+    validations:
+      required: true
+
+  - type: input
+    id: date-observed
+    attributes:
+      label: Date Observed
+      description: When did you observe or discover this violation?
+      placeholder: "YYYY-MM-DD or approximate date"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: violation-status
+    attributes:
+      label: Violation Status
+      description: Is this practice currently ongoing?
+      options:
+        - "Currently ongoing"
+        - "Resolved/Changed"
+        - "Intermittent/A-B testing"
+        - "Unknown"
+    validations:
+      required: true
+
+  - type: textarea
+    id: user-impact
+    attributes:
+      label: User Impact
+      description: |
+        Describe how this practice harms users:
+        - Financial impact
+        - Privacy impact
+        - Time/effort wasted
+        - Psychological manipulation
+        - Other harms
+      placeholder: "Users are harmed because..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity Assessment
+      description: How severe is this violation?
+      options:
+        - "Critical - Causes significant financial or privacy harm"
+        - "High - Clearly manipulative, affects many users"
+        - "Medium - Deceptive but limited impact"
+        - "Low - Minor violation, easily avoided"
+    validations:
+      required: true
+
+  - type: textarea
+    id: gaps-identified
+    attributes:
+      label: Does This Reveal Gaps in the OES?
+      description: |
+        Does this violation suggest the OES should be expanded or clarified?
+        - Is the current provision sufficient to address this practice?
+        - Should a new provision be added?
+        - Does an existing provision need amendment?
+      placeholder: "The OES adequately covers this / This reveals a gap because..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: company-response
+    attributes:
+      label: Company Response (if any)
+      description: |
+        Has the company responded to complaints about this practice?
+        Include any public statements, support responses, or PR communications.
+      placeholder: "The company has stated... / No known response"
+    validations:
+      required: false
+
+  - type: textarea
+    id: regulatory-action
+    attributes:
+      label: Known Regulatory Action
+      description: |
+        Has any regulatory body taken action regarding this practice?
+        (FTC, EU Commission, state attorneys general, etc.)
+      placeholder: "FTC investigation... / No known regulatory action"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission Checklist
+      description: Please confirm the following
+      options:
+        - label: This report is based on factual, verifiable information
+          required: true
+        - label: I have provided evidence or documentation
+          required: true
+        - label: I have cited specific OES provision(s) being violated
+          required: true
+        - label: I understand this is for documentation, not enforcement action
+          required: true
+        - label: I have read the CODE_OF_CONDUCT.md and will engage respectfully
+          required: true
+
+  - type: checkboxes
+    id: disclosure
+    attributes:
+      label: Disclosure
+      description: Optional disclosures (check if applicable)
+      options:
+        - label: I am a current or former employee of the company reported
+          required: false
+        - label: I am a competitor of the company reported
+          required: false
+        - label: I have a financial interest in reporting this violation
+          required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information
+      placeholder: "Add any other context here..."
+    validations:
+      required: false

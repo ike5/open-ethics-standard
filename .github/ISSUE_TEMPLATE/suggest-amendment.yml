@@ -1,0 +1,181 @@
+name: Suggest Amendment
+description: Propose changes to an existing OES provision
+title: "[Amendment]: "
+labels: ["amendment", "needs-discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Suggesting an Amendment
+
+        Thank you for helping improve the Open Ethics Standard! Amendments help keep the standard clear, accurate, and effective.
+
+        **Note:** Some provisions are protected under OES 17.2 and cannot be amended to users' detriment:
+        - 17.2.1: Cancellation ease (Section 9.1)
+        - 17.2.2: Data portability rights (Section 9.3)
+        - 17.2.3: No dark patterns commitment (Section 11.1)
+        - 17.2.4: Remedy provisions (Section 15.3)
+
+        **Before submitting:** Please search existing issues to ensure this amendment hasn't already been proposed.
+
+  - type: input
+    id: provision-reference
+    attributes:
+      label: Provision Reference(s)
+      description: Which provision(s) should be amended? (e.g., OES 1.2.5, 3.1.2)
+      placeholder: "OES 1.2.5"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: amendment-type
+    attributes:
+      label: Amendment Type
+      description: What kind of change are you proposing?
+      options:
+        - "Clarification - Make existing language clearer"
+        - "Expansion - Broaden scope to cover more cases"
+        - "Narrowing - Tighten scope to be more specific"
+        - "Correction - Fix factual error or inconsistency"
+        - "Modernization - Update for new technologies/practices"
+        - "Restructuring - Reorganize without changing meaning"
+        - "Strengthening - Increase user protections"
+        - "Other (explain in rationale)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-text
+    attributes:
+      label: Current Provision Text
+      description: Copy the current text of the provision(s) being amended
+      placeholder: |
+        | Ref   | Practice                | Description                                       | Ethical Violation                   |
+        |-------|-------------------------|---------------------------------------------------|-------------------------------------|
+        | 1.2.5 | **Cancellation Mazes**  | Multi-step, confusing cancellation processes      | Violates Click-to-Cancel rule       |
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-text
+    attributes:
+      label: Proposed Amended Text
+      description: |
+        Provide the full proposed text as it would appear in the OES.
+        Highlight changes with **bold** or use strikethrough for ~~removed~~ text.
+      placeholder: |
+        | Ref   | Practice                | Description                                       | Ethical Violation                   |
+        |-------|-------------------------|---------------------------------------------------|-------------------------------------|
+        | 1.2.5 | **Cancellation Mazes**  | **Updated description here...**                   | **Updated violation text...**       |
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale for Amendment
+      description: |
+        Explain why this change is needed:
+        - What problem does the current text have?
+        - How does the proposed change address it?
+        - Are there real-world cases that demonstrate the need?
+      placeholder: "This amendment is needed because..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples / Use Cases
+      description: |
+        Provide examples that illustrate:
+        - Cases the current provision fails to address
+        - How the amended provision would apply
+      placeholder: |
+        **Current gap:** [Describe a situation not covered]
+        **With amendment:** [How it would be addressed]
+    validations:
+      required: false
+
+  - type: dropdown
+    id: breaking-change
+    attributes:
+      label: Is This a Breaking Change?
+      description: |
+        Would this change affect how adopters implement the OES?
+        Breaking changes require a major version bump (e.g., v1.0.0 → v2.0.0)
+      options:
+        - "No - Clarification or minor change only"
+        - "Potentially - May affect some implementations"
+        - "Yes - Significantly changes requirements"
+        - "Unsure - Needs discussion"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: protected-provision
+    attributes:
+      label: Does This Affect a Protected Provision?
+      description: |
+        OES 17.2 protects certain provisions from changes that would harm users.
+        If your amendment affects a protected provision, it must strengthen (not weaken) protections.
+      options:
+        - "No - This is not a protected provision"
+        - "Yes - But this strengthens user protections"
+        - "Yes - This is a structural/clarity change only"
+        - "Unsure - Needs review"
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact-assessment
+    attributes:
+      label: Impact Assessment
+      description: |
+        Who would be affected by this change and how?
+        - Impact on users
+        - Impact on adopting companies
+        - Impact on enforcement/auditing
+      placeholder: |
+        **Users:** [Impact]
+        **Adopters:** [Impact]
+        **Enforcement:** [Impact]
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: |
+        What other approaches did you consider?
+        Why is the proposed amendment better?
+      placeholder: "Alternative approaches considered..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues and this amendment hasn't been proposed
+          required: true
+        - label: I have provided both current and proposed text
+          required: true
+        - label: I have read the CONTRIBUTING.md guidelines
+          required: true
+        - label: I understand that discussion will occur before any PR is accepted
+          required: true
+        - label: If this affects a protected provision (17.2), it strengthens user protections
+          required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that would help evaluate this proposal
+      placeholder: "Add any other context, references, or documentation here..."
+    validations:
+      required: false

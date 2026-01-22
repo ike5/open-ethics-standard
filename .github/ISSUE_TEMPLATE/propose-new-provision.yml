@@ -1,0 +1,138 @@
+name: Propose New Provision
+description: Suggest a new provision to address an unethical practice not currently covered by the OES
+title: "[New Provision]: "
+labels: ["new-provision", "needs-discussion"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Proposing a New Provision
+
+        Thank you for contributing to the Open Ethics Standard! New provisions help expand the standard to address emerging unethical practices.
+
+        **Before submitting:** Please search existing issues to ensure this practice isn't already covered or proposed.
+
+  - type: input
+    id: proposed-reference
+    attributes:
+      label: Proposed Reference Number
+      description: Where should this provision fit in the existing structure? (e.g., 1.2.7, 2.1.17, 3.4.1)
+      placeholder: "e.g., 1.2.7"
+    validations:
+      required: true
+
+  - type: input
+    id: provision-name
+    attributes:
+      label: Provision Name
+      description: A short, descriptive name for this practice (following existing naming conventions)
+      placeholder: "e.g., Forced Account Linking"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      description: Which category does this provision belong to?
+      options:
+        - "1. Pricing & Monetization Manipulation"
+        - "2. Dark Patterns in User Interface Design"
+        - "3. Data & Privacy Violations"
+        - "4. Service Quality Manipulation"
+        - "5. EdTech-Specific Ethical Concerns"
+        - "6. Market & Competition Manipulation"
+        - "New Category (explain in rationale)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: provision-text
+    attributes:
+      label: Proposed Provision Text
+      description: |
+        Write the full provision as it would appear in the OES. Include:
+        - Definition of the practice
+        - Description of the ethical violation
+        - Any relevant regulatory context
+      placeholder: |
+        | Ref   | Practice                | Description                                       | Ethical Violation                   |
+        |-------|-------------------------|---------------------------------------------------|-------------------------------------|
+        | X.X.X | **Practice Name**       | Clear description of the unethical practice       | Why this is harmful to users        |
+    validations:
+      required: true
+
+  - type: textarea
+    id: real-world-examples
+    attributes:
+      label: Real-World Examples
+      description: |
+        Provide documented examples of companies engaging in this practice.
+        Include links to sources where possible.
+      placeholder: |
+        - **Company A:** Description of how they employ this practice (source: link)
+        - **Company B:** Description of how they employ this practice (source: link)
+    validations:
+      required: true
+
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: |
+        Explain why this provision should be added:
+        - Why isn't this covered by existing provisions?
+        - What harm does this practice cause to users?
+        - How prevalent is this practice?
+      placeholder: "This provision is needed because..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: regulatory-context
+    attributes:
+      label: Regulatory Context (if applicable)
+      description: |
+        Are there existing laws or regulations that address this practice?
+        Reference specific regulations (GDPR, FTC Act, CCPA, etc.) if relevant.
+      placeholder: "This practice may violate... / There is currently no specific regulation for..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: enforcement
+    attributes:
+      label: Suggested Enforcement/Remedy
+      description: |
+        How should violations of this provision be remedied?
+        Reference the remedy table in OES Section B.3 for format.
+      placeholder: |
+        | Violation Type          | User Remedy                                |
+        |-------------------------|--------------------------------------------|
+        | [This practice]         | [Suggested remedy for users]               |
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Submission Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues and this practice is not already covered or proposed
+          required: true
+        - label: I have provided real-world examples with sources
+          required: true
+        - label: I have read the CONTRIBUTING.md guidelines
+          required: true
+        - label: I understand that discussion will occur before any PR is accepted
+          required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information that would help evaluate this proposal
+      placeholder: "Add any other context, screenshots, or documentation here..."
+    validations:
+      required: false

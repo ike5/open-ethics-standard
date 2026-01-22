@@ -27,7 +27,7 @@ violates OES 1.2.5, 2.4.1, and 5.10.3").
 
 ## Part I: Taxonomy of Unethical Business Practices
 
-### 1. Pricing & Monetization Manipulation
+### Category 1: Pricing & Monetization Manipulation
 
 #### 1.1 Enshittification Pattern
 
@@ -36,12 +36,12 @@ users.
 
 **Stages:**
 
-| Ref   | Stage                | Description                                                                       |
-|-------|----------------------|-----------------------------------------------------------------------------------|
-| 1.1.1 | **Attraction Phase** | Offer high-quality service at low/no cost to build user base                      |
-| 1.1.2 | **Lock-in Phase**    | Create switching costs through data silos, network effects, or habit formation    |
-| 1.1.3 | **Extraction Phase** | Systematically degrade service quality, increase prices, or introduce advertising |
-| 1.1.4 | **Terminal Phase**   | Service becomes barely usable; users trapped by switching costs                   |
+| Stage                | Description                                                                       |
+|----------------------|-----------------------------------------------------------------------------------|
+| **Attraction Phase** | Offer high-quality service at low/no cost to build user base                      |
+| **Lock-in Phase**    | Create switching costs through data silos, network effects, or habit formation    |
+| **Extraction Phase** | Systematically degrade service quality, increase prices, or introduce advertising |
+| **Terminal Phase**   | Service becomes barely usable; users trapped by switching costs                   |
 
 **Real-World Examples:**
 
@@ -53,11 +53,11 @@ users.
 
 | Ref   | Practice                | Description                                       | Ethical Violation                   |
 |-------|-------------------------|---------------------------------------------------|-------------------------------------|
-| 1.1.5 | **Tier Degradation**    | Features previously included become premium-only  | Breach of implied contract          |
-| 1.1.6 | **Price Creep**         | Gradual, repeated price increases above inflation | Exploitation of lock-in             |
-| 1.1.7 | **Ad Injection**        | Adding advertisements to previously ad-free tiers | Service quality degradation         |
-| 1.1.8 | **Feature Gating**      | Moving existing features behind new paywalls      | Value extraction from captive users |
-| 1.1.9 | **Artificial Scarcity** | Creating false limitations to force upgrades      | Manufactured urgency                |
+| 1.1.1 | **Tier Degradation**    | Features previously included become premium-only  | Breach of implied contract          |
+| 1.1.2 | **Price Creep**         | Gradual, repeated price increases above inflation | Exploitation of lock-in             |
+| 1.1.3 | **Ad Injection**        | Adding advertisements to previously ad-free tiers | Service quality degradation         |
+| 1.1.4 | **Feature Gating**      | Moving existing features behind new paywalls      | Value extraction from captive users |
+| 1.1.5 | **Artificial Scarcity** | Creating false limitations to force upgrades      | Manufactured urgency                |
 
 #### 1.2 Subscription Manipulation
 
@@ -91,11 +91,11 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 
 **Sneaking Patterns:**
 
-| Ref   | Pattern               | Description                     | Example                                  |
-|-------|-----------------------|---------------------------------|------------------------------------------|
-| 2.1.1 | **Hidden Costs**      | Revealing fees only at checkout | "$0.99/month" becomes "$14.99 with fees" |
-| 2.1.2 | **Sneak into Basket** | Auto-adding items to cart       | Pre-selected insurance, warranties       |
-| 2.1.3 | **Bait & Switch**     | Different outcome than expected | "Free download" requires subscription    |
+| Ref   | Pattern               | Description                     | Example                                       |
+|-------|-----------------------|---------------------------------|-----------------------------------------------|
+| 2.1.1 | **Hidden Costs**      | Revealing fees only at checkout | 0.99 cents per month becomes $14.99 with fees |
+| 2.1.2 | **Sneak into Basket** | Auto-adding items to cart       | Pre-selected insurance, warranties            |
+| 2.1.3 | **Bait & Switch**     | Different outcome than expected | "Free download" requires subscription         |
 
 **Urgency Patterns:**
 

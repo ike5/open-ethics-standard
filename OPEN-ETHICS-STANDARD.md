@@ -242,320 +242,279 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 
 ---
 
-## Part II: Ethical Commitments
+## Part II: The Cook By Level Ethics of Service
 
-### 7. Foundational Principles
+### Article 1: Foundational Principles
 
-| Ref | Principle               | Description                                                                                                                                                                            |
-|-----|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 7.1 | **User Primacy**        | The interests of users shall be prioritized over short-term revenue extraction. Users are partners in our mission, not resources to be exploited.                                      |
-| 7.2 | **Transparency**        | All material terms, limitations, and changes shall be communicated clearly and proactively. No information that would affect a reasonable user's decision shall be hidden or obscured. |
-| 7.3 | **Reversibility**       | Any action a user can take to engage with our service must be equally easy to reverse. "Click to Cancel" is not just compliance—it's a core principle.                                 |
-| 7.4 | **Data Stewardship**    | User data is held in trust, not owned. Users retain ultimate control over their data and can export or delete it at any time.                                                          |
-| 7.5 | **Fair Value Exchange** | Pricing changes must be justified by genuine value additions. Degradation of existing services to force upgrades is prohibited.                                                        |
+**1.1 User Primacy**
+The interests of users shall be prioritized over short-term revenue extraction. Users are partners in our mission, not
+resources to be exploited.
 
----
+**1.2 Transparency**
+All material terms, limitations, and changes shall be communicated clearly and proactively. No information that would
+affect a reasonable user's decision shall be hidden or obscured.
 
-### 8. Pricing Commitments
+**1.3 Reversibility**
+Any action a user can take to engage with our service must be equally easy to reverse. "Click to Cancel" is not just
+compliance—it's a core principle.
 
-#### 8.1 Price Stability Guarantee
+**1.4 Data Stewardship**
+User data is held in trust, not owned. Users retain ultimate control over their data and can export or delete it at any
+time.
 
-| Ref   | Commitment                                                                                                                      |
-|-------|---------------------------------------------------------------------------------------------------------------------------------|
-| 8.1.1 | Existing users shall not experience price increases exceeding inflation (CPI) for their current tier within any 24-month period |
-| 8.1.2 | Any price increase shall be announced at least 90 days in advance                                                               |
-| 8.1.3 | Users may lock in current pricing for 12 months after any announced increase                                                    |
-
-#### 8.2 Feature Protection Guarantee
-
-| Ref   | Commitment                                                                                       |
-|-------|--------------------------------------------------------------------------------------------------|
-| 8.2.1 | Features available at time of subscription shall not be removed from that tier                   |
-| 8.2.2 | If features must be deprecated for technical reasons, equivalent functionality shall be provided |
-| 8.2.3 | No feature shall be moved to a higher tier that was previously available in a lower tier         |
-
-#### 8.3 No Forced Advertising
-
-| Ref   | Commitment                                                                                             |
-|-------|--------------------------------------------------------------------------------------------------------|
-| 8.3.1 | If a tier is advertised as "ad-free," it shall remain ad-free permanently                              |
-| 8.3.2 | Sponsored content or partnerships shall be clearly labeled                                             |
-| 8.3.3 | Users shall never be required to view advertisements as a condition of using features they've paid for |
-
-#### 8.4 Transparent Pricing
-
-| Ref   | Commitment                                                                                  |
-|-------|---------------------------------------------------------------------------------------------|
-| 8.4.1 | All costs shall be displayed upfront before any payment information is collected            |
-| 8.4.2 | No hidden fees, processing charges, or surprise costs                                       |
-| 8.4.3 | International users shall see prices in their local currency with no hidden conversion fees |
+**1.5 Fair Value Exchange**
+Pricing changes must be justified by genuine value additions. Degradation of existing services to force upgrades is
+prohibited.
 
 ---
 
-### 9. Cancellation & Data Rights
+### Article 2: Pricing Commitments
 
-#### 9.1 Easy Cancellation
+**2.1 Price Stability Guarantee**
 
-| Ref   | Commitment                                               |
-|-------|----------------------------------------------------------|
-| 9.1.1 | Cancellation shall require no more steps than signup     |
-| 9.1.2 | No "retention flows" or guilt-inducing language          |
-| 9.1.3 | Cancellation shall be completable within 3 clicks/taps   |
-| 9.1.4 | Phone calls shall never be required to cancel            |
-| 9.1.5 | Cancellation shall be effective immediately upon request |
+- Existing users shall not experience price increases exceeding inflation (CPI) for their current tier within any
+  24-month period
+- Any price increase shall be announced at least 90 days in advance
+- Users may lock in current pricing for 12 months after any announced increase
 
-#### 9.2 Post-Cancellation Data Rights
+**2.2 Feature Protection Guarantee**
 
-| Ref   | Commitment                                                                                 |
-|-------|--------------------------------------------------------------------------------------------|
-| 9.2.1 | Users shall have 30 days after cancellation to export all their data                       |
-| 9.2.2 | Data export shall be in standard, machine-readable formats (JSON, CSV, PDF)                |
-| 9.2.3 | All personal data shall be permanently deleted within 90 days of cancellation upon request |
-| 9.2.4 | A deletion confirmation shall be provided                                                  |
+- Features available at time of subscription shall not be removed from that tier
+- If features must be deprecated for technical reasons, equivalent functionality shall be provided
+- No feature shall be moved to a higher tier that was previously available in a lower tier
 
-#### 9.3 Data Portability
+**2.3 No Forced Advertising**
 
-| Ref   | Commitment                                                              |
-|-------|-------------------------------------------------------------------------|
-| 9.3.1 | Users may export all their data and content at any time                 |
-| 9.3.2 | Export shall be available in formats compatible with competing services |
-| 9.3.3 | No fees shall be charged for data export                                |
-| 9.3.4 | Export shall include all user-generated content and associated metadata |
+- If a tier is advertised as "ad-free," it shall remain ad-free permanently
+- Sponsored content or partnerships shall be clearly labeled
+- Users shall never be required to view advertisements as a condition of using features they've paid for
+
+**2.4 Transparent Pricing**
+
+- All costs shall be displayed upfront before any payment information is collected
+- No hidden fees, processing charges, or surprise costs
+- International users shall see prices in their local currency with no hidden conversion fees
 
 ---
 
-### 10. Privacy & Data Protection
+### Article 3: Cancellation & Data Rights
 
-#### 10.1 Data Minimization
+**3.1 Easy Cancellation**
 
-| Ref    | Commitment                                                  |
-|--------|-------------------------------------------------------------|
-| 10.1.1 | We shall collect only data necessary to provide the service |
-| 10.1.2 | Each data point collected shall have a documented purpose   |
-| 10.1.3 | Data collection practices shall be auditable                |
+- Cancellation shall require no more steps than signup
+- No "retention flows" or guilt-inducing language
+- Cancellation shall be completable within 3 clicks/taps
+- Phone calls shall never be required to cancel
+- Cancellation shall be effective immediately upon request
 
-#### 10.2 Purpose Limitation
+**3.2 Post-Cancellation Data Rights**
 
-| Ref    | Commitment                                                                |
-|--------|---------------------------------------------------------------------------|
-| 10.2.1 | Data shall only be used for disclosed purposes                            |
-| 10.2.2 | No secondary monetization of user data (selling, sharing for advertising) |
-| 10.2.3 | No behavioral profiles shall be sold to third parties                     |
+- Users shall have 30 days after cancellation to export all their data
+- Data export shall be in standard, machine-readable formats (JSON, CSV, PDF)
+- All personal data shall be permanently deleted within 90 days of cancellation upon request
+- A deletion confirmation shall be provided
 
-#### 10.3 Consent Standards
+**3.3 Data Portability**
 
-| Ref    | Commitment                                                    |
-|--------|---------------------------------------------------------------|
-| 10.3.1 | Consent shall be granular (separate consent for each purpose) |
-| 10.3.2 | Consent shall be freely given (no coercion or bundling)       |
-| 10.3.3 | Consent shall be easily withdrawn                             |
-| 10.3.4 | Pre-checked boxes are prohibited                              |
-
-#### 10.4 Security Commitment
-
-| Ref    | Commitment                                                   |
-|--------|--------------------------------------------------------------|
-| 10.4.1 | Industry-standard encryption for data at rest and in transit |
-| 10.4.2 | Regular security audits                                      |
-| 10.4.3 | Breach notification within 72 hours of discovery             |
-| 10.4.4 | No passwords stored in plain text                            |
+- Users may export all their recipes, collections, and account data at any time
+- Export shall be available in formats compatible with competing services
+- No fees shall be charged for data export
+- Export shall include all user-generated content and associated metadata
 
 ---
 
-### 11. User Interface Ethics
+### Article 4: Privacy & Data Protection
 
-#### 11.1 No Dark Patterns
+**4.1 Data Minimization**
 
+- We shall collect only data necessary to provide the service
+- Each data point collected shall have a documented purpose
+- Data collection practices shall be auditable
+
+**4.2 Purpose Limitation**
+
+- Data shall only be used for disclosed purposes
+- No secondary monetization of user data (selling, sharing for advertising)
+- No behavioral profiles shall be sold to third parties
+
+**4.3 Consent Standards**
+
+- Consent shall be granular (separate consent for each purpose)
+- Consent shall be freely given (no coercion or bundling)
+- Consent shall be easily withdrawn
+- Pre-checked boxes are prohibited
+
+**4.4 Security Commitment**
+
+- Industry-standard encryption for data at rest and in transit
+- Regular security audits
+- Breach notification within 72 hours of discovery
+- No passwords stored in plain text
+
+---
+
+### Article 5: User Interface Ethics
+
+**5.1 No Dark Patterns**
 We shall not employ any of the following:
 
-| Ref    | Prohibited Practice                                 |
-|--------|-----------------------------------------------------|
-| 11.1.1 | Confirmshaming or emotionally manipulative language |
-| 11.1.2 | Fake urgency (countdown timers, false scarcity)     |
-| 11.1.3 | Visual tricks to hide unfavorable options           |
-| 11.1.4 | Trick questions or confusing double-negatives       |
-| 11.1.5 | Forced continuity without clear warning             |
-| 11.1.6 | Disguised advertisements                            |
-| 11.1.7 | Roach motel designs (easy in, hard out)             |
+- Confirmshaming or emotionally manipulative language
+- Fake urgency (countdown timers, false scarcity)
+- Visual tricks to hide unfavorable options
+- Trick questions or confusing double-negatives
+- Forced continuity without clear warning
+- Disguised advertisements
+- Roach motel designs (easy in, hard out)
 
-#### 11.2 Design for User Agency
+**5.2 Design for User Agency**
 
-| Ref    | Commitment                                                        |
-|--------|-------------------------------------------------------------------|
-| 11.2.1 | Default settings shall favor user privacy and control             |
-| 11.2.2 | Users shall be able to customize their experience without penalty |
-| 11.2.3 | Important choices shall be presented clearly and without bias     |
-| 11.2.4 | "No" shall be as easy to say as "Yes"                             |
+- Default settings shall favor user privacy and control
+- Users shall be able to customize their experience without penalty
+- Important choices shall be presented clearly and without bias
+- "No" shall be as easy to say as "Yes"
 
-#### 11.3 Accessibility Commitment
+**5.3 Accessibility Commitment**
 
-| Ref    | Commitment                                            |
-|--------|-------------------------------------------------------|
-| 11.3.1 | Interface shall meet WCAG 2.1 AA standards            |
-| 11.3.2 | No information shall be conveyed solely through color |
-| 11.3.3 | All functionality shall be keyboard-accessible        |
-| 11.3.4 | Screen reader compatibility shall be maintained       |
+- Interface shall meet WCAG 2.1 AA standards
+- No information shall be conveyed solely through color
+- All functionality shall be keyboard-accessible
+- Screen reader compatibility shall be maintained
 
 ---
 
-### 12. Service Quality Standards
+### Article 6: Service Quality Standards
 
-#### 12.1 No Planned Degradation
+**6.1 No Planned Degradation**
 
-| Ref    | Commitment                                                                    |
-|--------|-------------------------------------------------------------------------------|
-| 12.1.1 | We shall not intentionally degrade service quality                            |
-| 12.1.2 | Updates shall improve or maintain functionality, never deliberately worsen it |
-| 12.1.3 | Free tier users shall receive genuine value, not a crippled experience        |
+- We shall not intentionally degrade service quality
+- Updates shall improve or maintain functionality, never deliberately worsen it
+- Free tier users shall receive genuine value, not a crippled experience
 
-#### 12.2 Support Standards
+**6.2 Support Standards**
 
-| Ref    | Commitment                                                                 |
-|--------|----------------------------------------------------------------------------|
-| 12.2.1 | Human support shall be accessible within reasonable timeframes             |
-| 12.2.2 | Contact information shall be easy to find (maximum 2 clicks from any page) |
-| 12.2.3 | Support requests shall receive acknowledgment within 24 hours              |
-| 12.2.4 | No AI shall impersonate human support staff                                |
+- Human support shall be accessible within reasonable timeframes
+- Contact information shall be easy to find (maximum 2 clicks from any page)
+- Support requests shall receive acknowledgment within 24 hours
+- No AI shall impersonate human support staff
 
-#### 12.3 Uptime & Reliability
+**6.3 Uptime & Reliability**
 
-| Ref    | Commitment                                                               |
-|--------|--------------------------------------------------------------------------|
-| 12.3.1 | Target uptime: 99.5% (measured monthly, excluding scheduled maintenance) |
-| 12.3.2 | Scheduled maintenance shall be announced 48 hours in advance             |
-| 12.3.3 | Users shall be compensated for extended outages (>4 hours)               |
+- Target uptime: 99.5% (measured monthly, excluding scheduled maintenance)
+- Scheduled maintenance shall be announced 48 hours in advance
+- Users shall be compensated for extended outages (>4 hours)
 
 ---
 
-### 13. Educational Technology Standards
+### Article 7: Educational Technology Standards
 
-#### 13.1 Learning-First Design
+**7.1 Learning-First Design**
 
-| Ref    | Commitment                                                                       |
-|--------|----------------------------------------------------------------------------------|
-| 13.1.1 | Features shall be designed to maximize learning outcomes, not engagement metrics |
-| 13.1.2 | We shall not employ addictive design patterns                                    |
-| 13.1.3 | Progress shall reflect genuine skill development                                 |
+- Features shall be designed to maximize learning outcomes, not engagement metrics
+- We shall not employ addictive design patterns
+- Progress shall reflect genuine skill development
 
-#### 13.2 Child Safety (if applicable)
+**7.2 Child Safety (if applicable)**
 
-| Ref    | Commitment                                                                       |
-|--------|----------------------------------------------------------------------------------|
-| 13.2.1 | Full COPPA compliance if serving users under 13                                  |
-| 13.2.2 | No collection of personal information from children beyond educational necessity |
-| 13.2.3 | No advertising to children                                                       |
-| 13.2.4 | Parental controls and visibility                                                 |
+- Full COPPA compliance if serving users under 13
+- No collection of personal information from children beyond educational necessity
+- No advertising to children
+- Parental controls and visibility
 
-#### 13.3 Content Integrity
+**7.3 Content Integrity**
 
-| Ref    | Commitment                                                        |
-|--------|-------------------------------------------------------------------|
-| 13.3.1 | User-generated content shall remain user-owned                    |
-| 13.3.2 | We shall not claim intellectual property rights over user content |
-| 13.3.3 | Attribution shall be preserved for shared content                 |
+- User-generated content shall remain user-owned
+- We shall not claim intellectual property rights over user recipes
+- Attribution shall be preserved for shared content
 
 ---
 
 ## Part III: Enforcement & Accountability Mechanisms
 
-### 14. Internal Enforcement
+### Section A: Internal Enforcement
 
-#### 14.1 Ethics Review Board
+**A.1 Ethics Review Board**
 
-| Ref    | Requirement                                                      |
-|--------|------------------------------------------------------------------|
-| 14.1.1 | Quarterly review of all pricing, feature, and policy changes     |
-| 14.1.2 | Any change affecting user rights requires Ethics Review approval |
-| 14.1.3 | Board shall include at least one external advisor                |
+- Quarterly review of all pricing, feature, and policy changes
+- Any change affecting user rights requires Ethics Review approval
+- Board shall include at least one external advisor
 
-#### 14.2 Pre-Implementation Review
-
+**A.2 Pre-Implementation Review**
 All of the following require documented ethics review:
 
-| Ref    | Review Required For                 |
-|--------|-------------------------------------|
-| 14.2.1 | Pricing changes                     |
-| 14.2.2 | New data collection                 |
-| 14.2.3 | UI/UX changes affecting user choice |
-| 14.2.4 | Terms of service modifications      |
-| 14.2.5 | New third-party integrations        |
+- Pricing changes
+- New data collection
+- UI/UX changes affecting user choice
+- Terms of service modifications
+- New third-party integrations
 
-#### 14.3 Employee Reporting
+**A.3 Employee Reporting**
 
-| Ref    | Requirement                                          |
-|--------|------------------------------------------------------|
-| 14.3.1 | Employees may report ethics concerns anonymously     |
-| 14.3.2 | No retaliation for good-faith ethics reports         |
-| 14.3.3 | Ethics concerns shall be investigated within 30 days |
+- Employees may report ethics concerns anonymously
+- No retaliation for good-faith ethics reports
+- Ethics concerns shall be investigated within 30 days
 
-### 15. External Accountability
+### Section B: External Accountability
 
-#### 15.1 Public Transparency Reports
-
+**B.1 Public Transparency Reports**
 Annual publication of:
 
-| Ref    | Report Component                          |
-|--------|-------------------------------------------|
-| 15.1.1 | Pricing change history                    |
-| 15.1.2 | Data practices audit                      |
-| 15.1.3 | Dark pattern audit (by external reviewer) |
-| 15.1.4 | Cancellation rate and ease metrics        |
-| 15.1.5 | Support response time statistics          |
+- Pricing change history
+- Data practices audit
+- Dark pattern audit (by external reviewer)
+- Cancellation rate and ease metrics
+- Support response time statistics
 
-#### 15.2 User Recourse
+**B.2 User Recourse**
+Users who believe this EoS has been violated may:
 
-Users who believe this OES has been violated may:
+1. Submit a formal complaint through documented process
+2. Receive written response within 30 days
+3. Request mediation for unresolved disputes
+4. Seek remedies as specified in B.3
 
-| Ref    | Recourse Option                                      |
-|--------|------------------------------------------------------|
-| 15.2.1 | Submit a formal complaint through documented process |
-| 15.2.2 | Receive written response within 30 days              |
-| 15.2.3 | Request mediation for unresolved disputes            |
-| 15.2.4 | Seek remedies as specified in 15.3                   |
+**B.3 Remedies for Violation**
 
-#### 15.3 Remedies for Violation
+| Violation Type              | User Remedy                                             |
+|-----------------------------|---------------------------------------------------------|
+| Undisclosed price increase  | Refund of excess charges + 1 month free                 |
+| Feature removal             | Restoration or equivalent value credit                  |
+| Data portability failure    | Free premium support + expedited export                 |
+| Dark pattern identification | Public acknowledgment + correction                      |
+| Privacy violation           | Full data audit + deletion option                       |
+| Cancellation obstruction    | Immediate cancellation + full refund of disputed period |
 
-| Ref    | Violation Type              | User Remedy                                             |
-|--------|-----------------------------|---------------------------------------------------------|
-| 15.3.1 | Undisclosed price increase  | Refund of excess charges + 1 month free                 |
-| 15.3.2 | Feature removal             | Restoration or equivalent value credit                  |
-| 15.3.3 | Data portability failure    | Free premium support + expedited export                 |
-| 15.3.4 | Dark pattern identification | Public acknowledgment + correction                      |
-| 15.3.5 | Privacy violation           | Full data audit + deletion option                       |
-| 15.3.6 | Cancellation obstruction    | Immediate cancellation + full refund of disputed period |
+**B.4 Legal Enforceability Mechanisms**
 
-#### 15.4 Legal Enforceability Mechanisms
+To give this EoS legal weight beyond a policy statement:
 
-To give this OES legal weight beyond a policy statement:
+1. **Terms of Service Integration**: This EoS shall be incorporated by reference into the Terms of Service, making
+   violations a breach of contract
 
-| Ref    | Mechanism                                                                                                                                       |
-|--------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| 15.4.1 | **Terms of Service Integration**: This OES shall be incorporated by reference into the Terms of Service, making violations a breach of contract |
-| 15.4.2 | **Warranty Provisions**: Specific commitments (price stability, feature protection) shall be structured as express warranties                   |
-| 15.4.3 | **Arbitration Carve-Out**: Users retain the right to pursue claims for OES violations in small claims court                                     |
-| 15.4.4 | **Class Action Preservation**: OES violation claims shall not be subject to class action waiver                                                 |
-| 15.4.5 | **Liquidated Damages**: Pre-set remedy amounts for specific violations (as detailed in 15.3) shall be deemed reasonable liquidated damages      |
+2. **Warranty Provisions**: Specific commitments (price stability, feature protection) shall be structured as express
+   warranties
 
-### 16. Certification & Third-Party Verification
+3. **Arbitration Carve-Out**: Users retain the right to pursue claims for EoS violations in small claims court
 
-#### 16.1 Voluntary Certifications
+4. **Class Action Preservation**: EoS violation claims shall not be subject to class action waiver
 
-Adopting organizations commit to pursuing and maintaining:
+5. **Liquidated Damages**: Pre-set remedy amounts for specific violations (as detailed in B.3) shall be deemed
+   reasonable liquidated damages
 
-| Ref    | Certification                                       |
-|--------|-----------------------------------------------------|
-| 16.1.1 | B Corp Certification (when eligible)                |
-| 16.1.2 | SOC 2 Type II compliance                            |
-| 16.1.3 | Privacy certification (e.g., TrustArc, PrivacyMark) |
+### Section C: Certification & Third-Party Verification
 
-#### 16.2 Annual Audits
+**C.1 Voluntary Certifications**
+Cook By Level commits to pursuing and maintaining:
 
-| Ref    | Audit Type                     |
-|--------|--------------------------------|
-| 16.2.1 | Independent dark pattern audit |
-| 16.2.2 | Privacy practices audit        |
-| 16.2.3 | Accessibility audit            |
-| 16.2.4 | Publication of audit summaries |
+- B Corp Certification (when eligible)
+- SOC 2 Type II compliance
+- Privacy certification (e.g., TrustArc, PrivacyMark)
+
+**C.2 Annual Audits**
+
+- Independent dark pattern audit
+- Privacy practices audit
+- Accessibility audit
+- Publication of audit summaries
 
 ---
 

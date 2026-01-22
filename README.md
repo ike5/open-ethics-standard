@@ -1,5 +1,7 @@
 # Open Ethics Standard (OES)
 
+📜 **Read the Standard** → [OPEN-ETHICS-STANDARD.md](./OPEN-ETHICS-STANDARD.md)
+
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](CHANGELOG.md)
 

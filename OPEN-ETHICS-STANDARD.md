@@ -41,11 +41,11 @@ users.
 | **Extraction Phase** | Systematically degrade service quality, increase prices, or introduce advertising |
 | **Terminal Phase**   | Service becomes barely usable; users trapped by switching costs                   |
 
-**Real-World Examples:**
+**Examples:**
 
-- Netflix: Introduced ad tier, then raised ad-free tier prices repeatedly
-- Amazon Prime: Continuous price increases with degrading search quality
-- Adobe: Forced subscription model making cancellation prohibitively difficult
+- Company A: Introduced ad tier, then raised ad-free tier prices repeatedly
+- Company B: Continuous price increases with degrading search quality
+- Company C: Forced subscription model making cancellation prohibitively difficult
 
 **Subcategories:**
 

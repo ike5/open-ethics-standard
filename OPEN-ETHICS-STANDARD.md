@@ -83,7 +83,7 @@ users.
 
 ### 2. Dark Patterns in User Interface Design
 
-#### 2.1 Ethical Evaluation Framework
+#### Ethical Evaluation Framework
 
 The following criteria help distinguish manipulative design from legitimate persuasion:
 
@@ -98,11 +98,11 @@ The following criteria help distinguish manipulative design from legitimate pers
 
 A pattern becomes a "dark pattern" when it fails multiple criteria — particularly when there is asymmetric benefit (platform gains while user loses) and deliberate obfuscation of the technique being employed.
 
-#### 2.2 Deceptive Design Taxonomy
+#### Deceptive Design Taxonomy
 
 Based on the Princeton/University of Chicago research identifying 15 distinct dark pattern types:
 
-**Sneaking Patterns:**
+#### 2.1 Sneaking Patterns
 
 | Ref   | Pattern               | Description                     | Example                                       |
 |-------|-----------------------|---------------------------------|-----------------------------------------------|
@@ -110,7 +110,7 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 | 2.1.2 | **Sneak into Basket** | Auto-adding items to cart       | Pre-selected insurance, warranties            |
 | 2.1.3 | **Bait & Switch**     | Different outcome than expected | "Free download" requires subscription         |
 
-**Urgency Patterns:**
+#### 2.2 Urgency Patterns
 
 | Ref   | Pattern             | Description                | Example                      |
 |-------|---------------------|----------------------------|------------------------------|
@@ -118,7 +118,7 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 | 2.1.5 | **Limited Stock**   | False scarcity claims      | "Only 2 left!" (always)      |
 | 2.1.6 | **High Demand**     | Fake social proof pressure | "47 people viewing this"     |
 
-**Misdirection Patterns:**
+#### 2.3 Misdirection Patterns
 
 | Ref    | Pattern                 | Description                               | Example                                |
 |--------|-------------------------|-------------------------------------------|----------------------------------------|
@@ -127,7 +127,7 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 | 2.1.9  | **Trick Questions**     | Confusing double-negatives                | "Uncheck to not receive newsletters"   |
 | 2.1.10 | **Disguised Ads**       | Ads that look like content/navigation     | "Download" button that's an ad         |
 
-**Obstruction Patterns:**
+#### 2.4 Obstruction Patterns
 
 | Ref    | Pattern                         | Description                 | Example                          |
 |--------|---------------------------------|-----------------------------|----------------------------------|
@@ -135,7 +135,7 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 | 2.1.12 | **Privacy Zuckering**           | Confusing privacy settings  | Default to maximum data sharing  |
 | 2.1.13 | **Price Comparison Prevention** | Making comparison difficult | Complex, incomparable tiers      |
 
-**Forced Action Patterns:**
+#### 2.5 Forced Action Patterns
 
 | Ref    | Pattern                 | Description                           | Example                       |
 |--------|-------------------------|---------------------------------------|-------------------------------|
@@ -143,7 +143,7 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 | 2.1.15 | **Forced Continuity**   | Automatic paid conversion             | Trial to paid without warning |
 | 2.1.16 | **Friend Spam**         | Requiring contact list access         | "Invite friends to continue"  |
 
-#### 2.3 Emotional Manipulation Techniques
+#### 2.6 Emotional Manipulation Techniques
 
 | Ref   | Technique            | Description                         | Psychological Exploit         |
 |-------|----------------------|-------------------------------------|-------------------------------|
@@ -153,7 +153,7 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 | 2.2.4 | **Loss Framing**     | Emphasizing what you'll lose        | "Don't lose your progress!"   |
 | 2.2.5 | **Authority Claims** | False expert endorsements           | "Recommended by 9/10 doctors" |
 
-#### 2.4 Behavioral Reinforcement Patterns
+#### 2.7 Behavioral Reinforcement Patterns
 
 | Ref   | Pattern                      | Description                                      | Example                                      |
 |-------|------------------------------|--------------------------------------------------|----------------------------------------------|

@@ -138,6 +138,22 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 | 2.2.4 | **Loss Framing**     | Emphasizing what you'll lose        | "Don't lose your progress!"   |
 | 2.2.5 | **Authority Claims** | False expert endorsements           | "Recommended by 9/10 doctors" |
 
+#### 2.3 Behavioral Reinforcement Patterns
+
+| Ref   | Pattern                      | Description                                      | Example                                      |
+|-------|------------------------------|--------------------------------------------------|----------------------------------------------|
+| 2.3.1 | **Variable Reward Schedules** | Unpredictable rewards to maximize engagement    | Slot machine mechanics, loot boxes           |
+| 2.3.2 | **Infinite Scroll**          | Eliminating natural stopping points              | Endless social media feeds                   |
+| 2.3.3 | **Autoplay**                 | Automatic continuation without user action       | Next episode starts in 5 seconds             |
+| 2.3.4 | **Notification Manipulation** | Strategic alerts to trigger re-engagement       | "You have unseen activity!" (nothing new)    |
+| 2.3.5 | **Streak Mechanics**         | Punishing breaks in usage                        | "Don't lose your 30-day streak!"             |
+| 2.3.6 | **Artificial Progress**      | Exploiting completion bias                       | Profile "87% complete" indefinitely          |
+| 2.3.7 | **Pull-to-Refresh**          | Mimicking slot machine gestures                  | Social feed refresh with variable new content |
+
+---
+
+**Note:** Some behavioral reinforcement techniques listed in section 2.3 are context-dependent rather than inherently unethical. Variable reward schedules and streak mechanics, for example, can be harmful when used in gambling or attention-harvesting applications, but serve positive purposes in educational software (motivating difficult learning tasks), fitness apps (encouraging healthy habits), or therapeutic tools (reinforcing beneficial behaviors). The ethical distinction lies in whether the technique serves the user's genuine interests or exploits psychological vulnerabilities for the platform's benefit.
+
 ---
 
 ### 3. Data & Privacy Violations

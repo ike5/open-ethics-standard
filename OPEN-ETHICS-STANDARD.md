@@ -83,7 +83,22 @@ users.
 
 ### 2. Dark Patterns in User Interface Design
 
-#### 2.1 Deceptive Design Taxonomy
+#### 2.1 Ethical Evaluation Framework
+
+The following criteria help distinguish manipulative design from legitimate persuasion:
+
+| Criterion                    | Ethical                                                | Unethical                                              |
+|------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+| **User Interest Alignment**  | Pattern serves user's stated goals                     | Pattern serves platform at user's expense              |
+| **Transparency**             | User is aware technique is being used                  | Technique is hidden or deliberately obscured           |
+| **Consent & Exit**           | User can opt out without friction                      | Opting out is difficult, punitive, or impossible       |
+| **Autonomy**                 | Supports informed decision-making; includes stopping cues | Undermines judgment; removes natural stopping points |
+| **Vulnerability**            | Avoids targeting susceptible populations               | Exploits addiction, FOMO, or targets children          |
+| **Harm Potential**           | Minimal or positive downstream consequences            | Risk of financial, time, or mental health harm         |
+
+A pattern becomes a "dark pattern" when it fails multiple criteria — particularly when there is asymmetric benefit (platform gains while user loses) and deliberate obfuscation of the technique being employed.
+
+#### 2.2 Deceptive Design Taxonomy
 
 Based on the Princeton/University of Chicago research identifying 15 distinct dark pattern types:
 
@@ -128,7 +143,7 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 | 2.1.15 | **Forced Continuity**   | Automatic paid conversion             | Trial to paid without warning |
 | 2.1.16 | **Friend Spam**         | Requiring contact list access         | "Invite friends to continue"  |
 
-#### 2.2 Emotional Manipulation Techniques
+#### 2.3 Emotional Manipulation Techniques
 
 | Ref   | Technique            | Description                         | Psychological Exploit         |
 |-------|----------------------|-------------------------------------|-------------------------------|
@@ -138,21 +153,21 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 | 2.2.4 | **Loss Framing**     | Emphasizing what you'll lose        | "Don't lose your progress!"   |
 | 2.2.5 | **Authority Claims** | False expert endorsements           | "Recommended by 9/10 doctors" |
 
-#### 2.3 Behavioral Reinforcement Patterns
+#### 2.4 Behavioral Reinforcement Patterns
 
 | Ref   | Pattern                      | Description                                      | Example                                      |
 |-------|------------------------------|--------------------------------------------------|----------------------------------------------|
-| 2.3.1 | **Variable Reward Schedules** | Unpredictable rewards to maximize engagement    | Slot machine mechanics, loot boxes           |
-| 2.3.2 | **Infinite Scroll**          | Eliminating natural stopping points              | Endless social media feeds                   |
-| 2.3.3 | **Autoplay**                 | Automatic continuation without user action       | Next episode starts in 5 seconds             |
-| 2.3.4 | **Notification Manipulation** | Strategic alerts to trigger re-engagement       | "You have unseen activity!" (nothing new)    |
-| 2.3.5 | **Streak Mechanics**         | Punishing breaks in usage                        | "Don't lose your 30-day streak!"             |
-| 2.3.6 | **Artificial Progress**      | Exploiting completion bias                       | Profile "87% complete" indefinitely          |
-| 2.3.7 | **Pull-to-Refresh**          | Mimicking slot machine gestures                  | Social feed refresh with variable new content |
+| 2.4.1 | **Variable Reward Schedules** | Unpredictable rewards to maximize engagement    | Slot machine mechanics, loot boxes           |
+| 2.4.2 | **Infinite Scroll**          | Eliminating natural stopping points              | Endless social media feeds                   |
+| 2.4.3 | **Autoplay**                 | Automatic continuation without user action       | Next episode starts in 5 seconds             |
+| 2.4.4 | **Notification Manipulation** | Strategic alerts to trigger re-engagement       | "You have unseen activity!" (nothing new)    |
+| 2.4.5 | **Streak Mechanics**         | Punishing breaks in usage                        | "Don't lose your 30-day streak!"             |
+| 2.4.6 | **Artificial Progress**      | Exploiting completion bias                       | Profile "87% complete" indefinitely          |
+| 2.4.7 | **Pull-to-Refresh**          | Mimicking slot machine gestures                  | Social feed refresh with variable new content |
 
 ---
 
-**Note:** Some behavioral reinforcement techniques listed in section 2.3 are context-dependent rather than inherently unethical. Variable reward schedules and streak mechanics, for example, can be harmful when used in gambling or attention-harvesting applications, but serve positive purposes in educational software (motivating difficult learning tasks), fitness apps (encouraging healthy habits), or therapeutic tools (reinforcing beneficial behaviors). The ethical distinction lies in whether the technique serves the user's genuine interests or exploits psychological vulnerabilities for the platform's benefit.
+**Note:** Some behavioral reinforcement techniques listed in section 2.4 are context-dependent rather than inherently unethical. Variable reward schedules and streak mechanics, for example, can be harmful when used in gambling or attention-harvesting applications, but serve positive purposes in educational software (motivating difficult learning tasks), fitness apps (encouraging healthy habits), or therapeutic tools (reinforcing beneficial behaviors). The ethical distinction lies in whether the technique serves the user's genuine interests or exploits psychological vulnerabilities for the platform's benefit. See section 2.1 for evaluation criteria.
 
 ---
 

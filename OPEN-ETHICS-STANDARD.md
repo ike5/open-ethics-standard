@@ -3,7 +3,7 @@
 ## A Comprehensive Framework for Ethical Software Business Practices
 
 **Document Type:** Public-Facing Ethical Commitment with Enforceable Standards  
-**Version:** 1.0 Draft  
+**Version:** 2026.0.1  
 **Date:** January 2026
 
 ---
@@ -11,9 +11,7 @@
 ## Executive Summary
 
 This document establishes a comprehensive framework for categorizing, describing, and preventing unethical business
-practices in software-as-a-service (SaaS) and educational technology (EdTech) companies. Unlike aspirational slogans
-such as Google's former "Don't Be Evil," this Open Ethics Standard (OES) is designed to be a **binding commitment** with
-real accountability mechanisms.
+practices in software-as-a-service (SaaS). The Open Ethics Standard (OES) is designed to be a **binding commitment** with accountability mechanisms.
 
 The framework draws from documented patterns of corporate malfeasance (including the phenomenon of "enshittification" as
 coined by Cory Doctorow), established regulatory frameworks (GDPR, FTC Click-to-Cancel, COPPA), certification

@@ -167,7 +167,7 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 
 ---
 
-**Note:** Some behavioral reinforcement techniques listed in section 2.4 are context-dependent rather than inherently unethical. Variable reward schedules and streak mechanics, for example, can be harmful when used in gambling or attention-harvesting applications, but serve positive purposes in educational software (motivating difficult learning tasks), fitness apps (encouraging healthy habits), or therapeutic tools (reinforcing beneficial behaviors). The ethical distinction lies in whether the technique serves the user's genuine interests or exploits psychological vulnerabilities for the platform's benefit. See section 2.1 for evaluation criteria.
+**Note:** Some behavioral reinforcement techniques listed in section 2.4 are context-dependent rather than inherently unethical. Variable reward schedules and streak mechanics, for example, can be harmful when used in gambling or attention-harvesting applications, but serve positive purposes in educational software (motivating difficult learning tasks), fitness apps (encouraging healthy habits), or therapeutic tools (reinforcing beneficial behaviors). The ethical distinction lies in whether the technique serves the user's genuine interests or exploits psychological vulnerabilities for the platform's benefit. See the evaluation criteria.
 
 ---
 

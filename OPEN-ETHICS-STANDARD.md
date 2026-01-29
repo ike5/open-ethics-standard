@@ -11,7 +11,8 @@
 ## Executive Summary
 
 This document establishes a comprehensive framework for categorizing, describing, and preventing unethical business
-practices in software-as-a-service (SaaS). The Open Ethics Standard (OES) is designed to be a **binding commitment** with accountability mechanisms.
+practices in software-as-a-service (SaaS). The Open Ethics Standard (OES) is designed to be a **binding commitment**
+with accountability mechanisms.
 
 The framework draws from documented patterns of corporate malfeasance (including the phenomenon of "enshittification" as
 coined by Cory Doctorow), established regulatory frameworks (GDPR, FTC Click-to-Cancel, COPPA), certification
@@ -87,16 +88,17 @@ users.
 
 The following criteria help distinguish manipulative design from legitimate persuasion:
 
-| Criterion                    | Ethical                                                | Unethical                                              |
-|------------------------------|--------------------------------------------------------|--------------------------------------------------------|
-| **User Interest Alignment**  | Pattern serves user's stated goals                     | Pattern serves platform at user's expense              |
-| **Transparency**             | User is aware technique is being used                  | Technique is hidden or deliberately obscured           |
-| **Consent & Exit**           | User can opt out without friction                      | Opting out is difficult, punitive, or impossible       |
-| **Autonomy**                 | Supports informed decision-making; includes stopping cues | Undermines judgment; removes natural stopping points |
-| **Vulnerability**            | Avoids targeting susceptible populations               | Exploits addiction, FOMO, or targets children          |
-| **Harm Potential**           | Minimal or positive downstream consequences            | Risk of financial, time, or mental health harm         |
+| Criterion                   | Ethical                                                   | Unethical                                            |
+|-----------------------------|-----------------------------------------------------------|------------------------------------------------------|
+| **User Interest Alignment** | Pattern serves user's stated goals                        | Pattern serves platform at user's expense            |
+| **Transparency**            | User is aware technique is being used                     | Technique is hidden or deliberately obscured         |
+| **Consent & Exit**          | User can opt out without friction                         | Opting out is difficult, punitive, or impossible     |
+| **Autonomy**                | Supports informed decision-making; includes stopping cues | Undermines judgment; removes natural stopping points |
+| **Vulnerability**           | Avoids targeting susceptible populations                  | Exploits addiction, FOMO, or targets children        |
+| **Harm Potential**          | Minimal or positive downstream consequences               | Risk of financial, time, or mental health harm       |
 
-A pattern becomes a "dark pattern" when it fails multiple criteria — particularly when there is asymmetric benefit (platform gains while user loses) and deliberate obfuscation of the technique being employed.
+A pattern becomes a "dark pattern" when it fails multiple criteria — particularly when there is asymmetric benefit (
+platform gains while user loses) and deliberate obfuscation of the technique being employed.
 
 #### Deceptive Design Taxonomy
 
@@ -155,19 +157,24 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 
 #### 2.7 Behavioral Reinforcement Patterns
 
-| Ref   | Pattern                      | Description                                      | Example                                      |
-|-------|------------------------------|--------------------------------------------------|----------------------------------------------|
-| 2.4.1 | **Variable Reward Schedules** | Unpredictable rewards to maximize engagement    | Slot machine mechanics, loot boxes           |
-| 2.4.2 | **Infinite Scroll**          | Eliminating natural stopping points              | Endless social media feeds                   |
-| 2.4.3 | **Autoplay**                 | Automatic continuation without user action       | Next episode starts in 5 seconds             |
-| 2.4.4 | **Notification Manipulation** | Strategic alerts to trigger re-engagement       | "You have unseen activity!" (nothing new)    |
-| 2.4.5 | **Streak Mechanics**         | Punishing breaks in usage                        | "Don't lose your 30-day streak!"             |
-| 2.4.6 | **Artificial Progress**      | Exploiting completion bias                       | Profile "87% complete" indefinitely          |
-| 2.4.7 | **Pull-to-Refresh**          | Mimicking slot machine gestures                  | Social feed refresh with variable new content |
+| Ref   | Pattern                       | Description                                  | Example                                       |
+|-------|-------------------------------|----------------------------------------------|-----------------------------------------------|
+| 2.4.1 | **Variable Reward Schedules** | Unpredictable rewards to maximize engagement | Slot machine mechanics, loot boxes            |
+| 2.4.2 | **Infinite Scroll**           | Eliminating natural stopping points          | Endless social media feeds                    |
+| 2.4.3 | **Autoplay**                  | Automatic continuation without user action   | Next episode starts in 5 seconds              |
+| 2.4.4 | **Notification Manipulation** | Strategic alerts to trigger re-engagement    | "You have unseen activity!" (nothing new)     |
+| 2.4.5 | **Streak Mechanics**          | Punishing breaks in usage                    | "Don't lose your 30-day streak!"              |
+| 2.4.6 | **Artificial Progress**       | Exploiting completion bias                   | Profile "87% complete" indefinitely           |
+| 2.4.7 | **Pull-to-Refresh**           | Mimicking slot machine gestures              | Social feed refresh with variable new content |
 
 ---
 
-**Note:** Some behavioral reinforcement techniques listed in section 2.4 are context-dependent rather than inherently unethical. Variable reward schedules and streak mechanics, for example, can be harmful when used in gambling or attention-harvesting applications, but serve positive purposes in educational software (motivating difficult learning tasks), fitness apps (encouraging healthy habits), or therapeutic tools (reinforcing beneficial behaviors). The ethical distinction lies in whether the technique serves the user's genuine interests or exploits psychological vulnerabilities for the platform's benefit. See the evaluation criteria.
+**Note:** Some behavioral reinforcement techniques listed in section 2.4 are context-dependent rather than inherently
+unethical. Variable reward schedules and streak mechanics, for example, can be harmful when used in gambling or
+attention-harvesting applications, but serve positive purposes in educational software (motivating difficult learning
+tasks), fitness apps (encouraging healthy habits), or therapeutic tools (reinforcing beneficial behaviors). The ethical
+distinction lies in whether the technique serves the user's genuine interests or exploits psychological vulnerabilities
+for the platform's benefit. See the evaluation criteria.
 
 ---
 
@@ -271,283 +278,30 @@ Based on the Princeton/University of Chicago research identifying 15 distinct da
 
 ---
 
-## Part II: The Cook By Level Ethics of Service
+## Part II
 
 ### Article 1: Foundational Principles
 
-**1.1 User Primacy**
+**1.1 User Primacy**  
 The interests of users shall be prioritized over short-term revenue extraction. Users are partners in our mission, not
 resources to be exploited.
 
-**1.2 Transparency**
+**1.2 Transparency**  
 All material terms, limitations, and changes shall be communicated clearly and proactively. No information that would
 affect a reasonable user's decision shall be hidden or obscured.
 
-**1.3 Reversibility**
-Any action a user can take to engage with our service must be equally easy to reverse. "Click to Cancel" is not just
-compliance—it's a core principle.
+**1.3 Reversibility**  
+Any action a user can take to engage with our service must be equally easy to reverse.
 
-**1.4 Data Stewardship**
+**1.4 Data Stewardship**  
 User data is held in trust, not owned. Users retain ultimate control over their data and can export or delete it at any
 time.
 
-**1.5 Fair Value Exchange**
+**1.5 Fair Value Exchange**  
 Pricing changes must be justified by genuine value additions. Degradation of existing services to force upgrades is
-prohibited.
+____.
 
----
-
-### Article 2: Pricing Commitments
-
-**2.1 Price Stability Guarantee**
-
-- Existing users shall not experience price increases exceeding inflation (CPI) for their current tier within any
-  24-month period
-- Any price increase shall be announced at least 90 days in advance
-- Users may lock in current pricing for 12 months after any announced increase
-
-**2.2 Feature Protection Guarantee**
-
-- Features available at time of subscription shall not be removed from that tier
-- If features must be deprecated for technical reasons, equivalent functionality shall be provided
-- No feature shall be moved to a higher tier that was previously available in a lower tier
-
-**2.3 No Forced Advertising**
-
-- If a tier is advertised as "ad-free," it shall remain ad-free permanently
-- Sponsored content or partnerships shall be clearly labeled
-- Users shall never be required to view advertisements as a condition of using features they've paid for
-
-**2.4 Transparent Pricing**
-
-- All costs shall be displayed upfront before any payment information is collected
-- No hidden fees, processing charges, or surprise costs
-- International users shall see prices in their local currency with no hidden conversion fees
-
----
-
-### Article 3: Cancellation & Data Rights
-
-**3.1 Easy Cancellation**
-
-- Cancellation shall require no more steps than signup
-- No "retention flows" or guilt-inducing language
-- Cancellation shall be completable within 3 clicks/taps
-- Phone calls shall never be required to cancel
-- Cancellation shall be effective immediately upon request
-
-**3.2 Post-Cancellation Data Rights**
-
-- Users shall have 30 days after cancellation to export all their data
-- Data export shall be in standard, machine-readable formats (JSON, CSV, PDF)
-- All personal data shall be permanently deleted within 90 days of cancellation upon request
-- A deletion confirmation shall be provided
-
-**3.3 Data Portability**
-
-- Users may export all their recipes, collections, and account data at any time
-- Export shall be available in formats compatible with competing services
-- No fees shall be charged for data export
-- Export shall include all user-generated content and associated metadata
-
----
-
-### Article 4: Privacy & Data Protection
-
-**4.1 Data Minimization**
-
-- We shall collect only data necessary to provide the service
-- Each data point collected shall have a documented purpose
-- Data collection practices shall be auditable
-
-**4.2 Purpose Limitation**
-
-- Data shall only be used for disclosed purposes
-- No secondary monetization of user data (selling, sharing for advertising)
-- No behavioral profiles shall be sold to third parties
-
-**4.3 Consent Standards**
-
-- Consent shall be granular (separate consent for each purpose)
-- Consent shall be freely given (no coercion or bundling)
-- Consent shall be easily withdrawn
-- Pre-checked boxes are prohibited
-
-**4.4 Security Commitment**
-
-- Industry-standard encryption for data at rest and in transit
-- Regular security audits
-- Breach notification within 72 hours of discovery
-- No passwords stored in plain text
-
----
-
-### Article 5: User Interface Ethics
-
-**5.1 No Dark Patterns**
-We shall not employ any of the following:
-
-- Confirmshaming or emotionally manipulative language
-- Fake urgency (countdown timers, false scarcity)
-- Visual tricks to hide unfavorable options
-- Trick questions or confusing double-negatives
-- Forced continuity without clear warning
-- Disguised advertisements
-- Roach motel designs (easy in, hard out)
-
-**5.2 Design for User Agency**
-
-- Default settings shall favor user privacy and control
-- Users shall be able to customize their experience without penalty
-- Important choices shall be presented clearly and without bias
-- "No" shall be as easy to say as "Yes"
-
-**5.3 Accessibility Commitment**
-
-- Interface shall meet WCAG 2.1 AA standards
-- No information shall be conveyed solely through color
-- All functionality shall be keyboard-accessible
-- Screen reader compatibility shall be maintained
-
----
-
-### Article 6: Service Quality Standards
-
-**6.1 No Planned Degradation**
-
-- We shall not intentionally degrade service quality
-- Updates shall improve or maintain functionality, never deliberately worsen it
-- Free tier users shall receive genuine value, not a crippled experience
-
-**6.2 Support Standards**
-
-- Human support shall be accessible within reasonable timeframes
-- Contact information shall be easy to find (maximum 2 clicks from any page)
-- Support requests shall receive acknowledgment within 24 hours
-- No AI shall impersonate human support staff
-
-**6.3 Uptime & Reliability**
-
-- Target uptime: 99.5% (measured monthly, excluding scheduled maintenance)
-- Scheduled maintenance shall be announced 48 hours in advance
-- Users shall be compensated for extended outages (>4 hours)
-
----
-
-### Article 7: Educational Technology Standards
-
-**7.1 Learning-First Design**
-
-- Features shall be designed to maximize learning outcomes, not engagement metrics
-- We shall not employ addictive design patterns
-- Progress shall reflect genuine skill development
-
-**7.2 Child Safety (if applicable)**
-
-- Full COPPA compliance if serving users under 13
-- No collection of personal information from children beyond educational necessity
-- No advertising to children
-- Parental controls and visibility
-
-**7.3 Content Integrity**
-
-- User-generated content shall remain user-owned
-- We shall not claim intellectual property rights over user recipes
-- Attribution shall be preserved for shared content
-
----
-
-## Part III: Enforcement & Accountability Mechanisms
-
-### Section A: Internal Enforcement
-
-**A.1 Ethics Review Board**
-
-- Quarterly review of all pricing, feature, and policy changes
-- Any change affecting user rights requires Ethics Review approval
-- Board shall include at least one external advisor
-
-**A.2 Pre-Implementation Review**
-All of the following require documented ethics review:
-
-- Pricing changes
-- New data collection
-- UI/UX changes affecting user choice
-- Terms of service modifications
-- New third-party integrations
-
-**A.3 Employee Reporting**
-
-- Employees may report ethics concerns anonymously
-- No retaliation for good-faith ethics reports
-- Ethics concerns shall be investigated within 30 days
-
-### Section B: External Accountability
-
-**B.1 Public Transparency Reports**
-Annual publication of:
-
-- Pricing change history
-- Data practices audit
-- Dark pattern audit (by external reviewer)
-- Cancellation rate and ease metrics
-- Support response time statistics
-
-**B.2 User Recourse**
-Users who believe this EoS has been violated may:
-
-1. Submit a formal complaint through documented process
-2. Receive written response within 30 days
-3. Request mediation for unresolved disputes
-4. Seek remedies as specified in B.3
-
-**B.3 Remedies for Violation**
-
-| Violation Type              | User Remedy                                             |
-|-----------------------------|---------------------------------------------------------|
-| Undisclosed price increase  | Refund of excess charges + 1 month free                 |
-| Feature removal             | Restoration or equivalent value credit                  |
-| Data portability failure    | Free premium support + expedited export                 |
-| Dark pattern identification | Public acknowledgment + correction                      |
-| Privacy violation           | Full data audit + deletion option                       |
-| Cancellation obstruction    | Immediate cancellation + full refund of disputed period |
-
-**B.4 Legal Enforceability Mechanisms**
-
-To give this EoS legal weight beyond a policy statement:
-
-1. **Terms of Service Integration**: This EoS shall be incorporated by reference into the Terms of Service, making
-   violations a breach of contract
-
-2. **Warranty Provisions**: Specific commitments (price stability, feature protection) shall be structured as express
-   warranties
-
-3. **Arbitration Carve-Out**: Users retain the right to pursue claims for EoS violations in small claims court
-
-4. **Class Action Preservation**: EoS violation claims shall not be subject to class action waiver
-
-5. **Liquidated Damages**: Pre-set remedy amounts for specific violations (as detailed in B.3) shall be deemed
-   reasonable liquidated damages
-
-### Section C: Certification & Third-Party Verification
-
-**C.1 Voluntary Certifications**
-Cook By Level commits to pursuing and maintaining:
-
-- B Corp Certification (when eligible)
-- SOC 2 Type II compliance
-- Privacy certification (e.g., TrustArc, PrivacyMark)
-
-**C.2 Annual Audits**
-
-- Independent dark pattern audit
-- Privacy practices audit
-- Accessibility audit
-- Publication of audit summaries
-
----
-
-## Part IV: Evolution & Amendment Process
+## Part III: Evolution & Amendment Process
 
 ### 17. Amendment Procedures
 
@@ -649,9 +403,9 @@ The following may never be amended to users' detriment:
 
 ## Conclusion
 
-This Open Ethics Standard represents more than a policy—it's a commitment to building software that respects users as
-partners rather than resources. By categorizing unethical practices explicitly and committing to specific, enforceable
-standards, adopting organizations demonstrate that ethical business practices and commercial success are not mutually
+This Open Ethics Standard represents a frameworks for building software that respects users as
+partners rather than resources. By categorizing unethical practices explicitly and committing to specific standards, 
+adopting organizations demonstrate that ethical business practices and commercial success are not mutually
 exclusive.
 
 We invite software companies to adopt, adapt, and improve upon this framework. The goal is not competitive advantage but

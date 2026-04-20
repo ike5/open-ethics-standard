@@ -20,8 +20,8 @@ identifying these practices, a public mechanism for accountability, and a pathwa
 
 At its core, the OES reflects a philosophical premise: **businesses operate with the implicit permission of the public
 they serve.** When companies exploit that relationship, the public has the right to name, document, and respond to those
-violations. The OES is not a license granted by an authority — it is a standard maintained by the community, for the
-community.
+violations. Ultimately, the OES is not a license granted by an authority, but acts as a standard maintained by the
+community, for the community.
 
 ---
 

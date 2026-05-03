@@ -121,6 +121,7 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 1.2.2 | **Emergency-Markup Exploitation** | Charging premium rates for after-hours, urgent, or emergency service when the customer has no time to compare alternatives.                                       | Plumbing, automotive towing, veterinary, healthcare, funeral services, cybersecurity (ransomware response) |
 | 1.2.3 | **Last-Minute Price Inflation**   | Raising prices dramatically as the deadline (travel date, event, deadline) approaches, exploiting urgency.                                                        | Travel, ticketing, gambling, betting                                                         |
 | 1.2.4 | **Algorithmic Personalized Pricing** | Adjusting prices in real time based on browsing history, device, location, or perceived willingness to pay without disclosure.                                | Hospitality, e-commerce, ride-hailing, grocery, fashion, ticketing                           |
+| 1.2.5 | **Tourist-Targeted Overcharging** | Charging higher prices to visibly identifiable visitors who lack local knowledge of fair prices, sometimes refusing meters or quoting opaque flat rates.          | Taxi services, retail in tourist zones, hospitality, currency exchange                       |
 
 ### 1.3 Bait-and-Switch Pricing
 
@@ -147,6 +148,9 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 1.4.7 | **Wedding/Occasion Tax**          | Charging more for identical services when labeled with a high-emotion event (wedding, funeral) than for an ordinary "event."                                      | Wedding planning, funeral services                                                           |
 | 1.4.8 | **MSRP Inflation for Discount Illusion** | Setting artificially high "manufacturer suggested retail prices" so retailers can advertise large but illusory discounts.                                  | Home appliances, fashion, e-commerce                                                         |
 | 1.4.9 | **Outlet-Store Deception**        | Manufacturing lower-quality goods specifically for outlet channels while implying they are excess or overstock from the main line.                                | Fashion & apparel                                                                            |
+| 1.4.10 | **Captive-Venue Concession Markup** | Charging extreme markups on essential items (food, water, basic snacks) inside venues where consumers cannot leave and return, often selling commodity items at 5–10× retail. | Theme parks, sports stadiums, concert venues, cinemas, airports (post-security), cruise ships |
+| 1.4.11 | **Outside-Food / Drink Prohibition** | Banning patrons from bringing essential items (water, food, baby formula) into a venue specifically to channel demand into overpriced concessions, sometimes confiscating items at entry. | Theme parks, sports stadiums, concert venues, cinemas                                        |
+| 1.4.12 | **Cultural-Practice Pricing-Out** | Inflating prices on items central to a society's customary rituals (shared meals, gathering venues, holiday foods) well beyond cost basis, making the cultural practice economically inaccessible while continuing to market the venue or product as part of that ritual. | Restaurants (American social-eating culture), event venues, holiday-food retail, "third place" cafes |
 
 ### 1.5 Loyalty Penalty & Incumbency Pricing
 
@@ -195,6 +199,14 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 1.8.5 | **Zombie Subscription Charging**    | Continuing to bill after cancellation or account deletion by retaining payment tokens and citing "billing-cycle completion."                                      | Fitness, dating, cleaning services, cosmetics, financial services                            |
 | 1.8.6 | **Coordination-of-Benefits Fraud**  | Billing multiple insurers for the full allowed amount rather than coordinating, resulting in overpayment or balance billing.                                      | Dental, healthcare                                                                           |
 | 1.8.7 | **Insurance Code Upcoding**         | Coding procedures at higher reimbursement levels than clinically warranted to inflate insurance billing.                                                          | Healthcare, dental                                                                           |
+
+### 1.9 Tipping Manipulation
+
+| §     | Practice                                  | Description                                                                                                                                                       | Example domains                                                                              |
+|-------|-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
+| 1.9.1 | **Pre-Selected Default Tip Percentages**  | POS terminals defaulting to high tip percentages (often 18–30%), placing the no-tip option in a smaller, lower-contrast, or extra-tap location, or pre-highlighting the largest amount. | Counter-service food, retail, mobile POS systems, ride-hailing apps                          |
+| 1.9.2 | **Tip Solicitation Outside Service Contexts** | Soliciting tips in transactions historically not tipped — self-checkout, take-out, retail, automated kiosks — exploiting social pressure and unfamiliarity to extract gratuities for services that involve no traditional service component. | Retail, self-checkout, automated kiosks, take-out food, airport concessions                  |
+| 1.9.3 | **Tip-on-Tax / Tip-on-Pre-Discount Total** | Calculating suggested tip percentages on the tax-inclusive total or pre-discount price, inflating the displayed "suggested" amount above the cost of the underlying service.    | Restaurants, food delivery, hospitality                                                      |
 
 ---
 
@@ -325,6 +337,7 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 3.5.2 | **Forced Continuity**             | Automatic conversion of a free trial to paid without a clear pre-charge prompt.                                                                                   | Streaming, supplements, software                                                             |
 | 3.5.3 | **Friend Spam / Contact Upload**  | Requiring contact-list access or social-graph permissions as a condition of basic functionality.                                                                  | Social media, productivity apps                                                              |
 | 3.5.4 | **Forced Ad Targeting**           | Making personalized ad targeting a non-negotiable condition of using the service, even in paid tiers.                                                             | Social media, streaming                                                                      |
+| 3.5.5 | **Aggressive In-Person Solicitation** | Verbal solicitation, shouting, harassment, or physical blocking of potential customers in transit hubs and tourist zones to coerce a transaction before they can compare alternatives. | Taxi services at airports/stations, timeshare reps, street vendors                            |
 
 ### 3.6 Behavioral Reinforcement
 
@@ -1292,6 +1305,7 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 12.6.3 | **Refinery Maintenance Coordination** | Coordinating maintenance shutdowns to create artificial supply constraints and raise prices.                                                                | Oil/gas                                                                                      |
 | 12.6.4 | **Spoofing & Layering**           | Placing large orders with no intent of execution to create false impressions of supply or demand.                                                                 | Crypto/blockchain, financial markets                                                          |
 | 12.6.5 | **Wash Trading**                  | Executing trades between controlled accounts to create artificial volume.                                                                                         | Crypto/blockchain                                                                            |
+| 12.6.6 | **Operator-Cartel Pickup-Zone Exclusion** | Operator-level collusion (driver associations, not platforms) to block competitors from designated pickup zones at airports, train stations, or events, often through intimidation, vehicle blocking, or coordinated reporting to enforcement. | Taxi associations vs. rideshare drivers, airport curb monopolies                              |
 
 ### 12.7 Monopoly Rent Extraction
 
@@ -1714,6 +1728,15 @@ are commonly cited.
 | Ethics theater (boards without authority)       | OES § 15.2.1 (Ethics Theater)                                                              |
 | Revolving door regulator-to-industry            | OES § 15.4 (Revolving Door)                                                                |
 | Trade-secret claims to block disclosure         | OES § 15.8.4 (Trade-Secret Overclaiming)                                                   |
+| Taxi quoting a tourist a flat rate above the meter | OES § 1.2.5 (Tourist-Targeted Overcharging)                                              |
+| Taxi shouting at or blocking visitors at a station | OES § 3.5.5 (Aggressive In-Person Solicitation)                                          |
+| Theme park selling $10 fountain drinks          | OES § 1.4.10 (Captive-Venue Concession Markup)                                              |
+| Stadium banning outside water bottles           | OES § 1.4.11 (Outside-Food / Drink Prohibition)                                             |
+| Restaurants pricing people out of social meals  | OES § 1.4.12 (Cultural-Practice Pricing-Out)                                                |
+| POS terminal defaulting to 25% tip              | OES § 1.9.1 (Pre-Selected Default Tip Percentages)                                          |
+| Tip prompt at self-checkout or retail           | OES § 1.9.2 (Tip Solicitation Outside Service Contexts)                                     |
+| Suggested tip calculated on tax-inclusive total | OES § 1.9.3 (Tip-on-Tax / Tip-on-Pre-Discount Total)                                        |
+| Taxi cartel blocking rideshare from airport curb | OES § 12.6.6 (Operator-Cartel Pickup-Zone Exclusion)                                       |
 
 ---
 
@@ -1727,10 +1750,12 @@ are commonly cited.
 | **Bundled consent**                   | Combining unrelated permissions (e.g., basic functionality plus marketing tracking) into a single all-or-nothing choice.                                         |
 | **Cancellation maze**                 | A multi-step or obstructive cancellation flow designed to discourage exit even after the user has decided to leave.                                              |
 | **Capability misrepresentation**      | Marketing a product or AI system as more capable, autonomous, or reliable than the evidence supports.                                                            |
+| **Captive-venue markup**              | Extreme markups on essentials inside a venue that prohibits outside alternatives, exploiting the inability to leave and return.                                  |
 | **Carbon-offset greenwashing**        | Claiming carbon neutrality through low-quality, non-additional, or unverifiable offsets while absolute emissions continue to rise.                               |
 | **Confirmshaming**                    | Using guilt-inducing language to discourage opt-outs ("No thanks, I don't want to save money").                                                                  |
 | **Consent fatigue**                   | Overwhelming users with repeated or fragmented consent requests so that meaningful choice degrades into reflexive acceptance.                                    |
 | **Cross-collateralization**           | Applying unrecouped balances from one project to withhold royalties earned from another, trapping artists in debt across their catalog.                          |
+| **Cultural-practice pricing-out**     | Raising prices on items central to a society's cultural rituals beyond cost basis, making participation in those rituals economically inaccessible.              |
 | **Dark pattern**                      | A user interface designed to trick users into actions they did not intend.                                                                                      |
 | **Data minimization**                 | The principle that only data necessary for a specific stated purpose should be collected and retained.                                                            |
 | **Deactivation without due process**  | Terminating or suspending a user's or worker's platform access based on automated signals without human review or meaningful appeal.                              |
@@ -1773,6 +1798,8 @@ are commonly cited.
 | **Surge pricing on essentials**       | Algorithmically raising prices on essential goods or services (medicine, transport, formula) during demand or supply shocks.                                      |
 | **Telemetry misrepresentation**       | Claiming software telemetry is "anonymous" or "crash-only" when the data is sufficient to identify or re-identify users.                                          |
 | **Tier degradation**                  | Reducing the value of an existing subscription tier — moving features behind higher-priced tiers, adding ads, or throttling quality.                              |
+| **Tip creep**                         | The migration of tip prompts into transaction contexts that historically did not involve tipping (counter pickup, retail, self-checkout, automated kiosks).      |
+| **Tourist pricing**                   | Charging higher prices to identifiable visitors who lack local knowledge of fair value.                                                                          |
 | **Tying**                             | Conditioning the sale of one product on the purchase of another.                                                                                                  |
 | **Wage theft**                        | Underpayment in any form — off-the-clock work, tip appropriation, denied overtime, sub-minimum-wage piece rates, or unauthorized deductions.                      |
 | **Wash trading**                      | Executing trades between controlled accounts to fabricate volume or price activity.                                                                               |
@@ -1876,7 +1903,7 @@ also apply outside the listed domains.
 | **Healthcare**                          | § 1.1.2, § 1.4.6, § 1.8.7, § 4.10.2, § 6.1.3, § 6.4.6, § 8.2.5, § 9.1.1, § 9.6, § 12.8.2–.3                      |
 | **Home Appliances & Electronics**       | § 8.2, § 8.3, § 4.11.1, § 4.11.6, § 14.7                                                                         |
 | **Home Services & Contractors**         | § 1.2.2, § 1.3.3, § 1.4.5, § 8.5, § 11.1.1, § 11.6, § 15.9                                                       |
-| **Hospitality & Hotels**                | § 1.1.2, § 1.4.6, § 1.8.3, § 4.11.5, § 11.5.1, § 11.6.11, § 12.5.1                                              |
+| **Hospitality & Hotels**                | § 1.1.2, § 1.2.5, § 1.4.6, § 1.8.3, § 4.11.5, § 11.5.1, § 11.6.11, § 12.5.1                                     |
 | **HR & Recruitment**                    | § 4.6, § 4.7.5, § 6.1.1, § 11.13                                                                                  |
 | **Insurance**                           | § 1.5.2–.3, § 5.1.6–.7, § 6.1.2, § 9.1.2                                                                         |
 | **Internal Company Ethics**             | § 4.1.1–.4, § 4.6, § 5.1.1, § 5.1.4, § 5.3, § 11.8.4, § 15.1, § 15.2                                            |
@@ -1902,7 +1929,8 @@ also apply outside the listed domains.
 | **Publishing**                          | § 9.9.3–.4, § 11.15.8, § 12.2.4, § 12.5.4, § 12.8.4, § 12.8.8                                                    |
 | **Real Estate**                         | § 9.2.1–.5, § 9.3.1, § 9.4.4, § 1.8.3                                                                            |
 | **Renewable Energy**                    | § 7.3.2, § 9.8, § 13.2.5–.8, § 14.7.6                                                                            |
-| **Ride-Hailing & Mobility**             | § 6.2.1, § 6.3, § 9.4.7, § 11.1.1, § 11.6.9, § 11.14.4, § 12.1.2                                                |
+| **Restaurants & Food Service**          | § 1.4.12, § 1.9.1, § 1.9.3, § 7.2.7, § 7.3.1, § 11.2.2–.4, § 13.3.3                                              |
+| **Ride-Hailing & Mobility**             | § 6.2.1, § 6.3, § 9.4.7, § 11.1.1, § 11.6.9, § 11.14.4, § 12.1.2, § 12.6.6                                       |
 | **Seafood & Fisheries**                 | § 1.6.6, § 7.5.2–.3, § 11.10.1–.3, § 13.1.5–.7, § 14.5.3–.4, § 14.5.6–.7                                         |
 | **Search Engines**                      | § 6.4.3, § 9.9.2, § 12.3.4, § 12.4.2–.3                                                                          |
 | **Senior Care & Assisted Living**       | § 1.1.2, § 10.5                                                                                                  |
@@ -1914,8 +1942,10 @@ also apply outside the listed domains.
 | **Supplements & Alternative Medicine**  | § 7.2.1–.2, § 7.7.1, § 8.6.4, § 10.2 (vulnerable patient targeting)                                              |
 | **Surveillance Technology**             | § 4.6.6, § 6.1.4, § 6.1.7, § 15.8.7, § 15.8.9, § 15.9.3, § 15.11                                                |
 | **Tax Preparation**                     | § 1.7.7, § 5.2.5, § 9.5.2, § 10.2.2–.3, § 15.3.3                                                                 |
+| **Taxi & Curbside Ground Transport**    | § 1.2.5, § 3.5.5, § 12.6.6 (plus rows shared with Ride-Hailing)                                                  |
+| **Theme Parks & Captive-Venue Entertainment** | § 1.4.10, § 1.4.11                                                                                          |
 | **Tobacco & Vaping**                    | § 4.11.3, § 7.2.3–.4, § 7.2.10, § 10.1.1, § 10.3.3                                                               |
-| **Travel & Tourism**                    | § 1.1.5–.6, § 7.5.5, § 9.7.4–.5, § 13.3.1                                                                        |
+| **Travel & Tourism**                    | § 1.1.5–.6, § 1.2.5, § 3.5.5, § 7.5.5, § 9.7.4–.5, § 13.3.1                                                      |
 | **Veterinary Medicine**                 | § 1.4.6, § 4.10.1, § 9.1.1, § 10.11.1, § 14.8.4                                                                  |
 | **Waste Management**                    | § 1.8.1 (cramming), § 7.3.6, § 14.1.1, § 14.4.1, § 14.7.4                                                        |
 | **Water & Sewage Utilities**            | § 9.1.1, § 9.5.3, § 14.3.2, § 14.3.7–.9                                                                          |

@@ -1,0 +1,24 @@
+name: Validate standard and MCP
+
+on:
+  pull_request:
+    paths:
+      - "OPEN-ETHICS-STANDARD.md"
+      - "scripts/**"
+      - "packages/oes-mcp/**"
+      - "package.json"
+      - ".github/workflows/validate-standard.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm install --prefix packages/oes-mcp
+      - run: npm run build:mcp

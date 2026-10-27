@@ -1,0 +1,11 @@
+{
+  "name": "open-ethics-standard",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build:catalog": "node scripts/build-catalog.mjs",
+    "build:mcp": "npm run build:catalog && npm --prefix packages/oes-mcp run build",
+    "sync:catalog": "node scripts/build-catalog.mjs"
+  }
+}

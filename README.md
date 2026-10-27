@@ -2,6 +2,10 @@
 
 The Open Ethics Standard (OES) is an open reference catalog of unethical software, technology, and business practices. It is not a law, certification, or compliance checklist.
 
+## Landing page
+
+The static landing page is [`docs/index.html`](docs/index.html). GitHub Pages can publish it directly from the `main` branch's `/docs` folder; no separate build step is needed.
+
 ## Review a project with an AI
 
 The local OES MCP server lets a compatible coding assistant search the standard and present evidence-backed possible matches for a developer to review. Your AI reads project files through its normal workspace access; the MCP server does not upload source code to OES. Findings are leads for human review, not determinations.

@@ -1,0 +1,59 @@
+name: Update standard version and date
+
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: update-standard-${{ github.event.pull_request.base.ref }}
+  cancel-in-progress: false
+
+jobs:
+  update-standard:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Check whether the PR changed the standard
+        id: changes
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: context.payload.pull_request.number,
+              per_page: 100,
+            });
+            const changed = files.some((file) => file.filename === "OPEN-ETHICS-STANDARD.md");
+            core.setOutput("changed", String(changed));
+            if (!changed) return;
+            const labels = context.payload.pull_request.labels.map((label) => label.name);
+            const bump = ["major", "minor", "patch"].find((level) => labels.includes(`version:${level}`)) || "patch";
+            core.setOutput("bump", bump);
+      - name: Bump version and update date
+        if: steps.changes.outputs.changed == 'true'
+        run: node scripts/release-standard.mjs "${{ steps.changes.outputs.bump }}"
+      - name: Generate the updated catalog and build the MCP
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          node scripts/build-catalog.mjs
+          npm install --prefix packages/oes-mcp
+          npm run build:mcp
+      - name: Commit metadata update
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add OPEN-ETHICS-STANDARD.md packages/oes-mcp/catalog.json
+          git commit -m "chore: update standard version and date"
+          git push origin main

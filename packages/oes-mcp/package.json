@@ -1,0 +1,21 @@
+{
+  "name": "@open-ethics-standard/mcp",
+  "version": "0.1.0",
+  "description": "Local MCP tools for reviewing software projects against the Open Ethics Standard.",
+  "type": "module",
+  "bin": { "oes-mcp": "dist/server.js" },
+  "files": ["dist", "README.md"],
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "build": "node ../../scripts/build-catalog.mjs && node src/build.mjs",
+    "prepack": "npm run build",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/client": "^2.0.0",
+    "@modelcontextprotocol/ext-apps": "^2.0.3",
+    "@modelcontextprotocol/server": "^2.0.0",
+    "esbuild": "^0.25.0",
+    "zod": "^4.2.0"
+  }
+}

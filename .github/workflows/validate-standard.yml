@@ -20,5 +20,5 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: npm install --prefix packages/oes-mcp
+      - run: npm ci --prefix packages/oes-mcp
       - run: npm run build:mcp

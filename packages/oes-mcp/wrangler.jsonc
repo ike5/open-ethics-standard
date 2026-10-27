@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "open-ethics-standard-mcp",
+  "main": "src/remote-worker.js",
+  "workers_dev": true,
+  "compatibility_date": "2026-10-27",
+  "compatibility_flags": ["nodejs_compat"],
+  "rules": [
+    { "type": "Text", "globs": ["**/*.html"], "fallthrough": false }
+  ]
+}

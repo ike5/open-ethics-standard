@@ -1,2 +1,3 @@
 node_modules/
 packages/oes-mcp/dist/
+packages/oes-mcp/.wrangler/

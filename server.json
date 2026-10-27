@@ -1,0 +1,22 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.ike5/open-ethics-standard",
+  "title": "Open Ethics Standard",
+  "description": "Search the Open Ethics Standard and review evidence-backed possible matches in a software project.",
+  "repository": {
+    "url": "https://github.com/ike5/open-ethics-standard",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "websiteUrl": "https://ike5.github.io/open-ethics-standard/",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "open-ethics-standard-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "npx",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}

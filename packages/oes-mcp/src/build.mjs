@@ -11,5 +11,6 @@ const html = await readFile(resolve(root, "ui/review.html"), "utf8");
 const script = result.outputFiles[0].text;
 await writeFile(resolve(dist, "review.html"), html.replace("<!-- BUNDLED_VIEW_SCRIPT -->", `<script>${script}</script>`));
 await cp(resolve(dir, "server.js"), resolve(dist, "server.js"));
+await cp(resolve(dir, "tools.js"), resolve(dist, "tools.js"));
 await cp(resolve(root, "catalog.json"), resolve(dist, "catalog.json"));
 console.log("Built OES MCP server and review app.");

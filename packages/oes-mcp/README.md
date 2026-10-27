@@ -1,5 +1,9 @@
 # OES MCP server
 
+The MCP software is licensed under the repository's MIT License. The bundled
+standard catalog is licensed separately under CC BY-ND 4.0; see the repository's
+`LICENSE-OPEN-ETHICS-STANDARD.md`.
+
 The OES MCP is distributed as a local stdio server and as a remote Streamable HTTP Worker. Both provide three tools:
 
 - `search_oes_catalog` searches the generated Open Ethics Standard catalog.

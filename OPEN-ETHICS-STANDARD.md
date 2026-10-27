@@ -2036,14 +2036,14 @@ You are **not** saying the behavior is illegal, that the company has been
 "convicted" of anything, or that the OES has authority to sanction. You
 are saying that the behavior fits a published, reasoned description.
 
-## Can I fork or adapt the OES?
+## Can I reuse or change the OES?
 
-Yes. The OES is licensed under [CC BY 4.0]. You may share, remix, and
-adapt it — including industry-specific extensions, non-English
-translations, and integration into other frameworks — provided you give
-attribution and indicate any changes. We encourage adaptations.
+You may share the standard in its original form with attribution under
+[CC BY-ND 4.0]. Modified versions may not be distributed. Changes to the
+canonical standard are proposed by pull request and take effect when approved
+and merged by a maintainer. See [the license](LICENSE-OPEN-ETHICS-STANDARD.md).
 
-[CC BY 4.0]: https://creativecommons.org/licenses/by/4.0/
+[CC BY-ND 4.0]: https://creativecommons.org/licenses/by-nd/4.0/
 
 ## How is the OES updated?
 
@@ -2081,232 +2081,16 @@ proposals.
 
 # Part IV — Contributing
 
-The OES is a living reference. Contributions — proposing new practices,
-refining descriptions, suggesting amendments, fixing errors, translating —
-are welcome.
+To propose a change, edit the relevant part of this file and open a pull
+request. Do not replace the whole document. Sources for the reasoning are
+welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the required format.
 
-## Contribution Philosophy
+The canonical standard changes only when a maintainer approves and merges a
+pull request. The standard text is licensed under [CC BY-ND 4.0]; see
+[its license terms](LICENSE-OPEN-ETHICS-STANDARD.md).
 
-The OES is built on the same principles it advocates: **transparency,
-clarity, and thoughtful deliberation**. Contributions should make the
-catalog more accurate, more recognizable to ordinary readers, and more
-defensible against bad-faith dispute.
-
-## Discuss Before Proposing
-
-For substantive changes — new practices, new categories, renumbering,
-removal of an entry — please open a discussion or issue **before** opening
-a pull request. This is so that:
-
-1. the community can flag prior art (a practice may already exist under a
-   different name);
-2. unintended consequences can be considered (renumbering breaks citations);
-3. the proposal can be refined before significant work is invested.
-
-For minor fixes — typos, formatting, clarifying a description without
-changing scope — a direct PR is fine.
-
-## Types of Contributions
-
-### Proposing a new practice
-
-A new-practice proposal should include:
-
-- **Practice name** (short, domain-agnostic, recognizable).
-- **Description** (1–3 sentences, generalized, written in the descriptive
-  voice — *what* the practice is, not *what to do about it*).
-- **Why it is unethical** (one phrase, similar to the existing rows in
-  earlier OES versions, captured in the description).
-- **Examples** — at least two concrete domains where the practice has been
-  observed, with citations or links where possible.
-- **Proposed category and subsection** (or "uncertain" if you'd like input).
-
-### Proposing an amendment
-
-Amendments to existing entries should specify:
-
-- the section number (e.g., `OES § 2.1.2`),
-- current text,
-- proposed text,
-- rationale.
-
-If the change might break the meaning of existing citations, say so
-explicitly.
-
-### Proposing a new category or subsection
-
-New categories are significant changes — they shift numbering for everything
-below. Open a discussion first. Be prepared to argue why the new category
-is not adequately covered by an existing one.
-
-### Translations
-
-Translations are welcome. Submit translations in a new file
-`OPEN-ETHICS-STANDARD.<language-code>.md` rather than replacing the
-English version. Include the translation date and translator(s).
-
-## Style Guidelines
-
-**Voice and tone.** Descriptive, not prescriptive. Avoid "shall," "must,"
-"is required to," or any commitment-style language — those belong in
-compliance documents, not in a reference catalog. Describe the practice as
-something that *occurs*, not as something the document *prohibits*.
-
-**Practice names.** Bold, short, domain-agnostic. Prefer recognizable terms
-("Roach Motel," "Confirmshaming," "Drip Pricing") to invented neologisms.
-
-**Numbering.** Use the next available number in the chosen subsection;
-never reuse or reassign existing numbers. If a category is restructured,
-record the old → new mapping in the changelog.
-
-**Examples column.** List industries or context types separated by commas.
-The Examples cell is illustrative, not exhaustive — keep it focused on
-clear, well-documented manifestations.
-
-**Avoid jargon.** If a term needs definition, add it to the Glossary
-(Appendix A) rather than inline. Cross-reference rather than duplicating.
-
-## Pull Request Checklist
-
-- [ ] A discussion or issue exists for this change (except trivial fixes).
-- [ ] New or modified rows follow the table structure used in the
-      surrounding section.
-- [ ] Section numbers are sequential and do not collide.
-- [ ] Quick Reference Index, Glossary, and Domain Index are updated if the
-      change affects them.
-- [ ] PR description summarizes the change and links to the prior
-      discussion.
-
-## Versioning
-
-The OES uses [Semantic Versioning](https://semver.org/) (see FAQ above).
-Major and minor changes update the published version number; patch fixes
-do not necessarily require a new version.
-
-## Recognition
-
-Contributors are credited in commit history and (for substantive
-contributions) in the changelog associated with each release.
-
----
+[CC BY-ND 4.0]: https://creativecommons.org/licenses/by-nd/4.0/
 
 # Part V — Code of Conduct
 
-## Our Pledge
-
-The Open Ethics Standard exists to make software and technology more
-ethical and user-respecting. In that spirit, contributors and maintainers
-pledge to make participation in this project a harassment-free experience
-for everyone, regardless of age, body size, disability, ethnicity, sex
-characteristics, gender identity and expression, level of experience,
-education, socio-economic status, nationality, personal appearance, race,
-religion, or sexual identity and orientation.
-
-## Our Standards
-
-### Expected behavior
-
-- **Be respectful and constructive.** Engage with ideas on their merits.
-  Critique proposals, not people.
-- **Be collaborative.** The OES improves through collective effort. Share
-  knowledge, help newcomers, build on others' contributions.
-- **Be transparent.** Disclose relevant affiliations when discussing
-  practices that may affect your organization. Transparency is a core OES
-  principle — we hold ourselves to it too.
-- **Be precise.** The OES aims for descriptive rigor, not vague aspiration.
-  Cite specific provisions, provide evidence for claims, and acknowledge
-  uncertainty.
-- **Be patient.** Not everyone has the same background in ethics, law, or
-  technology. Help others understand rather than dismissing their
-  questions.
-- **Assume good faith.** Contributors may disagree about whether a
-  particular practice belongs in the catalog or how it should be described.
-  Assume others are genuinely trying to improve the standard.
-
-### Unacceptable behavior
-
-The following are considered harassment and are unacceptable:
-
-- Personal attacks, insults, or derogatory comments.
-- Trolling, inflammatory remarks, or deliberate provocation.
-- Public or private harassment.
-- Publishing others' private information without explicit permission.
-- Dismissing or attacking identity-based experiences or perspectives.
-- Sustained disruption of discussions.
-- Advocating for or encouraging any of the above.
-
-### Specific to the OES context
-
-Given the nature of this project, additional standards apply:
-
-- **No astroturfing.** Do not pose as an independent contributor while
-  representing corporate interests without disclosure.
-- **No bad-faith arguments.** Do not argue for weakening descriptions of a
-  harm while claiming to strengthen them.
-- **No retaliation.** Do not harass or target individuals who report
-  violations of this Code of Conduct or who document violations of OES
-  practices in real-world contexts.
-- **Evidence-based claims.** When proposing new practices or reporting
-  real-world examples, provide verifiable evidence. Do not make
-  unsubstantiated accusations against specific organizations.
-
-## Scope
-
-This Code of Conduct applies within all project spaces, including issue
-trackers, pull requests, discussions, and any project-related
-communication or representation.
-
-## Enforcement
-
-### Reporting
-
-Instances of unacceptable behavior may be reported to the project
-maintainers. All reports are reviewed promptly and fairly; maintainers are
-obligated to respect the privacy and security of reporters.
-
-### Enforcement Guidelines
-
-Maintainers may, in proportion to the conduct involved, issue:
-
-1. **Correction** — a private warning explaining what was inappropriate.
-   May include a request for public apology.
-2. **Warning** — a formal warning with consequences for continued
-   behavior, often including a temporary no-interaction period (typically
-   30 days).
-3. **Temporary ban** — temporary removal from project spaces (typically
-   90 days) for serious or sustained violations. Returning requires
-   acknowledgment of the violation.
-4. **Permanent ban** — permanent removal for demonstrated patterns,
-   targeted harassment, or egregious single incidents.
-
-### Appeals
-
-Individuals subject to enforcement actions may appeal by contacting the
-maintainers with the specific action being appealed, why they believe it
-was inappropriate, and any context not previously considered. Appeals are
-reviewed within 14 days.
-
-## Maintainer Responsibilities
-
-Maintainers are responsible for clarifying and enforcing standards of
-acceptable behavior. They have the right to remove, edit, or reject
-comments, commits, code, issues, and other contributions that do not
-align with this Code of Conduct.
-
-Maintainers who fail to follow or enforce the Code of Conduct in good
-faith may face temporary or permanent repercussions as determined by
-other project leadership.
-
-## Attribution
-
-This Code of Conduct is adapted from the [Contributor Covenant], version
-2.1, with modifications specific to the Open Ethics Standard.
-
-[Contributor Covenant]: https://www.contributor-covenant.org
-
----
-
-*The Open Ethics Standard is released under [Creative Commons Attribution
-4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
-Share, adapt, and build upon it with attribution.*
-
+Project participation follows the [Code of Conduct](CODE_OF_CONDUCT.md).

@@ -2,6 +2,7 @@
   "name": "open-ethics-standard-mcp",
   "version": "0.1.0",
   "description": "MCP tools for reviewing software projects against the Open Ethics Standard, locally or through a remote endpoint.",
+  "license": "MIT",
   "type": "module",
   "bin": { "oes-mcp": "dist/server.js" },
   "files": ["dist", "README.md"],

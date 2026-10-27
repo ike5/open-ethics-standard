@@ -1,3 +1,17 @@
+# Dependencies
 node_modules/
-packages/oes-mcp/dist/
-packages/oes-mcp/.wrangler/
+
+# Build and deployment output
+/packages/oes-mcp/dist/
+/packages/oes-mcp/.wrangler/
+/sites/oes-reviewer/dist/
+
+# Local editor and operating system files
+/.idea/
+.DS_Store
+
+# Local environment and debug output
+.env
+.env.*
+!.env.example
+*.log

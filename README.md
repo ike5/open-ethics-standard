@@ -39,7 +39,7 @@ Read the [Open Ethics Standard](OPEN-ETHICS-STANDARD.md) or visit the [project l
 
 ## Help improve it
 
-You can suggest a new practice, correction, or deletion by opening a pull request. Please edit `OPEN-ETHICS-STANDARD.md`; the structured catalog is generated from that document.
+You can suggest a new practice, correction, or deletion by editing the relevant part of `OPEN-ETHICS-STANDARD.md` and opening a pull request. Please do not replace the whole document. Sources are welcome. The structured catalog is generated from the standard. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 When a change is accepted, automation updates the standard's date and version. If you like, add one of these labels to your pull request:
 
@@ -48,6 +48,10 @@ When a change is accepted, automation updates the standard's date and version. I
 - `version:major` for a significant change to the catalog
 
 If no label is added, the update uses a patch version. See Part IV of the standard for contribution guidance.
+
+## Licenses
+
+The MCP software is available under the [MIT License](LICENSE). The standard text and its generated catalog are available under [CC BY-ND 4.0](LICENSE-OPEN-ETHICS-STANDARD.md): share the original with attribution; distributed modified versions are not permitted. The canonical standard can be changed through an approved pull request.
 
 ## About the MCP
 

@@ -3,6 +3,9 @@
   "name": "open-ethics-standard-mcp",
   "main": "src/remote-worker.js",
   "workers_dev": true,
+  "routes": [
+    { "pattern": "mcp.codebylevel.com", "custom_domain": true }
+  ],
   "compatibility_date": "2026-10-27",
   "compatibility_flags": ["nodejs_compat"],
   "rules": [

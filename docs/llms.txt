@@ -1,7 +1,8 @@
 # Open Ethics Standard
 
-> A public standard and local MCP tools for reviewing possible harmful software practices. No OES login or API key is required.
+> A public standard with hosted and local MCP tools for reviewing possible harmful software practices. No OES login or API key is required.
 
-- [Agent setup guide](https://ike5.github.io/open-ethics-standard/agent-setup.md): Install, configure, and verify the local OES MCP for your coding assistant.
+- [Agent setup guide](https://ike5.github.io/open-ethics-standard/agent-setup.md): Connect to the hosted OES MCP or build a local option, then verify the tools.
+- [Hosted MCP](https://mcp.codebylevel.com/mcp): Public Streamable HTTP endpoint.
 - [Project and source](https://github.com/ike5/open-ethics-standard): MCP source code and contribution instructions.
 - [The standard](https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md): Canonical practice definitions.

@@ -16,13 +16,14 @@ Copy this prompt into your coding assistant:
 
 > Set up the Open Ethics Standard MCP for me: fetch and follow this guide https://ike5.github.io/open-ethics-standard/agent-setup.md
 
-No OES account, login, or API key is needed. The public [setup guide](docs/agent-setup.md) walks the assistant through installing from source, configuring the current client, and checking the connection. It includes Codex, Claude Code, Cursor, and VS Code instructions. Your assistant may ask you to restart the client or approve its MCP trust prompt.
+No OES account, login, or API key is needed. The public [setup guide](docs/agent-setup.md) connects the current client to the hosted MCP at [mcp.codebylevel.com/mcp](https://mcp.codebylevel.com/mcp) and checks the tools. It includes Codex, Claude Code, Cursor, and VS Code instructions. Your assistant may ask you to restart the client or approve its MCP trust prompt.
 
-For manual setup, build it in a persistent directory:
+For a local setup that keeps submitted review evidence on your machine, build it in a persistent directory:
 
 ```sh
-git clone https://github.com/ike5/open-ethics-standard.git
-cd open-ethics-standard
+mkdir -p "$HOME/.local/share"
+git clone https://github.com/ike5/open-ethics-standard.git "$HOME/.local/share/open-ethics-standard"
+cd "$HOME/.local/share/open-ethics-standard"
 npm ci --prefix packages/oes-mcp
 npm run build:mcp
 ```
@@ -35,7 +36,7 @@ Ask your AI:
 
 > Review this project for possible matches with the Open Ethics Standard. Show the evidence, file location, and why each match may be relevant. Treat the results as suggestions for me to review.
 
-The local server does not send your project files or review evidence to the OES website. Your AI tool may have its own data handling rules.
+The MCP does not read project files. The hosted `show_oes_review` tool receives submitted project names, file paths, evidence snippets, and reasoning to display a review; it does not persist them. The local server does not send review evidence to OES hosting. Your AI tool may have its own data handling rules.
 
 ## Browse the standard
 
@@ -59,4 +60,4 @@ The MCP software is available under the [MIT License](LICENSE). The standard tex
 
 ## About the MCP
 
-The MCP is being prepared for simple npm installation and an optional hosted connection. Until those are available, the source build above is the way to try it. The hosted version would receive review evidence to display it, so use the local option for private projects.
+The hosted Streamable HTTP endpoint is [https://mcp.codebylevel.com/mcp](https://mcp.codebylevel.com/mcp). The npm package has not been published yet; use the source build above for local stdio setup.

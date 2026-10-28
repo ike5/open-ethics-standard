@@ -14,15 +14,5 @@
       "type": "streamable-http",
       "url": "https://mcp.codebylevel.com/mcp"
     }
-  ],
-  "packages": [
-    {
-      "registryType": "npm",
-      "registryBaseUrl": "https://registry.npmjs.org",
-      "identifier": "open-ethics-standard-mcp",
-      "version": "0.1.0",
-      "runtimeHint": "npx",
-      "transport": { "type": "stdio" }
-    }
   ]
 }

@@ -44,6 +44,18 @@ Unsure, or Dismiss. If the client does not display MCP Apps, list the findings
 in chat and let the user refer to them by number for follow-up. Mention
 connection trouble briefly after the review.
 
+### Required review handoff
+
+After collecting and checking findings, call `show_oes_review` with the
+project name and supported findings. This call is required whenever the tool is
+available, even when the guide or standard was read from local files or the
+network is unavailable. A text report alone is not a completed interactive
+review. The returned tool result should include the findings and the client
+should open the MCP App; tell the user to mark each Applies, Unsure, or Dismiss.
+If the tool call fails, report that specifically and show the same numbered
+findings in chat. Do not claim the interactive view is open unless the tool
+call returned successfully and the client displayed it.
+
 If the user asked only for setup, stop after reporting the connection result.
 
 ## 1. Check the existing connection

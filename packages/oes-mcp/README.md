@@ -8,6 +8,10 @@ The OES MCP is distributed as a local stdio server and as a remote Streamable HT
 
 - `search_oes_catalog` searches the generated Open Ethics Standard catalog.
 - `get_oes_practice` returns a practice by section ID.
+- `get_oes_practices` returns several practice definitions in one call.
+- `get_oes_catalog_overview` lists catalog categories and practices for review planning.
+- `get_oes_review_instructions` gives agents the required evidence and review handoff workflow.
+- `create_oes_review` validates and displays findings, returning a structured browser URL when hosted.
 - `show_oes_review` renders submitted findings in an interactive MCP App when the client supports MCP Apps.
 
 ## Agent-assisted setup

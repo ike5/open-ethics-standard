@@ -3,7 +3,7 @@ import { z } from "zod";
 
 const resourceUri = "ui://open-ethics-standard/review.html";
 
-export function registerOesTools(server, { catalog, reviewHtml, browserReviewBase = "" }) {
+export function registerOesTools(server, { catalog, reviewHtml, browserReviewBase = "", serverVersion = "dev" }) {
   server.registerTool("search_oes_catalog", {
     title: "Search the Open Ethics Standard",
     description: "Search OES practices while reviewing a project. Use this to find relevant practice definitions and cite their IDs. The standard is a reference catalog, not a legal or compliance verdict.",
@@ -51,8 +51,8 @@ export function registerOesTools(server, { catalog, reviewHtml, browserReviewBas
     });
     const valid = enriched.filter((item) => item.practice);
     return {
-      content: [{ type: "text", text: `${valid.length} possible OES match${valid.length === 1 ? "" : "es"} for ${project}. Findings are leads for human review, not determinations. Open the attached OES review app. Browser fallback: ${browserReviewBase ? `${browserReviewBase}/review#${encodeURIComponent(JSON.stringify({ project, version: catalog.version, updated: catalog.updated, findings: valid }))}` : "not configured for this local server"}. The browser link contains the review evidence; share it only with intended reviewers.` }],
-      structuredContent: { project, version: catalog.version, updated: catalog.updated, findings: valid },
+      content: [{ type: "text", text: `${valid.length} possible OES match${valid.length === 1 ? "" : "es"} for ${project}. OES server build: ${serverVersion}; standard catalog: ${catalog.version}. Findings are leads for human review, not determinations. Open the attached OES review app. Browser fallback: ${browserReviewBase ? `${browserReviewBase}/review#${encodeURIComponent(JSON.stringify({ project, version: catalog.version, serverVersion, updated: catalog.updated, findings: valid }))}` : "not configured for this local server"}. The browser link contains the review evidence; share it only with intended reviewers.` }],
+      structuredContent: { project, version: catalog.version, serverVersion, updated: catalog.updated, findings: valid },
     };
   });
 

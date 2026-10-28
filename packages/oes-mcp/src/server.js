@@ -13,5 +13,5 @@ const catalog = JSON.parse(await readFile(catalogPath, "utf8"));
 const reviewHtml = await readFile(viewPath, "utf8");
 const server = new McpServer({ name: "open-ethics-standard", version: catalog.version });
 
-registerOesTools(server, { catalog, reviewHtml });
+registerOesTools(server, { catalog, reviewHtml, serverVersion: "0.1.1-local" });
 await server.connect(new StdioServerTransport());

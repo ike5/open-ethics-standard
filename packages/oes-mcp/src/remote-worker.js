@@ -6,7 +6,7 @@ import { registerOesTools } from "./tools.js";
 
 const mcpHandler = createMcpHandler(() => {
   const server = new McpServer({ name: "open-ethics-standard", version: catalog.version });
-  registerOesTools(server, { catalog, reviewHtml, browserReviewBase: "https://mcp.codebylevel.com" });
+  registerOesTools(server, { catalog, reviewHtml, browserReviewBase: "https://mcp.codebylevel.com", serverVersion: "0.1.1" });
   return server;
 });
 
@@ -19,11 +19,12 @@ export default {
         endpoint: `${url.origin}/mcp`,
         transport: "Streamable HTTP",
         version: catalog.version,
+        serverVersion: "0.1.1",
         privacy: "The remote show_oes_review tool receives project names, file paths, and evidence snippets for display. This worker does not persist tool inputs or reports.",
       }, { headers: { "cache-control": "public, max-age=60", "x-content-type-options": "nosniff" } });
     }
     if (url.pathname === "/health" && request.method === "GET") {
-      return Response.json({ status: "ok", version: catalog.version }, { headers: { "cache-control": "no-store" } });
+      return Response.json({ status: "ok", version: catalog.version, serverVersion: "0.1.1" }, { headers: { "cache-control": "no-store" } });
     }
     if (url.pathname === "/review" && request.method === "GET") {
       return new Response(reviewHtml, { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=300", "x-content-type-options": "nosniff", "content-security-policy": "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'" } });

@@ -52,9 +52,20 @@ available, even when the guide or standard was read from local files or the
 network is unavailable. A text report alone is not a completed interactive
 review. The returned tool result should include the findings and the client
 should open the MCP App; tell the user to mark each Applies, Unsure, or Dismiss.
-If the tool call fails, report that specifically and show the same numbered
-findings in chat. Do not claim the interactive view is open unless the tool
-call returned successfully and the client displayed it.
+After the call, inspect its text result for `Browser fallback:` and give that
+URL to the user as a clickable Markdown link. The link is the standalone
+browser version of the same review; do not search `listResources` for it and do
+not tell the user there is no template because the general resource list is
+empty. MCP Apps are attached to the `show_oes_review` tool call. If the URL is
+missing, the hosted server may not yet have the browser-review release; say
+that, and give the user the findings in chat. Do not invent a URL or claim the
+page opened unless the user-facing client confirms it.
+
+The hosted browser URL encodes project paths, evidence, and reasoning in its
+URL fragment so the Worker does not store review data. Anyone given the link
+can read it. Tell the user this when sharing the URL. Local stdio servers do
+not provide a hosted browser URL; their MCP App remains available to compatible
+clients.
 
 If the user asked only for setup, stop after reporting the connection result.
 

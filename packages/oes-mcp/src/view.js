@@ -33,12 +33,30 @@ function render() {
     const status = decisions.get(key(item)) || "unsure";
     const title = item.practice?.title || "Unknown OES practice";
     const citation = `https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md#L${item.practice?.sourceLine || 1}`;
-    return `<article class="item"><div class="head"><span class="id">${esc(item.id)}</span><span class="title">${esc(title)}</span><span class="conf">${esc(item.confidence)} confidence</span></div><a class="loc" href="${citation}" target="_blank" rel="noreferrer">${esc(item.file)}:${item.startLine}${item.endLine !== item.startLine ? `–${item.endLine}` : ""} · OES § ${esc(item.id)}</a><div class="evidence">${esc(item.evidence)}</div><p class="reason">${esc(item.reasoning)}</p><div class="actions">${["applies", "unsure", "dismissed"].map((name) => `<button type="button" data-status="${name}" data-key="${esc(key(item))}" aria-pressed="${status === name}">${name === "dismissed" ? "Dismiss" : name[0].toUpperCase() + name.slice(1)}</button>`).join("")}</div></article>`;
+    return `<article class="item"><div class="head"><span class="id">${esc(item.id)}</span><span class="title">${esc(title)}</span><span class="conf">${esc(item.confidence)} confidence</span></div><span class="loc">${esc(item.file)}:${item.startLine}${item.endLine !== item.startLine ? `–${item.endLine}` : ""}</span><a href="${citation}" target="_blank" rel="noreferrer">Read OES § ${esc(item.id)}</a><div class="evidence">${esc(item.evidence)}</div><p class="reason">${esc(item.reasoning)}</p><div class="actions">${["applies", "unsure", "dismissed"].map((name) => `<button type="button" data-status="${name}" data-key="${esc(key(item))}" aria-pressed="${status === name}">${name === "dismissed" ? "Dismiss" : name[0].toUpperCase() + name.slice(1)}</button>`).join("")}</div></article>`;
   }).join("");
   list.querySelectorAll("[data-status]").forEach((button) => button.addEventListener("click", () => { decisions.set(button.dataset.key, button.dataset.status); render(); }));
 }
+function reviewedReport() {
+  return [`OES project review — ${model.project}`, `Standard version: ${model.version}`, "", ...(model.findings ?? []).map((item) => `[${decisions.get(key(item)) || "unsure"}] OES § ${item.id} — ${item.practice?.title || "Unknown practice"}\n${item.file}:${item.startLine}-${item.endLine}\nEvidence: ${item.evidence}\nReasoning: ${item.reasoning}`)].join("\n\n");
+}
 document.querySelector("#copy").addEventListener("click", async () => {
-  const lines = [`OES project review — ${model.project}`, `Standard version: ${model.version}`, "", ...(model.findings ?? []).map((item) => `[${decisions.get(key(item)) || "unsure"}] OES § ${item.id} — ${item.practice?.title || "Unknown practice"}\n${item.file}:${item.startLine}-${item.endLine}\nEvidence: ${item.evidence}\nReasoning: ${item.reasoning}`)];
-  await navigator.clipboard.writeText(lines.join("\n\n"));
-  document.querySelector("#copy").textContent = "Copied";
+  try {
+    await navigator.clipboard.writeText(reviewedReport());
+    document.querySelector("#action-status").textContent = "Report copied. Paste it into the chat to discuss your choices.";
+  } catch {
+    document.querySelector("#action-status").textContent = "Copy failed. You can still describe your choices in the chat.";
+  }
+});
+document.querySelector("#discuss").addEventListener("click", async () => {
+  const button = document.querySelector("#discuss");
+  button.disabled = true;
+  try {
+    const result = await app.sendMessage({ role: "user", content: [{ type: "text", text: `Please discuss my OES review choices and help me investigate uncertain or applicable findings.\n\n${reviewedReport()}` }] });
+    document.querySelector("#action-status").textContent = result.isError ? "The client could not send this to chat. Use Copy reviewed report instead." : "Sent your review choices to the chat.";
+  } catch {
+    document.querySelector("#action-status").textContent = "The client could not send this to chat. Use Copy reviewed report instead.";
+  } finally {
+    button.disabled = false;
+  }
 });

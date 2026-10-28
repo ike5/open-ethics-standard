@@ -14,11 +14,11 @@ The OES MCP is distributed as a local stdio server and as a remote Streamable HT
 
 Paste this into your coding assistant:
 
-> Set up the Open Ethics Standard MCP for me: fetch and follow this guide https://ike5.github.io/open-ethics-standard/agent-setup.md
+> I want to review the site in my current workspace against the Open Ethics Standard. First, briefly inspect the project and offer me three choices in this chat: a quick site-wide review (recommended), a page or user journey I name, or a specific ethics concern I name. Wait for my choice. Then follow https://ike5.github.io/open-ethics-standard/agent-setup.md to reuse or connect the MCP and complete the review. If the guide or MCP is unreachable, use https://raw.githubusercontent.com/ike5/open-ethics-standard/main/OPEN-ETHICS-STANDARD.md and continue. Show possible matches with file and line evidence. If the interactive review view is available, let me mark each finding Applies, Unsure, or Dismiss.
 
 The public [setup guide](https://ike5.github.io/open-ethics-standard/agent-setup.md)
-connects the current client to the hosted endpoint, verifies catalog tool
-calls, and offers a local source build for private review evidence. No OES
+offers review choices in chat, connects the current client to the hosted
+endpoint when needed, and provides a local build for private review evidence. No OES
 account or API key is required.
 
 ## Installation and data handling

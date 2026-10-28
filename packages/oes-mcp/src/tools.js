@@ -30,7 +30,7 @@ export function registerOesTools(server, { catalog, reviewHtml }) {
 
   registerAppTool(server, "show_oes_review", {
     title: "Show OES project review",
-    description: "Display a human-reviewable list of possible OES matches found in the project. Call after examining project files and gathering evidence. Each item must be a tentative finding with a file path, line range, observed evidence, reasoning, and confidence. This does not establish a violation. When connected to the hosted endpoint, the submitted paths and evidence snippets are sent to OES hosting for display and are not saved by this server.",
+    description: "Display possible OES matches after examining project files and gathering evidence. Each finding needs a file path, line range, observed evidence, reasoning, and confidence. Invite the user to mark each finding Applies, Unsure, or Dismiss in the MCP App and use Discuss choices in chat. If the client does not show MCP Apps, present numbered findings and review choices in chat. This does not establish a violation. On the hosted endpoint, submitted paths and evidence snippets are sent to OES hosting for display and are not saved by this server.",
     inputSchema: z.object({
       project: z.string().min(1).max(200),
       findings: z.array(z.object({
@@ -51,7 +51,7 @@ export function registerOesTools(server, { catalog, reviewHtml }) {
     });
     const valid = enriched.filter((item) => item.practice);
     return {
-      content: [{ type: "text", text: `${valid.length} possible OES match${valid.length === 1 ? "" : "es"} for ${project}. Findings are leads for human review, not determinations.` }],
+      content: [{ type: "text", text: `${valid.length} possible OES match${valid.length === 1 ? "" : "es"} for ${project}. Findings are leads for human review, not determinations. Invite the user to mark each finding Applies, Unsure, or Dismiss in the review view. If the client does not display the view, show numbered findings and offer those choices in chat.` }],
       structuredContent: { project, version: catalog.version, updated: catalog.updated, findings: valid },
     };
   });

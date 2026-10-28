@@ -14,9 +14,9 @@ Findings are suggestions for you to check. They are not proof that a project has
 
 Copy this prompt into your coding assistant:
 
-> Set up the Open Ethics Standard MCP for me: fetch and follow this guide https://ike5.github.io/open-ethics-standard/agent-setup.md
+> I want to review the site in my current workspace against the Open Ethics Standard. First, briefly inspect the project and offer me three choices in this chat: a quick site-wide review (recommended), a page or user journey I name, or a specific ethics concern I name. Wait for my choice. Then follow https://ike5.github.io/open-ethics-standard/agent-setup.md to reuse or connect the MCP and complete the review. If the guide or MCP is unreachable, use https://raw.githubusercontent.com/ike5/open-ethics-standard/main/OPEN-ETHICS-STANDARD.md and continue. Show possible matches with file and line evidence. If the interactive review view is available, let me mark each finding Applies, Unsure, or Dismiss.
 
-No OES account, login, or API key is needed. The public [setup guide](docs/agent-setup.md) connects the current client to the hosted MCP at [mcp.codebylevel.com/mcp](https://mcp.codebylevel.com/mcp) and checks the tools. It includes Codex, Claude Code, Cursor, and VS Code instructions. Your assistant may ask you to restart the client or approve its MCP trust prompt.
+No OES account, login, or API key is needed. The assistant offers review choices in the conversation before setup. The public [setup guide](docs/agent-setup.md) connects the current client to the hosted MCP at [mcp.codebylevel.com/mcp](https://mcp.codebylevel.com/mcp) and checks the tools. It includes Codex, Claude Code, Cursor, and VS Code instructions. Your assistant may ask you to restart the client or approve its MCP trust prompt.
 
 For a local setup that keeps submitted review evidence on your machine, build it in a persistent directory:
 
@@ -30,11 +30,9 @@ npm run build:mcp
 
 Then follow the guide to add a local stdio MCP server with the absolute path to Node and the absolute path to `packages/oes-mcp/dist/server.js`.
 
-### Try a review
+### Review the findings
 
-Ask your AI:
-
-> Review this project for possible matches with the Open Ethics Standard. Show the evidence, file location, and why each match may be relevant. Treat the results as suggestions for me to review.
+The assistant starts the review after you choose a scope. When the client supports MCP Apps, mark each finding Applies, Unsure, or Dismiss in the review view, then use **Discuss choices in chat** to continue with the AI. Other clients can discuss numbered findings in chat.
 
 The MCP does not read project files. The hosted `show_oes_review` tool receives submitted project names, file paths, evidence snippets, and reasoning to display a review; it does not persist them. The local server does not send review evidence to OES hosting. Your AI tool may have its own data handling rules.
 

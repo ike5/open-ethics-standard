@@ -9,10 +9,42 @@ It requires no OES account, API key, or local runtime. The MCP provides
 `search_oes_catalog`, `get_oes_practice`, and `show_oes_review`.
 
 If you are the assistant receiving this guide, configure only the client you
-are running in. Use the remote endpoint by default. Preserve other MCP servers
-and settings, and do not start a project review during setup. If the user
-prefers review evidence to stay on their machine, use the [local option](#local-option)
-instead.
+are running in. Use the remote endpoint by default and preserve other MCP
+servers and settings. If the user prefers review evidence to stay on their
+machine, use the [local option](#local-option) instead.
+
+## If the user asked for a project review
+
+If the user asked for review choices, briefly inspect the current workspace
+and offer these options **in the AI conversation before setup work**:
+
+1. Quick review of the current site or project (recommended).
+2. Review a page, feature, or user journey the user names.
+3. Review a specific ethics concern the user names.
+
+Ask for a choice and wait for it. If the user already chose a scope, **complete
+the review in that turn**. The setup check below is a short preparation step,
+not the end of the request. Inspect the chosen scope with workspace access the
+user has already authorized. Check for an existing OES MCP connection and use
+its catalog tools if they work. Add the endpoint only if needed. Do not spend
+the review turn repeatedly trying to repair networking, restart a client, or
+verify a saved configuration.
+
+If the MCP tools are unavailable in this session, use the canonical
+[Open Ethics Standard](https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md)
+as the reference and continue the review. The
+[raw Markdown source](https://raw.githubusercontent.com/ike5/open-ethics-standard/main/OPEN-ETHICS-STANDARD.md)
+is an alternative if the GitHub page cannot be opened. Inspect relevant
+project files, cite specific file paths and lines, and explain why each
+possible match is relevant. Distinguish observed behavior from inference and
+say what you could not inspect. If no possible matches are supported, say so
+and summarize the scope inspected. When `show_oes_review` is available, use it
+to display supported findings and invite the user to mark each one Applies,
+Unsure, or Dismiss. If the client does not display MCP Apps, list the findings
+in chat and let the user refer to them by number for follow-up. Mention
+connection trouble briefly after the review.
+
+If the user asked only for setup, stop after reporting the connection result.
 
 ## 1. Check the existing connection
 
@@ -100,7 +132,9 @@ it supports stdio.
 ## 3. Verify the connection
 
 Saved settings do not prove a working connection. When the client can load the
-new tools:
+new tools, use these checks for a setup-only request. For a review request,
+the first successful catalog search is enough to proceed; use
+`get_oes_practice` as needed for the findings.
 
 1. List its tools. Expect `search_oes_catalog`, `get_oes_practice`, and
    `show_oes_review`.
@@ -113,11 +147,11 @@ These checks use public catalog data. Do not submit invented findings to
 check the saved URL and report **configured; connection check pending restart**.
 Do not claim a successful connection until a tool call succeeds.
 
-## 4. Report the result
+## 4. Report the setup result
 
-Briefly report the client, configuration location or scope, and tool calls
-actually verified. Mention any restart, trust prompt, or manual step still
-needed. Then offer this prompt for a later review:
+For a setup-only request, briefly report the client, configuration location or
+scope, and tool calls actually verified. Mention any restart, trust prompt, or
+manual step still needed. Then offer this prompt for a later review:
 
 > Review this project for possible matches with the Open Ethics Standard. Show
 > the evidence, file location, and why each match may be relevant. Treat the

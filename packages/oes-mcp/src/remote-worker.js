@@ -1,7 +1,7 @@
 import { createMcpHandler } from "agents/mcp/server";
 import { McpServer } from "@modelcontextprotocol/server";
 import catalog from "../catalog.json" with { type: "json" };
-import reviewHtml from "../ui/review.html" with { type: "text" };
+import reviewHtml from "../dist/review.html" with { type: "text" };
 import { registerOesTools } from "./tools.js";
 
 const mcpHandler = createMcpHandler(() => {

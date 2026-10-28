@@ -14,7 +14,19 @@ app.ontoolresult = (result) => {
     render();
   }
 };
-app.connect();
+try {
+  const encoded = location.hash.slice(1);
+  if (encoded) {
+    model = JSON.parse(decodeURIComponent(encoded));
+    for (const finding of model.findings ?? []) decisions.set(key(finding), "unsure");
+    render();
+    document.querySelector("#action-status").textContent = "Browser review loaded from this link. Decisions stay in this browser session; use Discuss or Copy to share them.";
+  } else {
+    app.connect();
+  }
+} catch {
+  document.querySelector("#action-status").textContent = "This review link is invalid or incomplete.";
+}
 
 function key(item) { return `${item.id}|${item.file}|${item.startLine}`; }
 function esc(value) { return String(value ?? "").replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[char]); }

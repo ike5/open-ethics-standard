@@ -3,7 +3,7 @@ import { z } from "zod";
 
 const resourceUri = "ui://open-ethics-standard/review.html";
 
-export function registerOesTools(server, { catalog, reviewHtml }) {
+export function registerOesTools(server, { catalog, reviewHtml, browserReviewBase = "" }) {
   server.registerTool("search_oes_catalog", {
     title: "Search the Open Ethics Standard",
     description: "Search OES practices while reviewing a project. Use this to find relevant practice definitions and cite their IDs. The standard is a reference catalog, not a legal or compliance verdict.",
@@ -30,7 +30,7 @@ export function registerOesTools(server, { catalog, reviewHtml }) {
 
   registerAppTool(server, "show_oes_review", {
     title: "Show OES project review",
-    description: "Display possible OES matches after examining project files and gathering evidence. Each finding needs a file path, line range, observed evidence, reasoning, and confidence. Invite the user to mark each finding Applies, Unsure, or Dismiss in the MCP App and use Discuss choices in chat. If the client does not show MCP Apps, present numbered findings and review choices in chat. This does not establish a violation. On the hosted endpoint, submitted paths and evidence snippets are sent to OES hosting for display and are not saved by this server.",
+    description: "REQUIRED final step after a project review: submit all evidence-backed possible matches (including an empty array when none) to display the interactive OES review. The result includes a browser link users can open if their MCP client does not render Apps. Findings require file, line range, evidence, reasoning, confidence, and OES practice ID. This is not a verdict. Hosted browser links encode submitted evidence in the URL fragment; the Worker does not store it, but anyone with the link can view it, so tell the user the link contains review evidence.",
     inputSchema: z.object({
       project: z.string().min(1).max(200),
       findings: z.array(z.object({
@@ -51,7 +51,7 @@ export function registerOesTools(server, { catalog, reviewHtml }) {
     });
     const valid = enriched.filter((item) => item.practice);
     return {
-      content: [{ type: "text", text: `${valid.length} possible OES match${valid.length === 1 ? "" : "es"} for ${project}. Findings are leads for human review, not determinations. Invite the user to mark each finding Applies, Unsure, or Dismiss in the review view. If the client does not display the view, show numbered findings and offer those choices in chat.` }],
+      content: [{ type: "text", text: `${valid.length} possible OES match${valid.length === 1 ? "" : "es"} for ${project}. Findings are leads for human review, not determinations. Open the attached OES review app. Browser fallback: ${browserReviewBase ? `${browserReviewBase}/review#${encodeURIComponent(JSON.stringify({ project, version: catalog.version, updated: catalog.updated, findings: valid }))}` : "not configured for this local server"}. The browser link contains the review evidence; share it only with intended reviewers.` }],
       structuredContent: { project, version: catalog.version, updated: catalog.updated, findings: valid },
     };
   });

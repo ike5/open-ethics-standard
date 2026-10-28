@@ -9,6 +9,12 @@
   },
   "version": "0.1.0",
   "websiteUrl": "https://ike5.github.io/open-ethics-standard/",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://open-ethics-standard-mcp.maldonadoike.workers.dev/mcp"
+    }
+  ],
   "packages": [
     {
       "registryType": "npm",

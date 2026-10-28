@@ -12,7 +12,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://open-ethics-standard-mcp.maldonadoike.workers.dev/mcp"
+      "url": "https://mcp.codebylevel.com/mcp"
     }
   ],
   "packages": [

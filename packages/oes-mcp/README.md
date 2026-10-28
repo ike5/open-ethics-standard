@@ -39,4 +39,4 @@ After publication, install locally without cloning or building:
 
 To run from a checkout, build with `npm run build:mcp` from the repository root and point a local client at `packages/oes-mcp/dist/server.js`.
 
-To deploy the remote Worker, connect this repository's GitHub Actions to a Cloudflare account, add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` secrets, then run **Deploy remote OES MCP** from Actions. The endpoint is `https://<worker-host>/mcp`. The deployment workflow uses the Cloudflare Workers subdomain for the configured account; set a custom domain in Cloudflare after the first deployment if desired.
+To deploy the remote Worker, add `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` GitHub Actions secrets, then run **Deploy remote OES MCP** from Actions. The public endpoint is `https://mcp.codebylevel.com/mcp`. The custom domain is configured in `wrangler.jsonc`, so future deployments keep it attached.

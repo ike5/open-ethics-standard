@@ -10,6 +10,18 @@ The OES MCP is distributed as a local stdio server and as a remote Streamable HT
 - `get_oes_practice` returns a practice by section ID.
 - `show_oes_review` renders submitted findings in an interactive MCP App when the client supports MCP Apps.
 
+## Agent-assisted setup
+
+Paste this into your coding assistant:
+
+> Set up the Open Ethics Standard MCP for me: fetch and follow this guide https://ike5.github.io/open-ethics-standard/agent-setup.md
+
+The public [setup guide](https://ike5.github.io/open-ethics-standard/agent-setup.md)
+uses a source build while npm publication is pending, configures the current
+client, and verifies catalog tool calls. No OES account or API key is required.
+
+## Installation and data handling
+
 The server does not read project files or call an AI model. The connected AI uses its own authorized workspace tools. With the local npm server, review findings stay on the developer's machine. With the remote Worker, the `show_oes_review` request sends the project name, file paths, evidence snippets, and reasoning to OES hosting so the server can render the view. The Worker does not persist request content or reports. Review statuses stay in the review view for that session.
 
 After publication, install locally without cloning or building:

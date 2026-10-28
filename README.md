@@ -12,18 +12,22 @@ Findings are suggestions for you to check. They are not proof that a project has
 
 ### Get started
 
-The easiest option is to add the OES MCP to your AI tool. Setup instructions will be posted here when the public install is ready.
+Copy this prompt into your coding assistant:
 
-For now, you can build it from the source code:
+> Set up the Open Ethics Standard MCP for me: fetch and follow this guide https://ike5.github.io/open-ethics-standard/agent-setup.md
+
+No OES account, login, or API key is needed. The public [setup guide](docs/agent-setup.md) walks the assistant through installing from source, configuring the current client, and checking the connection. It includes Codex, Claude Code, Cursor, and VS Code instructions. Your assistant may ask you to restart the client or approve its MCP trust prompt.
+
+For manual setup, build it in a persistent directory:
 
 ```sh
 git clone https://github.com/ike5/open-ethics-standard.git
 cd open-ethics-standard
-npm install --prefix packages/oes-mcp
+npm ci --prefix packages/oes-mcp
 npm run build:mcp
 ```
 
-Then follow your AI tool's instructions for adding a local MCP server. Point it to `packages/oes-mcp/dist/server.js`.
+Then follow the guide to add a local stdio MCP server with the absolute path to Node and the absolute path to `packages/oes-mcp/dist/server.js`.
 
 ### Try a review
 

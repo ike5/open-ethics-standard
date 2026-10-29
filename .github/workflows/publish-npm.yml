@@ -25,8 +25,8 @@ jobs:
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
-      - name: Use an npm with trusted publishing
-        run: npm install -g npm@latest
+      - name: Use an npm with trusted publishing (11.5.1+), pinned to a tested major
+        run: npm install -g npm@11
       - run: npm ci --prefix packages/oes-mcp
       - run: npm test
       - name: Skip versions that are already published

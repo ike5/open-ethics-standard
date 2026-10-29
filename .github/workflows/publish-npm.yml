@@ -20,13 +20,13 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
-      - name: Use an npm with trusted publishing (11.5.1+), pinned to a tested major
-        run: npm install -g npm@11
+      - name: Use an npm with trusted publishing (11.5.1+), pinned to a tested release
+        run: npm install -g npm@11.21.1
       - run: npm ci --prefix packages/oes-mcp
       - run: npm test
       - name: Skip versions that are already published

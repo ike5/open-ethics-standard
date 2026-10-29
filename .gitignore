@@ -3,7 +3,6 @@ node_modules/
 
 # Build and deployment output
 /packages/oes-mcp/dist/
-/packages/oes-mcp/.wrangler/
 
 # Local editor and operating system files
 /.idea/

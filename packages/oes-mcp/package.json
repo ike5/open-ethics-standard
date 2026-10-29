@@ -1,6 +1,6 @@
 {
   "name": "open-ethics-standard-mcp",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "MCP server that lets your AI diagnose dark patterns, privacy traps, and other harmful practices in your code, backed by the Open Ethics Standard.",
   "keywords": [
     "mcp",

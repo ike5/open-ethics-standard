@@ -1,6 +1,6 @@
 # Open Ethics Standard
 
-> An open catalog of harmful software and business practices, plus a local MCP server that lets an AI assistant review a project against it. No account or API key required.
+> A local MCP server that lets an AI coding assistant diagnose harmful practices (dark patterns, privacy traps, billing tricks) in a project, backed by the open Open Ethics Standard catalog. No account or API key required.
 
 - [Agent setup guide](https://ike5.github.io/open-ethics-standard/agent-setup.md): Install the local stdio MCP, review the chosen scope, and generate an offline report.
 - [The standard](https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md): Canonical practice definitions.

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="Open Ethics Standard — Name the harm. Review the code.">
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="Open Ethics Standard MCP — Teach your AI to spot harmful code.">
   <defs>
     <radialGradient id="glow" cx="0.3" cy="0.2" r="0.8">
       <stop offset="0" stop-color="#2c3a26"/>
@@ -18,12 +18,12 @@
   <!-- Wordmark -->
   <rect x="72" y="70" width="44" height="44" rx="12" fill="#d8f36a"/>
   <text x="94" y="101" text-anchor="middle" font-size="24" font-weight="800" fill="#17201d">O</text>
-  <text x="132" y="100" font-size="20" font-weight="700" fill="#e6eddf">Open Ethics Standard</text>
+  <text x="132" y="100" font-size="20" font-weight="700" fill="#e6eddf">Open Ethics Standard · MCP</text>
 
-  <text x="72" y="196" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-2">Name the harm.</text>
-  <text x="72" y="262" font-size="58" font-weight="800" fill="#d8f36a" letter-spacing="-2">Review the code.</text>
-  <text x="72" y="306" font-size="18" fill="#c1c9bc">An open catalog of harmful software practices, and an MCP</text>
-  <text x="72" y="332" font-size="18" fill="#c1c9bc">that lets your AI check your project against it, locally.</text>
+  <text x="72" y="196" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-2">Teach your AI</text>
+  <text x="72" y="262" font-size="58" font-weight="800" fill="#d8f36a" letter-spacing="-2">to spot harmful code.</text>
+  <text x="72" y="306" font-size="18" fill="#c1c9bc">An MCP server that lets your coding assistant diagnose dark</text>
+  <text x="72" y="332" font-size="18" fill="#c1c9bc">patterns and privacy traps, backed by 800+ named practices.</text>
 
   <g class="mono" font-size="12" fill="#a9ba91" letter-spacing="1.5">
     <text x="72" y="374" class="mono">CLAUDE CODE · CODEX · CURSOR · VS CODE   ·   LOCAL-FIRST   ·   OPEN SOURCE</text>

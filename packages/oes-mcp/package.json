@@ -1,7 +1,7 @@
 {
   "name": "open-ethics-standard-mcp",
   "version": "0.1.0",
-  "description": "MCP tools for reviewing software projects against the Open Ethics Standard, locally or through a remote endpoint.",
+  "description": "MCP server that lets your AI diagnose dark patterns, privacy traps, and other harmful practices in your code, backed by the Open Ethics Standard.",
   "license": "MIT",
   "type": "module",
   "bin": { "oes-mcp": "dist/server.js" },

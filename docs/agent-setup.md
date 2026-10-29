@@ -96,7 +96,7 @@ npm run build:report -- /absolute/path/to/findings.json [/absolute/path/to/repor
 - Each finding has the fields above, plus optional `findingKey` and `reviewStatus` (`applies` | `unsure` | `dismissed`).
 - For rechecks, add `previousReviewPath` and `resolvedFindings`.
 - Practice IDs must exist and `endLine >= startLine`. Up to 500 findings; an empty array is valid.
-- Examples: [`review.json`](https://github.com/ike5/open-ethics-standard/blob/main/examples/review.json), [`review-followup.json`](https://github.com/ike5/open-ethics-standard/blob/main/examples/review-followup.json).
+- Examples: [`review.json`](https://github.com/ike5/open-ethics-standard/blob/main/packages/oes-mcp/examples/review.json), [`review-followup.json`](https://github.com/ike5/open-ethics-standard/blob/main/packages/oes-mcp/examples/review-followup.json).
 
 Never fall back to uploading findings. If setup or report generation fails, show the findings in chat and name the missing step.
 

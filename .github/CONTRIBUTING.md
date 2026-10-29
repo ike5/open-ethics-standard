@@ -4,7 +4,7 @@ Thanks for helping improve the Open Ethics Standard.
 
 ## Suggest a practice, correction, or removal
 
-Edit the relevant part of [`OPEN-ETHICS-STANDARD.md`](OPEN-ETHICS-STANDARD.md) and open a pull request. Explain why, and cite sources when you can. Not ready for a PR? [Open an issue](https://github.com/ike5/open-ethics-standard/issues/new/choose).
+Edit the relevant part of [`OPEN-ETHICS-STANDARD.md`](../OPEN-ETHICS-STANDARD.md) and open a pull request. Explain why, and cite sources when you can. Not ready for a PR? [Open an issue](https://github.com/ike5/open-ethics-standard/issues/new/choose).
 
 Keep the format the catalog generator and CI expect:
 

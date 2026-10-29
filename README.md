@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/banner.svg" alt="Open Ethics Standard — Name the harm. Review the code." width="100%">
+  <img src="docs/assets/banner.svg" alt="Open Ethics Standard MCP — Teach your AI to spot harmful code." width="100%">
 </p>
 
 <p align="center">
@@ -13,14 +13,14 @@
   <a href="https://ike5.github.io/open-ethics-standard/"><b>Website</b></a> ·
   <a href="OPEN-ETHICS-STANDARD.md"><b>Read the standard</b></a> ·
   <a href="docs/agent-setup.md"><b>Setup guide</b></a> ·
-  <a href="CONTRIBUTING.md"><b>Contribute</b></a>
+  <a href=".github/CONTRIBUTING.md"><b>Contribute</b></a>
 </p>
 
-The **Open Ethics Standard (OES)** is a public, citable catalog of harmful software and business practices: dark patterns, cancellation traps, bundled consent, and hundreds more. It comes with an **MCP server that lets your AI assistant check your project against it**, on your own machine.
+**An MCP server that lets your AI coding assistant diagnose harmful practices in your code:** dark patterns, cancellation traps, bundled consent, and more. It's backed by the **Open Ethics Standard (OES)**, an open, citable catalog of 800+ named practices. It runs on your machine.
 
 Findings are leads for you to review, not verdicts or certifications.
 
-## Review your project in one prompt
+## Add it to your AI in one prompt
 
 Open your project in Claude Code, Codex, Cursor, VS Code, or any MCP client, and paste:
 
@@ -57,7 +57,7 @@ Requires Node.js 20+. See the [setup guide](docs/agent-setup.md) for client comm
 
 ## Contribute
 
-Spotted a practice that's missing or wrong? Edit [`OPEN-ETHICS-STANDARD.md`](OPEN-ETHICS-STANDARD.md) and open a pull request, or [open an issue](https://github.com/ike5/open-ethics-standard/issues/new/choose). See [CONTRIBUTING.md](CONTRIBUTING.md).
+Spotted a practice that's missing or wrong? Edit [`OPEN-ETHICS-STANDARD.md`](OPEN-ETHICS-STANDARD.md) and open a pull request, or [open an issue](https://github.com/ike5/open-ethics-standard/issues/new/choose). See [CONTRIBUTING.md](.github/CONTRIBUTING.md).
 
 ## License
 

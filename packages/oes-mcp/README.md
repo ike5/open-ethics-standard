@@ -26,7 +26,7 @@ Full instructions: [setup guide](../../docs/agent-setup.md).
 
 Reports go to `~/.local/share/open-ethics-standard/reports` unless `OES_REPORT_DIR` is set. They work offline and include Applies/Unsure/Dismiss choices, Markdown and PDF export, and audit history across rechecks.
 
-Without an MCP connection: `npm run build:report -- findings.json [output-dir]` (see [`examples/`](../../examples)).
+Without an MCP connection: `npm run build:report -- findings.json [output-dir]` (see [`examples/`](examples)).
 
 ## Hosted endpoint
 

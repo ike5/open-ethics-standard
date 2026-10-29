@@ -2083,7 +2083,7 @@ proposals.
 
 To propose a change, edit the relevant part of this file and open a pull
 request. Do not replace the whole document. Sources for the reasoning are
-welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for the required format.
+welcome. See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for the required format.
 
 The canonical standard changes only when a maintainer approves and merges a
 pull request. The standard text is licensed under [CC BY-ND 4.0]; see
@@ -2093,4 +2093,4 @@ pull request. The standard text is licensed under [CC BY-ND 4.0]; see
 
 # Part V — Code of Conduct
 
-Project participation follows the [Code of Conduct](CODE_OF_CONDUCT.md).
+Project participation follows the [Code of Conduct](.github/CODE_OF_CONDUCT.md).

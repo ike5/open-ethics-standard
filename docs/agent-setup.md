@@ -13,7 +13,7 @@ If the user hasn't said what to review, ask once: the whole app (quick pass), a 
 ## 2. Tools
 
 - **OES tools available, including `create_oes_review`?** Use them. Don't add another server.
-- **Not available, or only the hosted catalog server (no `create_oes_review`)?** Don't install it yourself. Give the user the command for their client and continue with what you have:
+- **Not available, or no `create_oes_review`?** Don't install it yourself. Give the user the command for their client and continue with what you have:
   ```sh
   claude mcp add --scope user open-ethics-standard -- npx -y open-ethics-standard-mcp@latest
   ```

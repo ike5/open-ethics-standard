@@ -5,30 +5,22 @@ import { createReview, reviewInputSchema } from "./report-model.js";
 import { catalogOverview, findPractices, searchCatalog } from "./catalog.js";
 
 const resourceUri = "ui://open-ethics-standard/review.html";
-const installUrl = "https://ike5.github.io/open-ethics-standard/#install";
 
 // Shown to the model when the server connects, so it follows the workflow without being told.
 export const serverInstructions = "Open Ethics Standard: a catalog of 800+ harmful software practices for reviewing projects. Before reviewing a project, call get_oes_review_instructions and follow it exactly. Finish a review by replying with only the report link.";
 
-const sharedSteps = [
+// Findings stay on the user's machine: the agent only calls these tools and never fetches or runs code to build a report.
+const workflow = [
   "If the user hasn't chosen a scope, ask: whole app (quick), a feature or journey, or one concern.",
   "Read the code with your own tools; this MCP cannot see files. Use search_oes_catalog and get_oes_practices to match behavior to practices, and verify each against its definition.",
   "Each finding: id, file, startLine, endLine, evidence (short quote), reasoning (1-2 sentences), confidence (low|medium|high). Put concerns that match no practice in notes (one line each, with file:line). Keep limitations to one sentence.",
+  "Call create_oes_review with project, scope, limitations, notes, and findings (findings: [] if none).",
+  "Rechecks: call get_oes_review_state on the previous statePath, pass it as previousReviewPath, reuse each findingKey, and list only verified fixes in resolvedFindings with evidence.",
+  "Final reply is exactly two lines: \"<N> possible matches in <scope>.\" then \"Report: <link>\". Do not list findings, setup steps, or limitations in chat; they are in the report.",
 ];
-const replyStep = "Final reply is exactly two lines: \"<N> possible matches in <scope>.\" then \"Report: <link>\". Do not list findings, setup steps, or limitations in chat; they are in the report.";
-
-function workflowFor(local) {
-  if (local) return [...sharedSteps,
-    "Call create_oes_review with project, scope, limitations, notes, and findings (findings: [] if none).",
-    "Rechecks: call get_oes_review_state on the previous statePath, pass it as previousReviewPath, reuse each findingKey, and list only verified fixes in resolvedFindings with evidence.",
-    replyStep];
-  // The hosted server is catalog-only: findings must never be sent to it, and agents must not fetch or run code to build reports.
-  return [...sharedSteps,
-    `This hosted server cannot build reports, so findings stay on the user's machine. Do not install, download, or run anything to make one. Reply with the findings briefly (practice ID, file:line, one line each), then tell the user that saved reports with rechecks need the local OES server, installed once from ${installUrl}.`];
-}
 
 export function registerOesTools(server, { catalog, reviewHtml, serverVersion = "dev", saveReview, readReview }) {
-  if (readReview) server.registerTool("get_oes_review_state", {
+  server.registerTool("get_oes_review_state", {
     title: "Read a previous local OES audit",
     description: "Read the local review JSON or saved HTML before a follow-up audit. Returns stable finding keys, prior choices, fix evidence, and audit history. Use these keys when submitting current findings and verified resolutions. Local-only; does not upload data.",
     inputSchema: z.object({ path: z.string().min(1).max(2000) }),
@@ -44,7 +36,6 @@ export function registerOesTools(server, { catalog, reviewHtml, serverVersion = 
     description: "Call first. Returns the step-by-step workflow for reviewing a project against the OES and producing the report.",
     inputSchema: z.object({}),
   }, async () => {
-    const workflow = workflowFor(Boolean(saveReview));
     return { content: [{ type: "text", text: workflow.map((s, i) => `${i + 1}. ${s}`).join("\n") }], structuredContent: { workflow, serverVersion, catalogVersion: catalog.version } };
   });
 
@@ -84,8 +75,6 @@ export function registerOesTools(server, { catalog, reviewHtml, serverVersion = 
     return { content: [{ type: "text", text: JSON.stringify({ version: catalog.version, practice }, null, 2) }], structuredContent: { version: catalog.version, practice } };
   });
 
-  // Review tools exist only on the local server; the hosted server never receives findings.
-  if (!saveReview) return;
   const reviewConfig = {
     title: "Show OES project review",
     description: "Final step of a review: saves the offline HTML report on this machine and returns its link. Submit findings (or []), scope, limitations, and notes. For rechecks pass previousReviewPath and resolvedFindings.",

@@ -1,6 +1,6 @@
 {
   "name": "open-ethics-standard-mcp",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "MCP server that lets your AI diagnose dark patterns, privacy traps, and other harmful practices in your code, backed by the Open Ethics Standard.",
   "keywords": [
     "mcp",
@@ -37,8 +37,6 @@
   "scripts": {
     "build": "node ../../scripts/build-catalog.mjs && node src/build.mjs",
     "start": "node dist/server.js",
-    "dev:remote": "wrangler dev --config wrangler.jsonc",
-    "deploy:remote": "wrangler deploy --config wrangler.jsonc",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
@@ -48,9 +46,7 @@
   },
   "devDependencies": {
     "@modelcontextprotocol/client": "^2.0.0",
-    "agents": "^0.20.0",
-    "esbuild": "^0.25.0",
-    "wrangler": "^4.0.0"
+    "esbuild": "^0.25.0"
   },
   "publishConfig": {
     "access": "public",

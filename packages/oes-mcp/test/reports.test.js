@@ -171,7 +171,7 @@ test("comparison rejects ambiguous identities and unverifiable resolution reques
   assert.throws(() => compareReview({ ...current, project: "Another project" }, first, {}), /different project/);
 });
 
-test("hosted mode is catalog-only and never tells the agent to fetch or run code", async () => {
+test("review instructions never tell the agent to fetch or run code", async () => {
   const { McpServer } = await import("@modelcontextprotocol/server");
   const { registerOesTools } = await import("../src/tools.js");
   const names = [];
@@ -183,11 +183,10 @@ test("hosted mode is catalog-only and never tells the agent to fetch or run code
     if (name === "get_oes_review_instructions") instructions = handler;
     return original(name, config, handler);
   };
-  registerOesTools(server, { catalog, serverVersion: "test" });
-  assert.ok(names.includes("search_oes_catalog"));
-  assert.ok(!names.includes("create_oes_review") && !names.includes("show_oes_review"));
+  registerOesTools(server, { catalog, reviewHtml: "", serverVersion: "test", saveReview: async () => ({}), readReview: async () => ({}) });
+  assert.ok(names.includes("search_oes_catalog") && names.includes("get_oes_review_state"));
   const text = (await instructions({})).content[0].text;
-  for (const action of ["curl", "npx", "node ", ".mjs"]) assert.ok(!text.includes(action), `hosted instructions mention ${action}`);
+  for (const action of ["curl", "npx", "node ", ".mjs"]) assert.ok(!text.includes(action), `review instructions mention ${action}`);
 });
 
 test("packed npm package runs as a stdio MCP and CLI with only its declared files", async () => {

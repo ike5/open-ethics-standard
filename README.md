@@ -6,7 +6,7 @@
   <a href="LICENSE"><img alt="Code: MIT" src="https://img.shields.io/badge/code-MIT-607138"></a>
   <a href="LICENSE-OPEN-ETHICS-STANDARD.md"><img alt="Standard: CC BY-ND 4.0" src="https://img.shields.io/badge/standard-CC%20BY--ND%204.0-607138"></a>
   <a href="https://github.com/ike5/open-ethics-standard/actions/workflows/validate-standard.yml"><img alt="CI" src="https://github.com/ike5/open-ethics-standard/actions/workflows/validate-standard.yml/badge.svg"></a>
-  <img alt="MCP: remote HTTP" src="https://img.shields.io/badge/MCP-remote%20HTTP-d8f36a">
+  <a href="https://www.npmjs.com/package/open-ethics-standard-mcp"><img alt="npm" src="https://img.shields.io/npm/v/open-ethics-standard-mcp?color=d8f36a"></a>
 </p>
 
 <p align="center">
@@ -22,13 +22,13 @@ Findings are leads for you to review, not verdicts or certifications.
 
 ## Get started
 
-**1. Add the MCP.** No install, account, or API key:
+**1. Add the MCP.** It needs Node.js 20+; no account or API key:
 
 ```sh
-claude mcp add --transport http --scope user open-ethics-standard https://mcp.codebylevel.com/mcp
+claude mcp add --scope user open-ethics-standard -- npx -y open-ethics-standard-mcp@latest
 ```
 
-For Codex, Cursor, VS Code, or other clients, add a remote (HTTP) MCP server with the URL `https://mcp.codebylevel.com/mcp`. To uninstall: `claude mcp remove --scope user open-ethics-standard`.
+For Codex: `codex mcp add open-ethics-standard -- npx -y open-ethics-standard-mcp@latest`. For Cursor, VS Code, or other clients, add a stdio server with command `npx` and args `-y open-ethics-standard-mcp@latest` ([per-client commands](https://ike5.github.io/open-ethics-standard/#install)). On native Windows, use `cmd /c npx …`. To uninstall: `claude mcp remove --scope user open-ethics-standard`.
 
 **2. Ask for a review.** Open your project and say:
 
@@ -48,9 +48,9 @@ You get back one link to an offline report, with every finding a click away:
 
 ## Your data
 
-- The MCP serves the catalog. It never sees your code.
-- The report is built on your machine by [one small script](docs/oes-report.mjs), so findings stay local. Reports are saved in `~/.local/share/open-ethics-standard/reports`.
-- Want everything offline? The [setup guide](docs/agent-setup.md#notes) covers running the MCP locally.
+- The MCP runs on your machine. It never sends your code or findings anywhere, and your AI never has to download or run scripts to build the report.
+- Reports are saved in `~/.local/share/open-ethics-standard/reports` (override with `OES_REPORT_DIR`).
+- `@latest` picks up new catalog releases automatically. Pin a version (`open-ethics-standard-mcp@0.4.0`) if you'd rather update by hand.
 
 ## Contribute
 

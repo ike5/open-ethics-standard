@@ -3,14 +3,17 @@ import { createReview } from "./report-model.js";
 import { writeLocalReview } from "./local-report.js";
 import { catalogOverview, findPractices, searchCatalog } from "./catalog.js";
 
-const usage = `Open Ethics Standard: local catalog and report tool
+const usage = `Open Ethics Standard: local MCP server, catalog, and report tool
 
-  node oes-report.mjs search <query>        Find practices (e.g. "cancel subscription")
-  node oes-report.mjs practice <id> [id…]   Full definitions (e.g. 2.1.3)
-  node oes-report.mjs overview              All categories and practice titles
-  node oes-report.mjs build <findings.json|-> [output-dir]
-                                            Write the offline HTML report; prints its link
+  open-ethics-standard-mcp                       Start the stdio MCP server (what your AI client runs)
+  open-ethics-standard-mcp search <query>        Find practices (e.g. "cancel subscription")
+  open-ethics-standard-mcp practice <id> [id…]   Full definitions (e.g. 2.1.3)
+  open-ethics-standard-mcp overview              All categories and practice titles
+  open-ethics-standard-mcp build <findings.json|-> [output-dir]
+                                                 Write the offline HTML report; prints its link
+  open-ethics-standard-mcp --version
 
+Run it with: npx -y open-ethics-standard-mcp@latest <command>
 Reports are saved under ~/.local/share/open-ethics-standard/reports (or OES_REPORT_DIR).
 Input format: https://ike5.github.io/open-ethics-standard/agent-setup.md`;
 

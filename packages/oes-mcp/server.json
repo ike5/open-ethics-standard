@@ -7,12 +7,22 @@
     "url": "https://github.com/ike5/open-ethics-standard",
     "source": "github"
   },
-  "version": "0.1.0",
+  "version": "0.4.0",
   "websiteUrl": "https://ike5.github.io/open-ethics-standard/",
   "remotes": [
     {
       "type": "streamable-http",
       "url": "https://mcp.codebylevel.com/mcp"
+    }
+  ],
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "open-ethics-standard-mcp",
+      "version": "0.4.0",
+      "transport": {
+        "type": "stdio"
+      }
     }
   ]
 }

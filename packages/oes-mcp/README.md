@@ -1,16 +1,23 @@
 # OES MCP server
 
-An MCP server that gives your AI assistant the [Open Ethics Standard](../../OPEN-ETHICS-STANDARD.md) catalog and a review workflow. Your assistant reads your code; this server never does.
+An MCP server that gives your AI assistant the [Open Ethics Standard](https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md) catalog and a review workflow. Your assistant reads your code; this server runs on your machine and saves the report there, so findings never leave it.
 
 ## Use it
 
-The server is hosted at `https://mcp.codebylevel.com/mcp` (Streamable HTTP):
+Requires Node.js 20+. Add it to your client as a stdio server:
 
 ```sh
-claude mcp add --transport http --scope user open-ethics-standard https://mcp.codebylevel.com/mcp
+claude mcp add --scope user open-ethics-standard -- npx -y open-ethics-standard-mcp@latest
+codex mcp add open-ethics-standard -- npx -y open-ethics-standard-mcp@latest
 ```
 
-Reports are built on the user's machine by [`docs/oes-report.mjs`](../../docs/oes-report.mjs), a single-file script bundled from this package, so findings never reach the server. See the [agent guide](../../docs/agent-setup.md).
+Other clients: command `npx`, args `["-y", "open-ethics-standard-mcp@latest"]` ([per-client setup](https://ike5.github.io/open-ethics-standard/#install)). On native Windows, wrap it as `cmd /c npx …`.
+
+Then ask your AI: "Review my project against the Open Ethics Standard." See the [agent guide](https://ike5.github.io/open-ethics-standard/agent-setup.md).
+
+Reports are saved in `~/.local/share/open-ethics-standard/reports` (override with `OES_REPORT_DIR`).
+
+The same package is a catalog CLI: `npx -y open-ethics-standard-mcp@latest search "cancel subscription"`, `practice 2.1.3`, `overview`, `build <findings.json>`, `--version`.
 
 ## Tools
 
@@ -20,17 +27,20 @@ Reports are built on the user's machine by [`docs/oes-report.mjs`](../../docs/oe
 | `get_oes_catalog_overview` | Categories and practice titles for planning |
 | `search_oes_catalog` | Search practices |
 | `get_oes_practice` / `get_oes_practices` | Full definitions by ID |
-| `create_oes_review` (alias `show_oes_review`) | Fallback for clients without a shell; hosted mode returns a web link |
-| `get_oes_review_state` | Read a previous review for rechecks (local server only) |
+| `create_oes_review` (alias `show_oes_review`) | Save the offline HTML/Markdown report and return its link |
+| `get_oes_review_state` | Read a previous review for rechecks |
+
+A catalog-only hosted server runs at `https://mcp.codebylevel.com/mcp`. It has no review tools and never receives findings.
 
 ## Develop
 
 ```sh
 npm ci --prefix packages/oes-mcp
-npm test                 # from the repo root; builds the catalog, server, and docs/oes-report.mjs
+npm test                 # from the repo root; builds the catalog and server, packs and runs the package
 ```
 
-- **Fully local stdio server:** `npm run setup:mcp` prints the config. In that mode, `create_oes_review` writes reports directly.
+- **Run from a checkout:** `npm run setup:mcp` prints a stdio config pointing at `dist/server.js`.
+- **Publish to npm:** push a `v*` tag, or run the **Publish npm package** workflow (npm trusted publishing). Catalog releases bump the patch version and publish automatically.
 - **Deploy the hosted Worker:** use the **Deploy remote OES MCP** workflow (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
 
 ## License

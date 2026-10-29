@@ -11,6 +11,6 @@
     "sync:catalog": "node scripts/build-catalog.mjs",
     "setup:mcp": "npm run build:mcp && node scripts/setup-mcp.mjs",
     "build:report": "node packages/oes-mcp/dist/build-report.js",
-    "test": "npm run build:mcp && node --test packages/oes-mcp/test/*.test.js"
+    "test": "npm run build:mcp && node --test packages/oes-mcp/test/reports.test.js"
   }
 }

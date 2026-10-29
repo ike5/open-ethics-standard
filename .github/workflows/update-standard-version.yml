@@ -7,6 +7,7 @@ on:
 permissions:
   contents: write
   pull-requests: read
+  actions: write
 
 concurrency:
   group: update-standard-${{ github.event.pull_request.base.ref }}
@@ -49,11 +50,20 @@ jobs:
           node scripts/build-catalog.mjs
           npm install --prefix packages/oes-mcp
           npm run build:mcp
+      - name: Bump the npm package so npx @latest users get the new catalog
+        if: steps.changes.outputs.changed == 'true'
+        run: npm version patch --no-git-tag-version --prefix packages/oes-mcp
       - name: Commit metadata update
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add OPEN-ETHICS-STANDARD.md packages/oes-mcp/catalog.json docs/oes-report.mjs
+          git add OPEN-ETHICS-STANDARD.md packages/oes-mcp/catalog.json packages/oes-mcp/package.json packages/oes-mcp/package-lock.json
           git commit -m "chore: update standard version and date"
           git push origin main
+      - name: Publish the npm package
+        if: steps.changes.outputs.changed == 'true'
+        # Pushes made with GITHUB_TOKEN don't trigger workflows, but workflow_dispatch does.
+        run: gh workflow run publish-npm.yml --ref main
+        env:
+          GH_TOKEN: ${{ github.token }}

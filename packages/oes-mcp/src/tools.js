@@ -5,7 +5,7 @@ import { createReview, reviewInputSchema } from "./report-model.js";
 import { catalogOverview, findPractices, searchCatalog } from "./catalog.js";
 
 const resourceUri = "ui://open-ethics-standard/review.html";
-const script = "~/.local/share/open-ethics-standard/oes-report.mjs";
+const installUrl = "https://ike5.github.io/open-ethics-standard/#install";
 
 // Shown to the model when the server connects, so it follows the workflow without being told.
 export const serverInstructions = "Open Ethics Standard: a catalog of 800+ harmful software practices for reviewing projects. Before reviewing a project, call get_oes_review_instructions and follow it exactly. Finish a review by replying with only the report link.";
@@ -22,14 +22,12 @@ function workflowFor(local) {
     "Call create_oes_review with project, scope, limitations, notes, and findings (findings: [] if none).",
     "Rechecks: call get_oes_review_state on the previous statePath, pass it as previousReviewPath, reuse each findingKey, and list only verified fixes in resolvedFindings with evidence.",
     replyStep];
+  // The hosted server is catalog-only: findings must never be sent to it, and agents must not fetch or run code to build reports.
   return [...sharedSteps,
-    `Build the report on the user's machine so findings never leave it: write the review JSON (project, scope, limitations, notes, findings) to a temp file outside the project, then run: curl -fsSL https://ike5.github.io/open-ethics-standard/oes-report.mjs --create-dirs -o ${script} && node ${script} build <file.json>. It prints the report link and a State path.`,
-    "Rechecks: read the previous State file (review.json), add \"previousReviewPath\": <that path>, reuse each findingKey, and add resolvedFindings [{findingKey, evidence}] only for fixes you verified.",
-    "Only if you cannot run shell commands, call create_oes_review instead; it sends findings to the hosted server (not stored) and returns a web link. Tell the user.",
-    replyStep];
+    `This hosted server cannot build reports, so findings stay on the user's machine. Do not install, download, or run anything to make one. Reply with the findings briefly (practice ID, file:line, one line each), then tell the user that saved reports with rechecks need the local OES server, installed once from ${installUrl}.`];
 }
 
-export function registerOesTools(server, { catalog, reviewHtml, browserReviewBase = "", serverVersion = "dev", saveReview, readReview }) {
+export function registerOesTools(server, { catalog, reviewHtml, serverVersion = "dev", saveReview, readReview }) {
   if (readReview) server.registerTool("get_oes_review_state", {
     title: "Read a previous local OES audit",
     description: "Read the local review JSON or saved HTML before a follow-up audit. Returns stable finding keys, prior choices, fix evidence, and audit history. Use these keys when submitting current findings and verified resolutions. Local-only; does not upload data.",
@@ -86,26 +84,20 @@ export function registerOesTools(server, { catalog, reviewHtml, browserReviewBas
     return { content: [{ type: "text", text: JSON.stringify({ version: catalog.version, practice }, null, 2) }], structuredContent: { version: catalog.version, practice } };
   });
 
+  // Review tools exist only on the local server; the hosted server never receives findings.
+  if (!saveReview) return;
   const reviewConfig = {
     title: "Show OES project review",
-    description: saveReview
-      ? "Final step of a review: saves the offline HTML report on this machine and returns its link. Submit findings (or []), scope, limitations, and notes. For rechecks pass previousReviewPath and resolvedFindings."
-      : "Only for clients that cannot run shell commands: sends findings to the hosted server (not stored) and returns a web link carrying the evidence. If you can run shell commands, build the report locally instead (see get_oes_review_instructions).",
+    description: "Final step of a review: saves the offline HTML report on this machine and returns its link. Submit findings (or []), scope, limitations, and notes. For rechecks pass previousReviewPath and resolvedFindings.",
     inputSchema: reviewInputSchema,
     _meta: { ui: { resourceUri } },
   };
   const renderReview = async (input) => {
     try {
-      let model = createReview(input, catalog, serverVersion);
-      if (!saveReview && (input.previousReviewPath || input.resolvedFindings?.length)) throw new Error("Review history requires the local stdio MCP.");
-      const saved = saveReview ? await saveReview(model) : browserReviewBase ? {
-        browserUrl: `${browserReviewBase}/review#${encodeURIComponent(JSON.stringify(model))}`,
-      } : {};
-      const { review, ...links } = saved;
-      if (review) model = review;
+      const { review, ...links } = await saveReview(createReview(input, catalog, serverVersion));
       return {
-        content: [{ type: "text", text: `Report: ${links.browserUrl || "unavailable"}${links.statePath ? `\nState: ${links.statePath}` : "\nThis link contains the review evidence; anyone with it can read it."}\nReply to the user with only the finding count and the report link.` }],
-        structuredContent: { ...model, ...links },
+        content: [{ type: "text", text: `Report: ${links.browserUrl}\nState: ${links.statePath}\nReply to the user with only the finding count and the report link.` }],
+        structuredContent: { ...review, ...links },
       };
     } catch (error) {
       return { isError: true, content: [{ type: "text", text: `Could not create review: ${error.message}` }] };

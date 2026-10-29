@@ -1,35 +1,39 @@
 (function () {
-  var URL_ = "https://mcp.codebylevel.com/mcp";
   var NAME = "open-ethics-standard";
+  // Every client runs the same local stdio server; @latest keeps it current.
+  var CONFIG = { command: "npx", args: ["-y", "open-ethics-standard-mcp@latest"] };
+  var LAUNCH = CONFIG.command + " " + CONFIG.args.join(" ");
+  var needs = "Needs Node.js 20+. ";
+  var windows = " On native Windows, use “cmd /c " + LAUNCH + "”.";
   var defs = {
     claude: {
-      install: "claude mcp add --transport http --scope user " + NAME + " " + URL_,
+      install: "claude mcp add --scope user " + NAME + " -- " + LAUNCH,
       uninstall: "claude mcp remove --scope user " + NAME,
-      iHint: "Paste into your terminal.",
+      iHint: needs + "Paste into your terminal." + windows,
       uHint: "Removes the server."
     },
     codex: {
-      install: "codex mcp add " + NAME + " --url " + URL_,
+      install: "codex mcp add " + NAME + " -- " + LAUNCH,
       uninstall: "codex mcp remove " + NAME,
-      iHint: "Paste into your terminal.",
+      iHint: needs + "Paste into your terminal.",
       uHint: "Removes the server."
     },
     cursor: {
-      install: "cursor://anysphere.cursor-deeplink/mcp/install?name=" + NAME + "&config=eyJ1cmwiOiJodHRwczovL21jcC5jb2RlYnlsZXZlbC5jb20vbWNwIn0%3D",
+      install: "cursor://anysphere.cursor-deeplink/mcp/install?name=" + NAME + "&config=" + encodeURIComponent(btoa(JSON.stringify(CONFIG))),
       uninstall: "Cursor has no remove command. Open Cursor, go to Customize,\nand remove \"" + NAME + "\" from the MCP list.",
-      iHint: "Click “Open in Cursor” to install in one step, or copy the link and open it.",
+      iHint: needs + "Click “Open in Cursor” to install in one step, or copy the link and open it.",
       uHint: "You can also delete the entry from ~/.cursor/mcp.json."
     },
     vscode: {
-      install: "code --add-mcp '{\"name\":\"" + NAME + "\",\"type\":\"http\",\"url\":\"" + URL_ + "\"}'",
+      install: "code --add-mcp '" + JSON.stringify({ name: NAME, command: CONFIG.command, args: CONFIG.args }) + "'",
       uninstall: "# In VS Code, run \"MCP: Open User Configuration\"\n# and delete the \"" + NAME + "\" entry",
-      iHint: "Paste into your terminal.",
+      iHint: needs + "Paste into your terminal.",
       uHint: "VS Code has no remove command, so edit the file."
     },
     other: {
-      install: "npx add-mcp " + URL_ + " --name " + NAME,
+      install: JSON.stringify({ mcpServers: { "open-ethics-standard": CONFIG } }, null, 2),
       uninstall: "Remove the \"" + NAME + "\" server in your client's MCP settings.",
-      iHint: "Detects your installed clients and lets you pick. Or paste it to your AI and ask it to add this MCP server. No API key.",
+      iHint: needs + "Add this stdio server to your client's MCP config (keep your other servers).",
       uHint: "The exact steps depend on your client."
     }
   };

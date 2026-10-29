@@ -1,13 +1,34 @@
 {
   "name": "open-ethics-standard-mcp",
-  "version": "0.1.0",
-  "private": true,
+  "version": "0.4.0",
   "description": "MCP server that lets your AI diagnose dark patterns, privacy traps, and other harmful practices in your code, backed by the Open Ethics Standard.",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "dark-patterns",
+    "ethics",
+    "privacy",
+    "code-review",
+    "claude",
+    "codex"
+  ],
+  "homepage": "https://ike5.github.io/open-ethics-standard/",
+  "bugs": "https://github.com/ike5/open-ethics-standard/issues",
   "license": "MIT",
   "type": "module",
+  "bin": {
+    "open-ethics-standard-mcp": "dist/server.js"
+  },
+  "files": [
+    "dist/*.js",
+    "dist/*.json",
+    "dist/*.html",
+    "dist/LICENSE*",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ike5/open-ethics-standard.git",
+    "url": "git+https://github.com/ike5/open-ethics-standard.git",
     "directory": "packages/oes-mcp"
   },
   "engines": {
@@ -17,17 +38,23 @@
     "build": "node ../../scripts/build-catalog.mjs && node src/build.mjs",
     "start": "node dist/server.js",
     "dev:remote": "wrangler dev --config wrangler.jsonc",
-    "deploy:remote": "wrangler deploy --config wrangler.jsonc"
+    "deploy:remote": "wrangler deploy --config wrangler.jsonc",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@modelcontextprotocol/client": "^2.0.0",
     "@modelcontextprotocol/ext-apps": "^2.0.3",
     "@modelcontextprotocol/server": "^2.0.0",
     "zod": "^4.2.0"
   },
   "devDependencies": {
+    "@modelcontextprotocol/client": "^2.0.0",
     "agents": "^0.20.0",
     "esbuild": "^0.25.0",
     "wrangler": "^4.0.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "mcpName": "io.github.ike5/open-ethics-standard"
 }

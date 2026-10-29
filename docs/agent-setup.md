@@ -2,8 +2,8 @@
 
 Instructions for an AI assistant reviewing a user's project against the Open Ethics Standard (OES). Work quietly: don't narrate setup, and end with just the report link.
 
-- **The MCP** (`https://mcp.codebylevel.com/mcp`) serves the catalog and this workflow. It never sees the user's code.
-- **The report** is built on the user's machine by a single script. Findings never leave the machine.
+- **The MCP** runs on the user's machine (`npx -y open-ethics-standard-mcp@latest`). It serves the catalog and this workflow, and it saves the report locally. Findings never leave the machine.
+- **You only call its tools.** Never download, install, or run code to build a report, and don't write scripts for it.
 - Findings are leads for the user to judge, not verdicts.
 
 ## 1. Scope
@@ -12,17 +12,12 @@ If the user hasn't said what to review, ask once: the whole app (quick pass), a 
 
 ## 2. Tools
 
-- **OES tools already available** (`search_oes_catalog` and the rest, from any server name)? Use them. Don't add another server.
-- **Not available?** Add the hosted server for future sessions; don't wait for it this session:
+- **OES tools available, including `create_oes_review`?** Use them. Don't add another server.
+- **Not available, or only the hosted catalog server (no `create_oes_review`)?** Don't install it yourself. Give the user the command for their client and continue with what you have:
   ```sh
-  claude mcp add --transport http --scope user open-ethics-standard https://mcp.codebylevel.com/mcp
+  claude mcp add --scope user open-ethics-standard -- npx -y open-ethics-standard-mcp@latest
   ```
-  Other clients: add a remote (HTTP) MCP server with that URL.
-- **Always fetch the report script.** It needs Node.js 20+, and it doubles as the catalog when the MCP tools aren't loaded:
-  ```sh
-  curl -fsSL https://ike5.github.io/open-ethics-standard/oes-report.mjs --create-dirs -o ~/.local/share/open-ethics-standard/oes-report.mjs
-  ```
-  Commands: `node ~/.local/share/open-ethics-standard/oes-report.mjs search <terms>`, `practice <id…>`, `overview`, `build <file.json>`.
+  Other clients: https://ike5.github.io/open-ethics-standard/#install. It needs Node.js 20+, and the client loads it in the next session.
 
 ## 3. Review
 
@@ -44,7 +39,7 @@ If the user hasn't said what to review, ask once: the whole app (quick pass), a 
 
 ## 4. Build the report
 
-Write the review JSON to a temp file **outside the project**, then build:
+Call `create_oes_review` with the review:
 
 ```json
 { "project": "my-app", "scope": "Checkout flow", "limitations": "Static read; app not run.",
@@ -54,13 +49,9 @@ Write the review JSON to a temp file **outside the project**, then build:
   "notes": [ "Sound is on by default (sound.js:21)." ] }
 ```
 
-```sh
-node ~/.local/share/open-ethics-standard/oes-report.mjs build /tmp/oes-review.json
-```
+It saves the report on this machine and returns a `Report:` link and a `State:` path. Use `"findings": []` if nothing matched; always build the report.
 
-The script prints a `Report:` link and a `State:` path. Use `"findings": []` if nothing matched; always build the report.
-
-**No shell access** (for example Claude Desktop)? Call the MCP's `create_oes_review` instead. It sends findings to the hosted server, which doesn't store them, and returns a web link. Tell the user the link contains the evidence.
+**No `create_oes_review`?** Reply with the findings briefly (practice ID, `file:line`, one line each) and the install command from step 2. Never send findings anywhere else.
 
 ## 5. Reply
 
@@ -75,8 +66,8 @@ Don't list findings, setup steps, limitations, or caveats in chat; they're in th
 
 ## Rechecks after fixes
 
-1. Read the previous `State` file (`review.json`) for its `findingKey` values.
-2. Build again with `"previousReviewPath": "<State path>"`:
+1. Call `get_oes_review_state` with the previous `State` path for its `findingKey` values.
+2. Call `create_oes_review` again with `"previousReviewPath": "<State path>"`:
    - Reuse each `findingKey` for issues that remain.
    - Add `"resolvedFindings": [{ "findingKey": "…", "evidence": "…" }]` only for fixes you verified.
 3. The same report link updates, showing New, Still open, Reopened, Verified fixed, and Not rechecked. A missing finding is never assumed fixed.
@@ -85,5 +76,5 @@ Don't list findings, setup steps, limitations, or caveats in chat; they're in th
 
 - Reports live in `~/.local/share/open-ethics-standard/reports` (override with `OES_REPORT_DIR`). They work offline, with Applies / Unsure / Dismiss choices and Markdown or PDF export.
 - Limits: practice IDs must exist, `endLine >= startLine`, and up to 500 findings per review.
-- **Fully offline server (optional):** clone `https://github.com/ike5/open-ethics-standard`, run `npm ci --prefix packages/oes-mcp && npm run setup:mcp`, and add the printed stdio config. It writes reports directly through `create_oes_review`.
+- **Catalog only:** a hosted server at `https://mcp.codebylevel.com/mcp` serves the catalog tools but cannot build reports, so it never receives findings.
 - **Remove:** `claude mcp remove --scope user open-ethics-standard`, and delete `~/.local/share/open-ethics-standard` if the user asks.

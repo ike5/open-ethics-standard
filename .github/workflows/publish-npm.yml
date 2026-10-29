@@ -1,0 +1,45 @@
+name: Publish npm package
+
+# Publishes packages/oes-mcp as open-ethics-standard-mcp, which users run with
+# `npx -y open-ethics-standard-mcp@latest`. Uses npm trusted publishing (OIDC),
+# so no npm token is stored in the repository.
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: publish-npm
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - name: Use an npm with trusted publishing
+        run: npm install -g npm@latest
+      - run: npm ci --prefix packages/oes-mcp
+      - run: npm test
+      - name: Skip versions that are already published
+        id: check
+        working-directory: packages/oes-mcp
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if npm view "open-ethics-standard-mcp@$version" version >/dev/null 2>&1; then
+            echo "open-ethics-standard-mcp@$version is already published."
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "publish=true" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.check.outputs.publish == 'true'
+        working-directory: packages/oes-mcp
+        run: npm publish

@@ -171,23 +171,51 @@ test("comparison rejects ambiguous identities and unverifiable resolution reques
   assert.throws(() => compareReview({ ...current, project: "Another project" }, first, {}), /different project/);
 });
 
-test("single-file oes-report.mjs searches the catalog and builds a lean report with notes", async () => {
-  const root = await mkdtemp(join(tmpdir(), "oes-script-test-"));
-  const script = fileURLToPath(new URL("../../../docs/oes-report.mjs", import.meta.url));
+test("hosted mode is catalog-only and never tells the agent to fetch or run code", async () => {
+  const { McpServer } = await import("@modelcontextprotocol/server");
+  const { registerOesTools } = await import("../src/tools.js");
+  const names = [];
+  const server = new McpServer({ name: "test", version: "1" });
+  const original = server.registerTool.bind(server);
+  let instructions;
+  server.registerTool = (name, config, handler) => {
+    names.push(name);
+    if (name === "get_oes_review_instructions") instructions = handler;
+    return original(name, config, handler);
+  };
+  registerOesTools(server, { catalog, serverVersion: "test" });
+  assert.ok(names.includes("search_oes_catalog"));
+  assert.ok(!names.includes("create_oes_review") && !names.includes("show_oes_review"));
+  const text = (await instructions({})).content[0].text;
+  for (const action of ["curl", "npx", "node ", ".mjs"]) assert.ok(!text.includes(action), `hosted instructions mention ${action}`);
+});
+
+test("packed npm package runs as a stdio MCP and CLI with only its declared files", async () => {
+  const root = await mkdtemp(join(tmpdir(), "oes-pack-test-"));
+  const client = new Client({ name: "oes-test", version: "1.0.0" });
   try {
-    const search = await execFile(process.execPath, [script, "search", "cancel", "subscription"]);
+    const packageDir = fileURLToPath(new URL("..", import.meta.url));
+    const { stdout } = await execFile("npm", ["pack", "--json", "--pack-destination", root], { cwd: packageDir, shell: process.platform === "win32" });
+    const [packed] = JSON.parse(stdout);
+    const files = packed.files.map((file) => file.path).sort();
+    assert.ok(files.includes("dist/server.js") && files.includes("dist/LICENSE-OPEN-ETHICS-STANDARD.md"));
+    assert.ok(files.every((file) => file === "package.json" || file === "README.md" || file.startsWith("dist/")), files.join(", "));
+    const prefix = join(root, "install");
+    await execFile("npm", ["install", "--prefix", prefix, "--no-audit", "--no-fund", join(root, packed.filename)], { shell: process.platform === "win32" });
+    const bin = join(prefix, "node_modules", "open-ethics-standard-mcp", "dist", "server.js");
+    const search = await execFile(process.execPath, [bin, "search", "cancel", "subscription"]);
     assert.match(search.stdout, /^\d+\.\d+\.\d+ {2}\S/m);
-    const practice = await execFile(process.execPath, [script, "practice", "2.1.3"]);
-    assert.match(practice.stdout, /Retention Dark Patterns/);
-    const source = join(root, "findings.json");
-    await writeFile(source, JSON.stringify({ ...input, notes: ["Sound is on by default (sound.js:21)."] }));
-    const { stdout } = await execFile(process.execPath, [script, "build", source, root]);
-    const [report, state] = stdout.trim().split("\n");
-    assert.match(report, /^Report: file:\/\//);
-    assert.match(state, /^State: /);
-    const html = await readFile(fileURLToPath(report.slice("Report: ".length)), "utf8");
+    assert.match((await execFile(process.execPath, [bin, "--version"])).stdout, /open-ethics-standard-mcp \d+\.\d+\.\d+-local/);
+    await client.connect(new StdioClientTransport({ command: process.execPath, args: [bin], cwd: root, env: { ...process.env, OES_REPORT_DIR: join(root, "reports") } }));
+    const result = await client.callTool({ name: "create_oes_review", arguments: { ...input, notes: ["Sound is on by default (sound.js:21)."] } });
+    assert.ok(!result.isError, JSON.stringify(result));
+    assert.match(result.structuredContent.browserUrl, /^file:\/\//);
+    const html = await readFile(result.structuredContent.htmlPath, "utf8");
     assert.ok(html.length < 100_000, "standalone report should not bundle the MCP Apps SDK");
-    const markdown = await readFile(join(dirname(state.slice("State: ".length)), "review.md"), "utf8");
+    const markdown = await readFile(result.structuredContent.markdownPath, "utf8");
     assert.match(markdown, /## Other observations\n\n- Sound is on by default/);
-  } finally { await rm(root, { recursive: true, force: true }); }
+  } finally {
+    await client.close();
+    await rm(root, { recursive: true, force: true });
+  }
 });

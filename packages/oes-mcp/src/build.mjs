@@ -15,6 +15,6 @@ for (const [file, mcpApp] of [["review.html", true], ["report.html", false]]) {
 await cp(resolve(dir, "server.js"), resolve(dist, "server.js"));
 for (const file of ["tools.js", "catalog.js", "cli.js", "report-model.js", "review-state.js", "local-report.js", "build-report.js"]) await cp(resolve(dir, file), resolve(dist, file));
 await cp(resolve(root, "catalog.json"), resolve(dist, "catalog.json"));
-// Single-file report tool served from the website, so reviews need no clone or install.
-await build({ entryPoints: [resolve(dir, "report-entry.js")], bundle: true, format: "esm", platform: "node", target: "node20", minify: true, legalComments: "none", loader: { ".html": "text" }, outfile: resolve(root, "../../docs/oes-report.mjs"), banner: { js: "#!/usr/bin/env node\n// Open Ethics Standard report tool. Source: https://github.com/ike5/open-ethics-standard (MIT; catalog CC BY-ND 4.0)" } });
-console.log("Built OES MCP server, review app, and docs/oes-report.mjs.");
+// The npm package ships these licenses with dist/: code is MIT, the bundled catalog CC BY-ND 4.0.
+for (const file of ["LICENSE", "LICENSE-OPEN-ETHICS-STANDARD.md"]) await cp(resolve(root, "../..", file), resolve(dist, file));
+console.log("Built OES MCP server and review app.");

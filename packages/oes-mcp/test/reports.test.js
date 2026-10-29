@@ -196,7 +196,9 @@ test("packed npm package runs as a stdio MCP and CLI with only its declared file
   try {
     const packageDir = fileURLToPath(new URL("..", import.meta.url));
     const { stdout } = await execFile("npm", ["pack", "--json", "--pack-destination", root], { cwd: packageDir, shell: process.platform === "win32" });
-    const [packed] = JSON.parse(stdout);
+    // npm 11 prints an array of packed packages; npm 12 prints an object.
+    const output = JSON.parse(stdout);
+    const packed = Array.isArray(output) ? output[0] : output.files ? output : Object.values(output)[0];
     const files = packed.files.map((file) => file.path).sort();
     assert.ok(files.includes("dist/server.js") && files.includes("dist/LICENSE-OPEN-ETHICS-STANDARD.md"));
     assert.ok(files.every((file) => file === "package.json" || file === "README.md" || file.startsWith("dist/")), files.join(", "));

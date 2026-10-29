@@ -30,19 +30,6 @@ The same package is a catalog CLI: `npx -y open-ethics-standard-mcp@latest searc
 | `create_oes_review` (alias `show_oes_review`) | Save the offline HTML/Markdown report and return its link |
 | `get_oes_review_state` | Read a previous review for rechecks |
 
-A catalog-only hosted server runs at `https://mcp.codebylevel.com/mcp`. It has no review tools and never receives findings.
-
-## Develop
-
-```sh
-npm ci --prefix packages/oes-mcp
-npm test                 # from the repo root; builds the catalog and server, packs and runs the package
-```
-
-- **Run from a checkout:** `npm run setup:mcp` prints a stdio config pointing at `dist/server.js`.
-- **Publish to npm:** push a `v*` tag, or run the **Publish npm package** workflow (npm trusted publishing). Catalog releases bump the patch version and publish automatically.
-- **Deploy the hosted Worker:** use the **Deploy remote OES MCP** workflow (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
-
 ## License
 
 Code is MIT. The bundled catalog is CC BY-ND 4.0 (see `LICENSE-OPEN-ETHICS-STANDARD.md`).

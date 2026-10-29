@@ -2,8 +2,32 @@ import { registerAppResource, registerAppTool, RESOURCE_MIME_TYPE } from "@model
 import { z } from "zod";
 
 import { createReview, reviewInputSchema } from "./report-model.js";
+import { catalogOverview, findPractices, searchCatalog } from "./catalog.js";
 
 const resourceUri = "ui://open-ethics-standard/review.html";
+const script = "~/.local/share/open-ethics-standard/oes-report.mjs";
+
+// Shown to the model when the server connects, so it follows the workflow without being told.
+export const serverInstructions = "Open Ethics Standard: a catalog of 800+ harmful software practices for reviewing projects. Before reviewing a project, call get_oes_review_instructions and follow it exactly. Finish a review by replying with only the report link.";
+
+const sharedSteps = [
+  "If the user hasn't chosen a scope, ask: whole app (quick), a feature or journey, or one concern.",
+  "Read the code with your own tools; this MCP cannot see files. Use search_oes_catalog and get_oes_practices to match behavior to practices, and verify each against its definition.",
+  "Each finding: id, file, startLine, endLine, evidence (short quote), reasoning (1-2 sentences), confidence (low|medium|high). Put concerns that match no practice in notes (one line each, with file:line). Keep limitations to one sentence.",
+];
+const replyStep = "Final reply is exactly two lines: \"<N> possible matches in <scope>.\" then \"Report: <link>\". Do not list findings, setup steps, or limitations in chat; they are in the report.";
+
+function workflowFor(local) {
+  if (local) return [...sharedSteps,
+    "Call create_oes_review with project, scope, limitations, notes, and findings (findings: [] if none).",
+    "Rechecks: call get_oes_review_state on the previous statePath, pass it as previousReviewPath, reuse each findingKey, and list only verified fixes in resolvedFindings with evidence.",
+    replyStep];
+  return [...sharedSteps,
+    `Build the report on the user's machine so findings never leave it: write the review JSON (project, scope, limitations, notes, findings) to a temp file outside the project, then run: curl -fsSL https://ike5.github.io/open-ethics-standard/oes-report.mjs --create-dirs -o ${script} && node ${script} build <file.json>. It prints the report link and a State path.`,
+    "Rechecks: read the previous State file (review.json), add \"previousReviewPath\": <that path>, reuse each findingKey, and add resolvedFindings [{findingKey, evidence}] only for fixes you verified.",
+    "Only if you cannot run shell commands, call create_oes_review instead; it sends findings to the hosted server (not stored) and returns a web link. Tell the user.",
+    replyStep];
+}
 
 export function registerOesTools(server, { catalog, reviewHtml, browserReviewBase = "", serverVersion = "dev", saveReview, readReview }) {
   if (readReview) server.registerTool("get_oes_review_state", {
@@ -19,19 +43,10 @@ export function registerOesTools(server, { catalog, reviewHtml, browserReviewBas
 
   server.registerTool("get_oes_review_instructions", {
     title: "Get OES review workflow",
-    description: "Return the required workflow for an evidence-based OES project review. The MCP cannot inspect workspace files; the AI must use its own authorized workspace tools.",
+    description: "Call first. Returns the step-by-step workflow for reviewing a project against the OES and producing the report.",
     inputSchema: z.object({}),
   }, async () => {
-    const workflow = [
-      "Keep reviews on the local stdio server. Never submit private findings to a hosted MCP.",
-      "Inspect the user's chosen scope (or ask them to pick one) with your own workspace tools; this MCP cannot read files. Record scope and limitations.",
-      "Search the catalog for concerns suggested by observed behavior. A few search hits are not an exhaustive scan.",
-      "Verify each candidate against its definition and the code. Every finding needs practice ID, file, line range, direct evidence, reasoning, and confidence.",
-      "Always call create_oes_review, with findings: [] if nothing is supported.",
-      "Rechecks: call get_oes_review_state on the previous statePath (or saved state/HTML), pass it as previousReviewPath, reuse each findingKey, and list only verified fixes in resolvedFindings with evidence. Missing findings are never auto-fixed.",
-      "Give the user the exact returned browserUrl as a link. Do not search MCP resources for the page.",
-      "In the report the user marks findings Applies, Unsure, or Dismiss and exports Markdown or PDF. Hosted links carry evidence in their URL fragment; anyone with the link can read it.",
-    ];
+    const workflow = workflowFor(Boolean(saveReview));
     return { content: [{ type: "text", text: workflow.map((s, i) => `${i + 1}. ${s}`).join("\n") }], structuredContent: { workflow, serverVersion, catalogVersion: catalog.version } };
   });
 
@@ -40,13 +55,7 @@ export function registerOesTools(server, { catalog, reviewHtml, browserReviewBas
     description: "List catalog categories with counts and concise practice titles to help plan a broad, relevant review.",
     inputSchema: z.object({}),
   }, async () => {
-    const grouped = new Map();
-    for (const p of catalog.practices) {
-      const group = grouped.get(p.category) ?? [];
-      group.push({ id: p.id, title: p.title, subsection: p.subsection });
-      grouped.set(p.category, group);
-    }
-    const categories = [...grouped].map(([category, practices]) => ({ category, count: practices.length, practices }));
+    const categories = catalogOverview(catalog);
     return { content: [{ type: "text", text: JSON.stringify({ catalogVersion: catalog.version, totalPractices: catalog.practices.length, categories }, null, 2) }], structuredContent: { catalogVersion: catalog.version, totalPractices: catalog.practices.length, categories } };
   });
 
@@ -55,7 +64,7 @@ export function registerOesTools(server, { catalog, reviewHtml, browserReviewBas
     description: "Return full catalog definitions for up to 30 practice IDs in one call.",
     inputSchema: z.object({ ids: z.array(z.string().regex(/^\d+\.\d+\.\d+$/)).min(1).max(30) }),
   }, async ({ ids }) => {
-    const practices = ids.map((id) => catalog.practices.find((p) => p.id === id)).filter(Boolean);
+    const practices = findPractices(catalog, ids);
     return { content: [{ type: "text", text: JSON.stringify({ catalogVersion: catalog.version, practices, missingIds: ids.filter((id) => !practices.some((p) => p.id === id)) }, null, 2) }], structuredContent: { catalogVersion: catalog.version, practices, missingIds: ids.filter((id) => !practices.some((p) => p.id === id)) } };
   });
   server.registerTool("search_oes_catalog", {
@@ -63,12 +72,7 @@ export function registerOesTools(server, { catalog, reviewHtml, browserReviewBas
     description: "Search OES practices while reviewing a project. Use this to find relevant practice definitions and cite their IDs. The standard is a reference catalog, not a legal or compliance verdict.",
     inputSchema: z.object({ query: z.string().min(2).max(300), limit: z.number().int().min(1).max(30).default(12) }),
   }, async ({ query, limit }) => {
-    const terms = query.toLowerCase().split(/[^a-z0-9]+/).filter((term) => term.length > 2);
-    const results = catalog.practices.map((item) => {
-      const text = `${item.title} ${item.description} ${item.domains} ${item.subsection} ${item.category}`.toLowerCase();
-      const score = terms.reduce((total, term) => total + (text.includes(term) ? 1 : 0), 0);
-      return { ...item, score };
-    }).filter((item) => item.score > 0).sort((a, b) => b.score - a.score || a.id.localeCompare(b.id)).slice(0, limit);
+    const results = searchCatalog(catalog, query, limit);
     return { content: [{ type: "text", text: JSON.stringify({ version: catalog.version, results }, null, 2) }], structuredContent: { version: catalog.version, results } };
   });
 
@@ -84,7 +88,9 @@ export function registerOesTools(server, { catalog, reviewHtml, browserReviewBas
 
   const reviewConfig = {
     title: "Show OES project review",
-    description: "REQUIRED final step of a review. Submit all evidence-backed possible matches (findings: [] if none) plus scope and limitations. Each finding needs practice ID, file, line range, evidence, reasoning, and confidence. Locally, saves offline HTML and Markdown and returns a file browserUrl. For rechecks, pass previousReviewPath (prior statePath), reuse findingKey values, and add verified resolvedFindings. Findings are leads, not verdicts. Hosted links encode evidence in the URL fragment (not stored, but readable by anyone with the link); tell the user.",
+    description: saveReview
+      ? "Final step of a review: saves the offline HTML report on this machine and returns its link. Submit findings (or []), scope, limitations, and notes. For rechecks pass previousReviewPath and resolvedFindings."
+      : "Only for clients that cannot run shell commands: sends findings to the hosted server (not stored) and returns a web link carrying the evidence. If you can run shell commands, build the report locally instead (see get_oes_review_instructions).",
     inputSchema: reviewInputSchema,
     _meta: { ui: { resourceUri } },
   };
@@ -98,7 +104,7 @@ export function registerOesTools(server, { catalog, reviewHtml, browserReviewBas
       const { review, ...links } = saved;
       if (review) model = review;
       return {
-        content: [{ type: "text", text: `${model.findings.length} possible OES matches for ${model.project}. Findings are leads for human review, not determinations. Browser fallback: ${links.browserUrl || "unavailable"}. ${saveReview ? `Local Markdown: ${links.markdownPath}. Audit state: ${links.statePath}. On the next audit pass previousReviewPath: ${links.statePath}, reuse findingKey values, and provide resolvedFindings with fix evidence. Open the HTML to export Markdown, save review choices, or Print / Save PDF. These files contain review evidence and remain on this machine.` : "The hosted link contains review evidence; anyone with the link can read it. For private evidence, use the local stdio server."}` }],
+        content: [{ type: "text", text: `Report: ${links.browserUrl || "unavailable"}${links.statePath ? `\nState: ${links.statePath}` : "\nThis link contains the review evidence; anyone with it can read it."}\nReply to the user with only the finding count and the report link.` }],
         structuredContent: { ...model, ...links },
       };
     } catch (error) {

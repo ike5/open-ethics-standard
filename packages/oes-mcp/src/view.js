@@ -1,11 +1,12 @@
-import { App } from "@modelcontextprotocol/ext-apps";
 import { decision, exportFindings, findingKey, markdownReport, reviewCounts } from "./review-state.js";
 
-const app = new App({ name: "Open Ethics Standard Review", version: "1.1.0" });
+// MCP_APP is set at build time; the standalone offline report omits the MCP Apps SDK entirely.
+let app = null;
 let model = { project: "Project", version: "", findings: [] };
 const decisions = new Map();
 let activeFilter = "active";
 let printing = false;
+const openKeys = new Set();
 const $ = (selector) => document.querySelector(selector);
 const list = $("#list");
 const filters = $("#filters");
@@ -26,16 +27,20 @@ function load(next) {
   }
   render();
 }
-app.ontoolresult = (result) => { if (result.structuredContent) load(result.structuredContent); };
 try {
   const embedded = $("#oes-review-data");
   const encoded = location.hash.slice(1);
   if (embedded || encoded) {
     load(embedded ? JSON.parse(embedded.textContent) : JSON.parse(decodeURIComponent(encoded)));
     $("#discuss").hidden = true;
-    notify("Your review is ready. Dismissed findings are excluded from Markdown and PDF. Save audit state to carry your choices into the next run.");
+  } else if (MCP_APP) {
+    import("@modelcontextprotocol/ext-apps").then(({ App }) => {
+      app = new App({ name: "Open Ethics Standard Review", version: "1.2.0" });
+      app.ontoolresult = (result) => { if (result.structuredContent) load(result.structuredContent); };
+      return app.connect();
+    }).catch(() => notify("The client could not connect the review. Open the local HTML report instead."));
   } else {
-    app.connect().catch(() => notify("The client could not connect the review. Open the local HTML report instead."));
+    notify("This report has no review data. Regenerate it.");
   }
 } catch {
   notify("This review is invalid or incomplete. Regenerate it with your local MCP.");
@@ -46,8 +51,7 @@ function render() {
   const counts = reviewCounts(findings, statusOf);
   document.title = `${model.project} · OES review`;
   $("#meta").textContent = model.project;
-  $("#audit-label").textContent = model.runNumber ? `Audit ${String(model.runNumber).padStart(2, "0")} · Review evidence and decide what applies.` : "Review evidence and decide what applies.";
-  $("#run-label").textContent = model.createdAt ? `Run ${model.runNumber} · ${new Date(model.createdAt).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}` : "Evidence, with context";
+  $("#run-label").textContent = model.createdAt ? `Run ${model.runNumber} · ${new Date(model.createdAt).toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })}` : "";
   $("#title").textContent = "Possible matches";
   $("#finding-total").textContent = `${exportFindings(model, statusOf).length} included · ${new Set(findings.filter((item) => statusOf(item) !== "dismissed").map((item) => item.file)).size} files`;
   $("#scope").textContent = model.scope || "Not recorded";
@@ -57,7 +61,12 @@ function render() {
   for (const [selector, value] of Object.entries({ "#open-count": counts.open, "#fixed-count": counts.fixed, "#new-count": counts.new, "#unchecked-count": counts.notRechecked, "#dismissed-count": counts.dismissed })) $(selector).textContent = value;
   const denominator = counts.open + counts.fixed + counts.notRechecked;
   $("#progress-fill").style.width = `${denominator ? counts.fixed / denominator * 100 : 0}%`;
-  $("#progress-caption").textContent = denominator ? `${counts.fixed} of ${denominator} non-dismissed findings verified fixed.` : "No non-dismissed findings in this review.";
+  $("#progress-caption").textContent = denominator ? `${counts.fixed} of ${denominator} verified fixed` : "No open findings";
+  const notes = model.notes || [];
+  $("#notes-wrap").hidden = !notes.length;
+  if (printing && notes.length) $("#notes-wrap").open = true;
+  $("#notes-count").textContent = `(${notes.length})`;
+  $("#notes").innerHTML = notes.map((note) => `<li>${esc(note)}</li>`).join("");
   const filterCounts = { active: counts.open, fixed: counts.fixed, not_rechecked: counts.notRechecked, dismissed: counts.dismissed, all: findings.length };
   const labels = { active: "Open", fixed: "Fixed", not_rechecked: "Not rechecked", dismissed: "Dismissed", all: "All" };
   filters.innerHTML = Object.keys(filterCounts).map((name) => `<button type="button" data-filter="${name}" aria-pressed="${activeFilter === name}">${labels[name]} <span>${filterCounts[name]}</span></button>`).join("");
@@ -71,22 +80,65 @@ function render() {
     if (activeFilter === "active") return !["fixed", "not_rechecked"].includes(item.lifecycle);
     return item.lifecycle === activeFilter;
   });
+  const recheck = (model.runNumber || 1) > 1;
   list.innerHTML = visible.length ? visible.map((item) => {
     const status = statusOf(item);
+    const key = findingKey(item);
     const lifecycle = item.lifecycle || "new";
+    const lines = `${item.startLine}${item.endLine !== item.startLine ? `–${item.endLine}` : ""}`;
     const citation = `https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md#L${Number(item.practice?.sourceLine) || 1}`;
-    return `<article class="item" data-decision="${status}"><div class="head"><span class="id">${esc(item.id)}</span><div class="finding-heading"><span class="title">${esc(item.practice?.title || "Unknown OES practice")}</span><span class="conf">${esc(item.confidence)} confidence</span></div><span class="lifecycle ${esc(lifecycle)}">${esc(progressLabels[lifecycle] || lifecycle)}</span></div><span class="loc">${esc(item.file)}:${esc(item.startLine)}${item.endLine !== item.startLine ? `–${esc(item.endLine)}` : ""}</span><span class="label">${lifecycle === "fixed" ? "Previously observed evidence" : "Observed evidence"}</span><div class="evidence">${esc(item.evidence)}</div><span class="label">Why it matters</span><p class="reason">${esc(item.reasoning)}</p>${item.resolutionEvidence ? `<span class="label">Fix verification</span><p class="resolution">${esc(item.resolutionEvidence)}</p>` : ""}${lifecycle === "not_rechecked" ? '<p class="reason" style="margin-top:10px">This prior finding was not rechecked in this run. Its absence is not evidence of a fix.</p>' : ""}<a class="citation" href="${citation}" target="_blank" rel="noreferrer">Read OES § ${esc(item.id)} ↗</a><div class="finding-footer"><span>Does this apply?</span><div class="actions">${["applies", "unsure", "dismissed"].map((name) => `<button type="button" data-status="${name}" data-key="${esc(findingKey(item))}" aria-pressed="${status === name}">${name === "dismissed" ? "Dismiss" : name === "applies" ? "Applies" : "Unsure"}</button>`).join("")}</div></div><span class="decision-label">Decision: ${status}</span></article>`;
+    const pills = `${recheck || lifecycle !== "new" ? `<span class="lifecycle ${esc(lifecycle)}">${esc(progressLabels[lifecycle] || lifecycle)}</span>` : ""}<span class="pill conf ${esc(item.confidence)}">${esc(item.confidence)}</span>${status === "unsure" ? "" : `<span class="pill ${status}">${status === "applies" ? "Applies" : "Dismissed"}</span>`}`;
+    return `<details class="item" data-decision="${status}" data-key="${esc(key)}"${printing || openKeys.has(key) ? " open" : ""}><summary><span class="id">${esc(item.id)}</span><span class="finding-heading"><span class="title">${esc(item.practice?.title || "Unknown OES practice")}</span><span class="loc">${esc(item.file)}:${esc(lines)}</span></span><span class="pills">${pills}</span><span class="chev" aria-hidden="true"></span></summary><div class="body"><div class="inner"><span class="label">${lifecycle === "fixed" ? "Previously observed evidence" : "Evidence"}</span><div class="evidence">${esc(item.evidence)}</div><span class="label">Why it matters</span><p class="reason">${esc(item.reasoning)}</p>${item.resolutionEvidence ? `<span class="label">Fix verification</span><p class="resolution">${esc(item.resolutionEvidence)}</p>` : ""}${lifecycle === "not_rechecked" ? '<p class="reason" style="margin-top:10px">Not rechecked in this run. Its absence is not evidence of a fix.</p>' : ""}<a class="citation" href="${citation}" target="_blank" rel="noreferrer">Read OES § ${esc(item.id)} ↗</a><div class="finding-footer"><span>Does this apply?</span><div class="actions">${["applies", "unsure", "dismissed"].map((name) => `<button type="button" data-status="${name}" data-key="${esc(key)}" aria-pressed="${status === name}">${name === "dismissed" ? "Dismiss" : name === "applies" ? "Applies" : "Unsure"}</button>`).join("")}</div></div><span class="decision-label">Decision: ${status}</span></div></div></details>`;
   }).join("") : `<div class="empty">${printing ? "No non-dismissed findings to export." : activeFilter === "active" ? "No open findings in this view. Explore the other tabs to review fixed, dismissed, or unverified findings." : "No findings in this view."}</div>`;
+  list.querySelectorAll("details.item").forEach((item) => item.addEventListener("toggle", () => {
+    if (printing) return;
+    if (item.open) openKeys.add(item.dataset.key); else openKeys.delete(item.dataset.key);
+    updateToggleAll();
+  }));
+  updateToggleAll();
   list.querySelectorAll("[data-status]").forEach((button) => button.addEventListener("click", () => {
     decisions.set(button.dataset.key, button.dataset.status);
     let persisted = false;
     try { if (storageKey()) { localStorage.setItem(storageKey(), JSON.stringify(Object.fromEntries(decisions))); persisted = true; } } catch { /* Save HTML/state remains available */ }
     render();
-    notify(`${button.dataset.status === "dismissed" ? "Finding dismissed and excluded from Markdown and PDF." : "Review choice updated."} ${persisted ? "Choice saved in this browser. " : ""}Save audit state to include these choices in the next MCP run.`);
+    notify(`${button.dataset.status === "dismissed" ? "Dismissed; left out of exports." : "Choice updated."}${persisted ? " Saved in this browser." : ""}`);
   }));
   const history = model.history?.length ? model.history.map((run, index) => index === model.history.length - 1 ? { ...run, ...counts } : run) : [{ runNumber: 1, createdAt: model.createdAt, scope: model.scope, ...counts }];
   $("#history").innerHTML = history.map((run, index) => `<article class="history-card"><h3>Audit ${String(run.runNumber).padStart(2, "0")} ${index === history.length - 1 ? '<span class="lifecycle">Latest run</span>' : ""}</h3><time>${run.createdAt ? esc(new Date(run.createdAt).toLocaleString()) : "Current review"}</time><div class="history-stats"><span><b>${esc(run.open)}</b>open</span><span><b>${esc(run.fixed)}</b>fixed</span><span><b>${esc(run.new)}</b>new</span></div><p>${esc(run.scope || "Scope not recorded")}</p></article>`).join("");
 }
+
+function updateToggleAll() {
+  const items = [...list.querySelectorAll("details.item")];
+  $("#toggle-all").hidden = !items.length;
+  $("#toggle-all").textContent = items.length && items.every((item) => item.open) ? "Collapse all" : "Expand all";
+}
+// Animate accordion height instead of the native instant snap.
+list.addEventListener("click", (event) => {
+  const summary = event.target.closest("details.item > summary");
+  if (!summary || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  event.preventDefault();
+  const item = summary.parentElement;
+  const body = item.querySelector(".body");
+  if (item.dataset.animating) return;
+  item.dataset.animating = "true";
+  const opening = !item.open;
+  if (opening) item.open = true;
+  const height = `${body.scrollHeight}px`;
+  body.style.overflow = "hidden";
+  const frames = [{ height: "0px", opacity: 0 }, { height, opacity: 1 }];
+  const animation = body.animate(opening ? frames : frames.reverse(), { duration: opening ? 320 : 240, easing: "cubic-bezier(.2,.7,.2,1)" });
+  animation.onfinish = animation.oncancel = () => {
+    body.style.overflow = "";
+    if (!opening) item.open = false;
+    delete item.dataset.animating;
+  };
+});
+$("#toggle-all").addEventListener("click", () => {
+  const items = [...list.querySelectorAll("details.item")];
+  const open = !items.every((item) => item.open);
+  for (const item of items) { if (open) openKeys.add(item.dataset.key); else openKeys.delete(item.dataset.key); }
+  render();
+});
 
 function reviewedReport() { return markdownReport(model, statusOf); }
 function savedModel() {
@@ -118,6 +170,7 @@ $("#copy").addEventListener("click", async () => {
   catch { notify("Copy is unavailable. Use Export Markdown to download your report."); }
 });
 $("#discuss").addEventListener("click", async () => {
+  if (!app) return;
   const button = $("#discuss"); button.disabled = true;
   try {
     const result = await app.sendMessage({ role: "user", content: [{ type: "text", text: `Please discuss my OES review choices and help investigate uncertain or applicable findings.\n\n${reviewedReport()}` }] });

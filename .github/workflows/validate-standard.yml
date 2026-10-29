@@ -7,6 +7,7 @@ on:
       - "scripts/**"
       - "packages/oes-mcp/**"
       - "package.json"
+      - "docs/oes-report.mjs"
       - ".github/workflows/validate-standard.yml"
 
 permissions:
@@ -21,4 +22,6 @@ jobs:
         with:
           node-version: 22
       - run: npm ci --prefix packages/oes-mcp
-      - run: npm run build:mcp
+      - run: npm test
+      - name: Check docs/oes-report.mjs is up to date
+        run: git diff --exit-code docs/oes-report.mjs

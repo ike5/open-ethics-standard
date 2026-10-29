@@ -64,6 +64,7 @@ export function markdownReport(model, status = decision) {
     "Possible matches are leads for human review, not verdicts or certification. Dismissed findings are excluded.",
     ...(findings.length ? findings.map((item, index) =>
       `## ${index + 1}. OES § ${item.id} — ${literal(item.practice?.title)}\n\nStatus: ${status(item)} · Progress: ${literal(item.lifecycle || "new")} · Confidence: ${item.confidence}\n\nLocation: ${literal(item.file)}:${item.startLine}-${item.endLine}\n\nEvidence:\n\n${quote(item.evidence)}\n\nReasoning: ${literal(item.reasoning)}${item.resolutionEvidence ? `\n\nFix verification:\n\n${quote(item.resolutionEvidence)}` : ""}\n\n[Read OES § ${item.id}](https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md#L${item.practice?.sourceLine || 1})`)
-      : ["No non-dismissed findings to export within the recorded scope."])
+      : ["No non-dismissed findings to export within the recorded scope."]),
+    ...(model.notes?.length ? [`## Other observations\n\n${model.notes.map((note) => `- ${literal(note)}`).join("\n")}`] : [])
   ].join("\n\n") + "\n";
 }

@@ -1,7 +1,7 @@
 {
   "project": "Acme Fitness (illustrative example)",
   "scope": "Billing, signup consent, and pricing pages",
-  "limitations": "Illustrative findings for documentation; not a real audit.",
+  "limitations": "Illustrative example; not a real audit.",
   "findings": [
     {
       "id": "2.1.3",
@@ -33,5 +33,8 @@
       "confidence": "medium",
       "findingKey": "offer-countdown-resets"
     }
+  ],
+  "notes": [
+    "Price on the plan page excludes a $4.99 service fee shown only at checkout (web/pricing/Plans.tsx:40)."
   ]
 }

@@ -6,7 +6,7 @@
   <a href="LICENSE"><img alt="Code: MIT" src="https://img.shields.io/badge/code-MIT-607138"></a>
   <a href="LICENSE-OPEN-ETHICS-STANDARD.md"><img alt="Standard: CC BY-ND 4.0" src="https://img.shields.io/badge/standard-CC%20BY--ND%204.0-607138"></a>
   <a href="https://github.com/ike5/open-ethics-standard/actions/workflows/validate-standard.yml"><img alt="CI" src="https://github.com/ike5/open-ethics-standard/actions/workflows/validate-standard.yml/badge.svg"></a>
-  <img alt="MCP: local stdio" src="https://img.shields.io/badge/MCP-local%20stdio-d8f36a">
+  <img alt="MCP: remote HTTP" src="https://img.shields.io/badge/MCP-remote%20HTTP-d8f36a">
 </p>
 
 <p align="center">
@@ -20,40 +20,37 @@
 
 Findings are leads for you to review, not verdicts or certifications.
 
-## Add it to your AI in one prompt
+## Get started
 
-Open your project in Claude Code, Codex, Cursor, VS Code, or any MCP client, and paste:
+**1. Add the MCP.** No install, account, or API key:
 
-```text
-Review my project against the Open Ethics Standard. Follow https://ike5.github.io/open-ethics-standard/agent-setup.md to set up the local MCP and keep my code and findings on this machine. Ask me what to review if I haven't said, then give me the link to the report.
+```sh
+claude mcp add --transport http --scope user open-ethics-standard https://mcp.codebylevel.com/mcp
 ```
 
-No account or API key needed. You get an offline report where you decide what applies:
+For Codex, Cursor, VS Code, or other clients, add a remote (HTTP) MCP server with the URL `https://mcp.codebylevel.com/mcp`. To uninstall: `claude mcp remove --scope user open-ethics-standard`.
+
+**2. Ask for a review.** Open your project and say:
+
+```text
+Review my project against the Open Ethics Standard.
+```
+
+You get back one link to an offline report, with every finding a click away:
 
 <p align="center"><img src="docs/assets/report.png" alt="Offline OES review report with findings, evidence, and Applies / Unsure / Dismiss choices" width="100%"></p>
 
 ## How it works
 
-1. **Set up:** your assistant installs the OES MCP locally.
-2. **Review:** it reads the code you point it at and matches behavior to OES practices, citing files, lines, and evidence.
-3. **Decide:** open the report, then mark each finding **Applies**, **Unsure**, or **Dismiss** and export to Markdown or PDF. After fixes, ask your assistant to recheck. The same report tracks what's been fixed.
-
-## Manual install
-
-```sh
-git clone https://github.com/ike5/open-ethics-standard.git ~/.local/share/open-ethics-standard
-cd ~/.local/share/open-ethics-standard
-npm ci --prefix packages/oes-mcp
-npm run setup:mcp   # prints the config to add to your AI client
-```
-
-Requires Node.js 20+. See the [setup guide](docs/agent-setup.md) for client commands, rechecks, and troubleshooting.
+1. **Your AI reads your code.** The MCP gives it the catalog and a review workflow.
+2. **It matches behavior to OES practices**, citing files, lines, and evidence.
+3. **You decide.** Open the report, mark each finding **Applies**, **Unsure**, or **Dismiss**, and export to Markdown or PDF. After fixes, ask for a recheck; the same report tracks what's fixed.
 
 ## Your data
 
-- OES runs locally. It never reads your files; your assistant does.
-- Reports are offline HTML and Markdown in `~/.local/share/open-ethics-standard/reports`. They have no telemetry and need no server.
-- Your AI provider's own data policies still apply.
+- The MCP serves the catalog. It never sees your code.
+- The report is built on your machine by [one small script](docs/oes-report.mjs), so findings stay local. Reports are saved in `~/.local/share/open-ethics-standard/reports`.
+- Want everything offline? The [setup guide](docs/agent-setup.md#notes) covers running the MCP locally.
 
 ## Contribute
 

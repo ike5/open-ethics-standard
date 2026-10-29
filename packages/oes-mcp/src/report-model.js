@@ -3,7 +3,8 @@ import { z } from "zod";
 export const reviewInputSchema = z.object({
   project: z.string().min(1).max(200),
   scope: z.string().max(2000).default("Scope not recorded"),
-  limitations: z.string().max(4000).default("Limitations not recorded"),
+  limitations: z.string().max(4000).default("Limitations not recorded").describe("One or two sentences on what was not checked."),
+  notes: z.array(z.string().min(1).max(600)).max(50).default([]).describe("Short observations worth a look that match no OES practice, each with its file:line."),
   previousReviewPath: z.string().min(1).max(2000).optional().describe("Local path to review.json, saved audit state JSON, or saved report HTML from the previous run. Reuse for updates; never send private paths to hosted OES."),
   resolvedFindings: z.array(z.object({
     findingKey: z.string().min(1).max(160),

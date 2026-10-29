@@ -2,7 +2,7 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import { mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { execFile as callbackExecFile } from "node:child_process";
 import { promisify } from "node:util";
@@ -169,4 +169,25 @@ test("comparison rejects ambiguous identities and unverifiable resolution reques
   assert.throws(() => compareReview({ ...current, resolvedFindings: [{ findingKey: "unknown", evidence: "fixed" }] }, first, {}), /unknown previous/);
   assert.throws(() => compareReview({ ...current, resolvedFindings: [{ findingKey: "one", evidence: "fixed" }] }, first, {}), /both open and resolved/);
   assert.throws(() => compareReview({ ...current, project: "Another project" }, first, {}), /different project/);
+});
+
+test("single-file oes-report.mjs searches the catalog and builds a lean report with notes", async () => {
+  const root = await mkdtemp(join(tmpdir(), "oes-script-test-"));
+  const script = fileURLToPath(new URL("../../../docs/oes-report.mjs", import.meta.url));
+  try {
+    const search = await execFile(process.execPath, [script, "search", "cancel", "subscription"]);
+    assert.match(search.stdout, /^\d+\.\d+\.\d+ {2}\S/m);
+    const practice = await execFile(process.execPath, [script, "practice", "2.1.3"]);
+    assert.match(practice.stdout, /Retention Dark Patterns/);
+    const source = join(root, "findings.json");
+    await writeFile(source, JSON.stringify({ ...input, notes: ["Sound is on by default (sound.js:21)."] }));
+    const { stdout } = await execFile(process.execPath, [script, "build", source, root]);
+    const [report, state] = stdout.trim().split("\n");
+    assert.match(report, /^Report: file:\/\//);
+    assert.match(state, /^State: /);
+    const html = await readFile(fileURLToPath(report.slice("Report: ".length)), "utf8");
+    assert.ok(html.length < 100_000, "standalone report should not bundle the MCP Apps SDK");
+    const markdown = await readFile(join(dirname(state.slice("State: ".length)), "review.md"), "utf8");
+    assert.match(markdown, /## Other observations\n\n- Sound is on by default/);
+  } finally { await rm(root, { recursive: true, force: true }); }
 });

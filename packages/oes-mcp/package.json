@@ -1,17 +1,20 @@
 {
   "name": "open-ethics-standard-mcp",
   "version": "0.1.0",
+  "private": true,
   "description": "MCP server that lets your AI diagnose dark patterns, privacy traps, and other harmful practices in your code, backed by the Open Ethics Standard.",
   "license": "MIT",
   "type": "module",
-  "bin": { "oes-mcp": "dist/server.js" },
-  "files": ["dist", "README.md"],
-  "repository": { "type": "git", "url": "https://github.com/ike5/open-ethics-standard.git", "directory": "packages/oes-mcp" },
-  "publishConfig": { "access": "public", "provenance": true },
-  "engines": { "node": ">=20" },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ike5/open-ethics-standard.git",
+    "directory": "packages/oes-mcp"
+  },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "node ../../scripts/build-catalog.mjs && node src/build.mjs",
-    "prepack": "npm run build",
     "start": "node dist/server.js",
     "dev:remote": "wrangler dev --config wrangler.jsonc",
     "deploy:remote": "wrangler deploy --config wrangler.jsonc"

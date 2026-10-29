@@ -1,36 +1,37 @@
 # OES MCP server
 
-An MCP server that gives your AI assistant the [Open Ethics Standard](../../OPEN-ETHICS-STANDARD.md) catalog and writes offline review reports. Your assistant reads your code; this server never does.
+An MCP server that gives your AI assistant the [Open Ethics Standard](../../OPEN-ETHICS-STANDARD.md) catalog and a review workflow. Your assistant reads your code; this server never does.
 
-## Install
+## Use it
 
-From the repository root (Node.js 20+):
+The server is hosted at `https://mcp.codebylevel.com/mcp` (Streamable HTTP):
 
 ```sh
-npm ci --prefix packages/oes-mcp
-npm run setup:mcp   # prints the stdio config for your client
+claude mcp add --transport http --scope user open-ethics-standard https://mcp.codebylevel.com/mcp
 ```
 
-Full instructions: [setup guide](../../docs/agent-setup.md).
+Reports are built on the user's machine by [`docs/oes-report.mjs`](../../docs/oes-report.mjs), a single-file script bundled from this package, so findings never reach the server. See the [agent guide](../../docs/agent-setup.md).
 
 ## Tools
 
 | Tool | Purpose |
 | --- | --- |
-| `get_oes_review_instructions` | Review workflow for the assistant |
+| `get_oes_review_instructions` | Review workflow and reply format (call first) |
 | `get_oes_catalog_overview` | Categories and practice titles for planning |
 | `search_oes_catalog` | Search practices |
 | `get_oes_practice` / `get_oes_practices` | Full definitions by ID |
-| `create_oes_review` (alias `show_oes_review`) | Save the HTML and Markdown report and return its link |
-| `get_oes_review_state` | Read a previous review for rechecks (local only) |
+| `create_oes_review` (alias `show_oes_review`) | Fallback for clients without a shell; hosted mode returns a web link |
+| `get_oes_review_state` | Read a previous review for rechecks (local server only) |
 
-Reports go to `~/.local/share/open-ethics-standard/reports` unless `OES_REPORT_DIR` is set. They work offline and include Applies/Unsure/Dismiss choices, Markdown and PDF export, and audit history across rechecks.
+## Develop
 
-Without an MCP connection: `npm run build:report -- findings.json [output-dir]` (see [`examples/`](examples)).
+```sh
+npm ci --prefix packages/oes-mcp
+npm test                 # from the repo root; builds the catalog, server, and docs/oes-report.mjs
+```
 
-## Hosted endpoint
-
-An optional Streamable HTTP endpoint runs at `https://mcp.codebylevel.com/mcp`. Review calls send findings to it. It doesn't store them, but use local stdio when evidence must stay private. Deploy it with the **Deploy remote OES MCP** workflow (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
+- **Fully local stdio server:** `npm run setup:mcp` prints the config. In that mode, `create_oes_review` writes reports directly.
+- **Deploy the hosted Worker:** use the **Deploy remote OES MCP** workflow (`CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`).
 
 ## License
 

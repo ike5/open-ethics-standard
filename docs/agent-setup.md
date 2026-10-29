@@ -76,5 +76,4 @@ Don't list findings, setup steps, limitations, or caveats in chat; they're in th
 
 - Reports live in `~/.local/share/open-ethics-standard/reports` (override with `OES_REPORT_DIR`). They work offline, with Applies / Unsure / Dismiss choices and Markdown or PDF export.
 - Limits: practice IDs must exist, `endLine >= startLine`, and up to 500 findings per review.
-- **Catalog only:** a hosted server at `https://mcp.codebylevel.com/mcp` serves the catalog tools but cannot build reports, so it never receives findings.
 - **Remove:** `claude mcp remove --scope user open-ethics-standard`, and delete `~/.local/share/open-ethics-standard` if the user asks.

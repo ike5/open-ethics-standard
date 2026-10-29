@@ -1,22 +1,36 @@
 import { registerAppResource, registerAppTool, RESOURCE_MIME_TYPE } from "@modelcontextprotocol/ext-apps/server";
 import { z } from "zod";
 
+import { createReview, reviewInputSchema } from "./report-model.js";
+
 const resourceUri = "ui://open-ethics-standard/review.html";
 
-export function registerOesTools(server, { catalog, reviewHtml, browserReviewBase = "", serverVersion = "dev" }) {
+export function registerOesTools(server, { catalog, reviewHtml, browserReviewBase = "", serverVersion = "dev", saveReview, readReview }) {
+  if (readReview) server.registerTool("get_oes_review_state", {
+    title: "Read a previous local OES audit",
+    description: "Read the local review JSON or saved HTML before a follow-up audit. Returns stable finding keys, prior choices, fix evidence, and audit history. Use these keys when submitting current findings and verified resolutions. Local-only; does not upload data.",
+    inputSchema: z.object({ path: z.string().min(1).max(2000) }),
+  }, async ({ path }) => {
+    try {
+      const review = await readReview(path);
+      return { content: [{ type: "text", text: JSON.stringify(review, null, 2) }], structuredContent: review };
+    } catch (error) { return { isError: true, content: [{ type: "text", text: `Could not read local review: ${error.message}` }] }; }
+  });
+
   server.registerTool("get_oes_review_instructions", {
     title: "Get OES review workflow",
     description: "Return the required workflow for an evidence-based OES project review. The MCP cannot inspect workspace files; the AI must use its own authorized workspace tools.",
     inputSchema: z.object({}),
   }, async () => {
     const workflow = [
-      "Inspect the project using authorized workspace tools; the MCP cannot read project files.",
-      "Search the OES catalog for concerns suggested by observed product behavior; do not treat a few search results as an exhaustive scan.",
-      "Verify every candidate against source and user-facing behavior. Include file path, line range, direct evidence, reasoning, confidence, and practice ID.",
-      "Call create_oes_review after the scan, including findings: [] when no supported matches exist.",
-      "Give the user the returned browserUrl as a clickable link. Do not search general MCP resources for the review page.",
-      "If the client displays the attached MCP App, invite the user to mark each finding Applies, Unsure, or Dismiss.",
-      "The browser URL carries evidence in its fragment. Anyone with the link can read it; disclose this when sharing.",
+      "Keep reviews on the local stdio server. Never submit private findings to a hosted MCP.",
+      "Inspect the user's chosen scope (or ask them to pick one) with your own workspace tools; this MCP cannot read files. Record scope and limitations.",
+      "Search the catalog for concerns suggested by observed behavior. A few search hits are not an exhaustive scan.",
+      "Verify each candidate against its definition and the code. Every finding needs practice ID, file, line range, direct evidence, reasoning, and confidence.",
+      "Always call create_oes_review, with findings: [] if nothing is supported.",
+      "Rechecks: call get_oes_review_state on the previous statePath (or saved state/HTML), pass it as previousReviewPath, reuse each findingKey, and list only verified fixes in resolvedFindings with evidence. Missing findings are never auto-fixed.",
+      "Give the user the exact returned browserUrl as a link. Do not search MCP resources for the page.",
+      "In the report the user marks findings Applies, Unsure, or Dismiss and exports Markdown or PDF. Hosted links carry evidence in their URL fragment; anyone with the link can read it.",
     ];
     return { content: [{ type: "text", text: workflow.map((s, i) => `${i + 1}. ${s}`).join("\n") }], structuredContent: { workflow, serverVersion, catalogVersion: catalog.version } };
   });
@@ -70,31 +84,26 @@ export function registerOesTools(server, { catalog, reviewHtml, browserReviewBas
 
   const reviewConfig = {
     title: "Show OES project review",
-    description: "REQUIRED final step after a project review: submit all evidence-backed possible matches (including an empty array when none) to display the interactive OES review. The result includes a browser link users can open if their MCP client does not render Apps. Findings require file, line range, evidence, reasoning, confidence, and OES practice ID. This is not a verdict. Hosted browser links encode submitted evidence in the URL fragment; the Worker does not store it, but anyone with the link can view it, so tell the user the link contains review evidence.",
-    inputSchema: z.object({
-      project: z.string().min(1).max(200),
-      findings: z.array(z.object({
-        id: z.string().regex(/^\d+\.\d+\.\d+$/),
-        file: z.string().min(1).max(500),
-        startLine: z.number().int().positive(),
-        endLine: z.number().int().positive(),
-        evidence: z.string().min(1).max(2000),
-        reasoning: z.string().min(1).max(2000),
-        confidence: z.enum(["low", "medium", "high"]),
-      })).max(50),
-    }),
+    description: "REQUIRED final step of a review. Submit all evidence-backed possible matches (findings: [] if none) plus scope and limitations. Each finding needs practice ID, file, line range, evidence, reasoning, and confidence. Locally, saves offline HTML and Markdown and returns a file browserUrl. For rechecks, pass previousReviewPath (prior statePath), reuse findingKey values, and add verified resolvedFindings. Findings are leads, not verdicts. Hosted links encode evidence in the URL fragment (not stored, but readable by anyone with the link); tell the user.",
+    inputSchema: reviewInputSchema,
     _meta: { ui: { resourceUri } },
   };
-  const renderReview = async ({ project, findings }) => {
-    const enriched = findings.map((finding) => {
-      const practice = catalog.practices.find((item) => item.id === finding.id);
-      return { ...finding, practice: practice ? { title: practice.title, description: practice.description, subsection: practice.subsection, category: practice.category, sourceLine: practice.sourceLine } : null };
-    });
-    const valid = enriched.filter((item) => item.practice);
-    return {
-      content: [{ type: "text", text: `${valid.length} possible OES match${valid.length === 1 ? "" : "es"} for ${project}. OES server build: ${serverVersion}; standard catalog: ${catalog.version}. Findings are leads for human review, not determinations. Open the attached review app. Browser fallback: ${browserReviewBase ? `${browserReviewBase}/review#${encodeURIComponent(JSON.stringify({ project, version: catalog.version, serverVersion, updated: catalog.updated, findings: valid }))}` : "not configured for this local server"}. The browser link contains review evidence; share only with intended reviewers.` }],
-      structuredContent: { project, version: catalog.version, catalogVersion: catalog.version, serverVersion, updated: catalog.updated, findings: valid, ...(browserReviewBase ? { browserUrl: `${browserReviewBase}/review#${encodeURIComponent(JSON.stringify({ project, version: catalog.version, serverVersion, updated: catalog.updated, findings: valid }))}` } : {}) },
-    };
+  const renderReview = async (input) => {
+    try {
+      let model = createReview(input, catalog, serverVersion);
+      if (!saveReview && (input.previousReviewPath || input.resolvedFindings?.length)) throw new Error("Review history requires the local stdio MCP.");
+      const saved = saveReview ? await saveReview(model) : browserReviewBase ? {
+        browserUrl: `${browserReviewBase}/review#${encodeURIComponent(JSON.stringify(model))}`,
+      } : {};
+      const { review, ...links } = saved;
+      if (review) model = review;
+      return {
+        content: [{ type: "text", text: `${model.findings.length} possible OES matches for ${model.project}. Findings are leads for human review, not determinations. Browser fallback: ${links.browserUrl || "unavailable"}. ${saveReview ? `Local Markdown: ${links.markdownPath}. Audit state: ${links.statePath}. On the next audit pass previousReviewPath: ${links.statePath}, reuse findingKey values, and provide resolvedFindings with fix evidence. Open the HTML to export Markdown, save review choices, or Print / Save PDF. These files contain review evidence and remain on this machine.` : "The hosted link contains review evidence; anyone with the link can read it. For private evidence, use the local stdio server."}` }],
+        structuredContent: { ...model, ...links },
+      };
+    } catch (error) {
+      return { isError: true, content: [{ type: "text", text: `Could not create review: ${error.message}` }] };
+    }
   };
   registerAppTool(server, "create_oes_review", { ...reviewConfig, title: "Create OES project review" }, renderReview);
   registerAppTool(server, "show_oes_review", reviewConfig, renderReview);

@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the standard
+    url: https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md
+    about: Check whether a practice is already cataloged.

@@ -1,27 +1,30 @@
 # Contributing
 
-Make a focused change in `OPEN-ETHICS-STANDARD.md` and open a pull request.
-Please do not replace the whole document. Explain the reason for the change
-and cite sources when available. Maintainers review and merge changes to update
-the canonical standard.
+Thanks for helping improve the Open Ethics Standard.
 
-By submitting a contribution, you agree it is available under the license for
-that material: MIT for software code and CC BY-ND 4.0 for standard content.
+## Suggest a practice, correction, or removal
 
-For catalog changes, preserve the format used in the surrounding section:
+Edit the relevant part of [`OPEN-ETHICS-STANDARD.md`](OPEN-ETHICS-STANDARD.md) and open a pull request. Explain why, and cite sources when you can. Not ready for a PR? [Open an issue](https://github.com/ike5/open-ethics-standard/issues/new/choose).
 
-- Categories use `## N. Category name` headings.
-- Subsections use `### N.N Subsection name` headings.
-- Each practice is one table row with four cells: identifier, practice,
-  description, and example domains.
-- Use a unique `N.N.N` identifier. Keep table pipes escaped if they appear in
-  text.
+Keep the format the catalog generator and CI expect:
 
-These rules are required by the catalog generator and CI. Do not edit the
-generated `packages/oes-mcp/catalog.json`; CI regenerates it from the standard.
+- Categories use `## N. Category name`; subsections use `### N.N Subsection name`.
+- Each practice is one table row: identifier, practice, description, example domains.
+- Identifiers are unique `N.N.N`. Escape any `|` inside text.
+- Don't replace the whole document, and don't edit the generated `packages/oes-mcp/catalog.json`.
 
-Changes to MCP code are also welcome. Keep code changes focused and describe
-what they do in the pull request.
+When a change merges, automation bumps the standard's version and date. Optionally label your PR:
 
-See [the pull request template](.github/PULL_REQUEST_TEMPLATE.md) and
-[the Code of Conduct](CODE_OF_CONDUCT.md).
+| Label | Use for |
+| --- | --- |
+| `version:patch` | Corrections and clarifications (default) |
+| `version:minor` | New practices |
+| `version:major` | Significant catalog changes |
+
+## Change the MCP code
+
+Keep changes focused and describe the behavior change in the PR. Run `npm test` before opening it.
+
+## License
+
+Contributions are licensed like the material they change: MIT for code, CC BY-ND 4.0 for the standard. See the [Code of Conduct](CODE_OF_CONDUCT.md).

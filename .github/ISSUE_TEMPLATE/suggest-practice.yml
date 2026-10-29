@@ -1,0 +1,28 @@
+name: Suggest a practice
+description: Propose a new practice, a correction, or a removal.
+labels: ["standard"]
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Type of change
+      options: [New practice, Correction or clarification, Removal]
+    validations:
+      required: true
+  - type: input
+    id: practice
+    attributes:
+      label: Related practice ID
+      description: For example, 2.1.3. Leave blank for a new practice.
+  - type: textarea
+    id: details
+    attributes:
+      label: What should change, and why?
+      description: Describe the practice in plain language, with a real-world example if you can.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Sources
+      description: Links to reporting, research, or regulation (optional).

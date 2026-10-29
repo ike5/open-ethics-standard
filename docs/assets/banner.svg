@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-label="Open Ethics Standard — Name the harm. Review the code.">
+  <defs>
+    <radialGradient id="glow" cx="0.3" cy="0.2" r="0.8">
+      <stop offset="0" stop-color="#2c3a26"/>
+      <stop offset="1" stop-color="#17201d"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity=".035"/>
+    </pattern>
+    <style>
+      text{font-family:Manrope,"Inter",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif}
+      .mono{font-family:"DM Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+    </style>
+  </defs>
+  <rect width="1280" height="420" rx="24" fill="url(#glow)"/>
+  <rect width="1280" height="420" rx="24" fill="url(#grid)"/>
+
+  <!-- Wordmark -->
+  <rect x="72" y="70" width="44" height="44" rx="12" fill="#d8f36a"/>
+  <text x="94" y="101" text-anchor="middle" font-size="24" font-weight="800" fill="#17201d">O</text>
+  <text x="132" y="100" font-size="20" font-weight="700" fill="#e6eddf">Open Ethics Standard</text>
+
+  <text x="72" y="196" font-size="58" font-weight="800" fill="#ffffff" letter-spacing="-2">Name the harm.</text>
+  <text x="72" y="262" font-size="58" font-weight="800" fill="#d8f36a" letter-spacing="-2">Review the code.</text>
+  <text x="72" y="306" font-size="18" fill="#c1c9bc">An open catalog of harmful software practices, and an MCP</text>
+  <text x="72" y="332" font-size="18" fill="#c1c9bc">that lets your AI check your project against it, locally.</text>
+
+  <g class="mono" font-size="12" fill="#a9ba91" letter-spacing="1.5">
+    <text x="72" y="374" class="mono">CLAUDE CODE · CODEX · CURSOR · VS CODE   ·   LOCAL-FIRST   ·   OPEN SOURCE</text>
+  </g>
+
+  <!-- Finding card mock -->
+  <g transform="translate(760 70)">
+    <rect width="448" height="280" rx="18" fill="#ffffff"/>
+    <rect x="24" y="24" width="56" height="34" rx="9" fill="#eef1e4"/>
+    <text x="52" y="46" text-anchor="middle" class="mono" font-size="13" fill="#17201d">2.1.3</text>
+    <text x="94" y="40" font-size="16" font-weight="700" fill="#17201d">Retention Dark Patterns</text>
+    <text x="94" y="58" font-size="12" fill="#607138">high confidence</text>
+    <text x="24" y="96" class="mono" font-size="13" fill="#4f5f2a">src/billing/cancel.ts:84–97</text>
+    <rect x="24" y="112" width="400" height="56" rx="6" fill="#f2f5ea"/>
+    <rect x="24" y="112" width="3" height="56" fill="#a9c454"/>
+    <text x="40" y="136" class="mono" font-size="12" fill="#17201d">Cancel opens a "Talk to us first" modal;</text>
+    <text x="40" y="154" class="mono" font-size="12" fill="#17201d">cancellation waits on a support chat.</text>
+    <line x1="24" y1="196" x2="424" y2="196" stroke="#e3e2d9"/>
+    <text x="24" y="236" font-size="13" fill="#58615b">Does this apply?</text>
+    <rect x="178" y="214" width="80" height="34" rx="8" fill="#d8f36a" stroke="#a9c454"/>
+    <text x="218" y="236" text-anchor="middle" font-size="13" font-weight="700" fill="#1e2914">Applies</text>
+    <rect x="266" y="214" width="72" height="34" rx="8" fill="#ffffff" stroke="#dcddd3"/>
+    <text x="302" y="236" text-anchor="middle" font-size="13" fill="#3e4742">Unsure</text>
+    <rect x="346" y="214" width="78" height="34" rx="8" fill="#ffffff" stroke="#dcddd3"/>
+    <text x="385" y="236" text-anchor="middle" font-size="13" fill="#3e4742">Dismiss</text>
+  </g>
+</svg>

@@ -2,10 +2,15 @@
   "name": "open-ethics-standard",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build:catalog": "node scripts/build-catalog.mjs",
     "build:mcp": "npm run build:catalog && npm --prefix packages/oes-mcp run build",
-    "sync:catalog": "node scripts/build-catalog.mjs"
+    "sync:catalog": "node scripts/build-catalog.mjs",
+    "setup:mcp": "npm run build:mcp && node scripts/setup-mcp.mjs",
+    "build:report": "node packages/oes-mcp/dist/build-report.js",
+    "test": "npm run build:mcp && node --test packages/oes-mcp/test/*.test.js"
   }
 }

@@ -1,61 +1,64 @@
-# Open Ethics Standard
+<p align="center">
+  <img src="docs/assets/banner.svg" alt="Open Ethics Standard — Name the harm. Review the code." width="100%">
+</p>
 
-The Open Ethics Standard is a public guide to practices that can harm people, communities, or the environment through software and technology.
+<p align="center">
+  <a href="LICENSE"><img alt="Code: MIT" src="https://img.shields.io/badge/code-MIT-607138"></a>
+  <a href="LICENSE-OPEN-ETHICS-STANDARD.md"><img alt="Standard: CC BY-ND 4.0" src="https://img.shields.io/badge/standard-CC%20BY--ND%204.0-607138"></a>
+  <a href="https://github.com/ike5/open-ethics-standard/actions/workflows/validate-standard.yml"><img alt="CI" src="https://github.com/ike5/open-ethics-standard/actions/workflows/validate-standard.yml/badge.svg"></a>
+  <img alt="MCP: local stdio" src="https://img.shields.io/badge/MCP-local%20stdio-d8f36a">
+</p>
 
-It is a reference for discussion, not a legal judgment or a certification.
+<p align="center">
+  <a href="https://ike5.github.io/open-ethics-standard/"><b>Website</b></a> ·
+  <a href="OPEN-ETHICS-STANDARD.md"><b>Read the standard</b></a> ·
+  <a href="docs/agent-setup.md"><b>Setup guide</b></a> ·
+  <a href="CONTRIBUTING.md"><b>Contribute</b></a>
+</p>
 
-## Review a project with your AI
+The **Open Ethics Standard (OES)** is a public, citable catalog of harmful software and business practices: dark patterns, cancellation traps, bundled consent, and hundreds more. It comes with an **MCP server that lets your AI assistant check your project against it**, on your own machine.
 
-The OES MCP helps a compatible AI assistant find possible matches between a project and the standard. The AI reviews files it can already access, then shows evidence and links to relevant parts of the standard.
+Findings are leads for you to review, not verdicts or certifications.
 
-Findings are suggestions for you to check. They are not proof that a project has done something wrong.
+## Review your project in one prompt
 
-### Get started
+Open your project in Claude Code, Codex, Cursor, VS Code, or any MCP client, and paste:
 
-Copy this prompt into your coding assistant:
-
-> I want to review the site in my current workspace against the Open Ethics Standard. First, briefly inspect the project and offer me three choices in this chat: a quick site-wide review (recommended), a page or user journey I name, or a specific ethics concern I name. Wait for my choice. Then follow https://ike5.github.io/open-ethics-standard/agent-setup.md to reuse or connect the MCP and complete the review. If the guide or MCP is unreachable, use https://raw.githubusercontent.com/ike5/open-ethics-standard/main/OPEN-ETHICS-STANDARD.md and continue. Inspect the authorized project files and cite findings with file paths, line numbers, observed evidence, reasoning, confidence, and the matching OES practice ID. After gathering findings, you must call the MCP tool `show_oes_review` if it is available, including when you used the local standard fallback. This call is what opens the interactive findings view; a chat table alone does not. Let me mark each finding Applies, Unsure, or Dismiss there. If the call fails or the client cannot display MCP Apps, say so plainly and provide numbered findings with those same choices in chat.
-
-No OES account, login, or API key is needed. The assistant offers review choices in the conversation before setup. The public [setup guide](docs/agent-setup.md) connects the current client to the hosted MCP at [mcp.codebylevel.com/mcp](https://mcp.codebylevel.com/mcp) and checks the tools. It includes Codex, Claude Code, Cursor, and VS Code instructions. Your assistant may ask you to restart the client or approve its MCP trust prompt.
-
-For a local setup that keeps submitted review evidence on your machine, build it in a persistent directory:
-
-```sh
-mkdir -p "$HOME/.local/share"
-git clone https://github.com/ike5/open-ethics-standard.git "$HOME/.local/share/open-ethics-standard"
-cd "$HOME/.local/share/open-ethics-standard"
-npm ci --prefix packages/oes-mcp
-npm run build:mcp
+```text
+Review my project against the Open Ethics Standard. Follow https://ike5.github.io/open-ethics-standard/agent-setup.md to set up the local MCP and keep my code and findings on this machine. Ask me what to review if I haven't said, then give me the link to the report.
 ```
 
-Then follow the guide to add a local stdio MCP server with the absolute path to Node and the absolute path to `packages/oes-mcp/dist/server.js`.
+No account or API key needed. You get an offline report where you decide what applies:
 
-### Review the findings
+<p align="center"><img src="docs/assets/report.png" alt="Offline OES review report with findings, evidence, and Applies / Unsure / Dismiss choices" width="100%"></p>
 
-The assistant starts the review after you choose a scope. When the client supports MCP Apps, mark each finding Applies, Unsure, or Dismiss in the review view, then use **Discuss choices in chat** to continue with the AI. Other clients can discuss numbered findings in chat.
+## How it works
 
-The MCP does not read project files. The hosted `show_oes_review` tool receives submitted project names, file paths, evidence snippets, and reasoning to display a review; it does not persist them. The local server does not send review evidence to OES hosting. Your AI tool may have its own data handling rules.
+1. **Set up:** your assistant installs the OES MCP locally.
+2. **Review:** it reads the code you point it at and matches behavior to OES practices, citing files, lines, and evidence.
+3. **Decide:** open the report, then mark each finding **Applies**, **Unsure**, or **Dismiss** and export to Markdown or PDF. After fixes, ask your assistant to recheck. The same report tracks what's been fixed.
 
-## Browse the standard
+## Manual install
 
-Read the [Open Ethics Standard](OPEN-ETHICS-STANDARD.md) or visit the [project landing page](https://ike5.github.io/open-ethics-standard/).
+```sh
+git clone https://github.com/ike5/open-ethics-standard.git ~/.local/share/open-ethics-standard
+cd ~/.local/share/open-ethics-standard
+npm ci --prefix packages/oes-mcp
+npm run setup:mcp   # prints the config to add to your AI client
+```
 
-## Help improve it
+Requires Node.js 20+. See the [setup guide](docs/agent-setup.md) for client commands, rechecks, and troubleshooting.
 
-You can suggest a new practice, correction, or deletion by editing the relevant part of `OPEN-ETHICS-STANDARD.md` and opening a pull request. Please do not replace the whole document. Sources are welcome. The structured catalog is generated from the standard. See [CONTRIBUTING.md](CONTRIBUTING.md).
+## Your data
 
-When a change is accepted, automation updates the standard's date and version. If you like, add one of these labels to your pull request:
+- OES runs locally. It never reads your files; your assistant does.
+- Reports are offline HTML and Markdown in `~/.local/share/open-ethics-standard/reports`. They have no telemetry and need no server.
+- Your AI provider's own data policies still apply.
 
-- `version:patch` for a correction or clarification
-- `version:minor` for an addition
-- `version:major` for a significant change to the catalog
+## Contribute
 
-If no label is added, the update uses a patch version. See Part IV of the standard for contribution guidance.
+Spotted a practice that's missing or wrong? Edit [`OPEN-ETHICS-STANDARD.md`](OPEN-ETHICS-STANDARD.md) and open a pull request, or [open an issue](https://github.com/ike5/open-ethics-standard/issues/new/choose). See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Licenses
+## License
 
-The MCP software is available under the [MIT License](LICENSE). The standard text and its generated catalog are available under [CC BY-ND 4.0](LICENSE-OPEN-ETHICS-STANDARD.md): share the original with attribution; distributed modified versions are not permitted. The canonical standard can be changed through an approved pull request.
-
-## About the MCP
-
-The hosted Streamable HTTP endpoint is [https://mcp.codebylevel.com/mcp](https://mcp.codebylevel.com/mcp). The npm package has not been published yet; use the source build above for local stdio setup.
+Code is [MIT](LICENSE). The standard text and catalog are [CC BY-ND 4.0](LICENSE-OPEN-ETHICS-STANDARD.md).

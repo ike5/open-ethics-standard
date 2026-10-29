@@ -1,0 +1,20 @@
+name: Bug report
+description: Something wrong with the MCP, report, or setup.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: Include what you expected and any error output.
+    validations:
+      required: true
+  - type: input
+    id: client
+    attributes:
+      label: AI client and OS
+      placeholder: Claude Code on macOS
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce

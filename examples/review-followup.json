@@ -1,0 +1,13 @@
+{
+  "project": "Example application (illustrative findings)",
+  "scope": "Recheck the cancellation flow",
+  "limitations": "Illustrative input only; replace the path and verification evidence with actual observations",
+  "previousReviewPath": "/absolute/path/to/previous/review.json",
+  "findings": [],
+  "resolvedFindings": [
+    {
+      "findingKey": "cancel-requires-support-chat",
+      "evidence": "Replace with direct evidence that the previously reported behavior is fixed, including the rechecked source or user journey."
+    }
+  ]
+}

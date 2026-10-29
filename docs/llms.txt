@@ -4,6 +4,5 @@
 
 - [Agent guide](https://ike5.github.io/open-ethics-standard/agent-setup.md): The review workflow, report format, and reply format. Start here.
 - [npm package](https://www.npmjs.com/package/open-ethics-standard-mcp): The local stdio MCP server and catalog CLI.
-- [Hosted MCP](https://mcp.codebylevel.com/mcp): Catalog-only Streamable HTTP endpoint. It cannot build reports and never receives findings.
 - [The standard](https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md): Canonical practice definitions.
 - [Source](https://github.com/ike5/open-ethics-standard): MCP source and contribution guide.

@@ -14,7 +14,7 @@
   $("total").textContent = D.total;
   $("ver").textContent = "· version " + D.version;
 
-  var sel = 0, hover = null;
+  var sel = 0, hover = null, ready = false;
   var CX = 300, CY = 280;
   var pt = function (a, r) { return [CX + r * Math.cos(a * Math.PI / 180), CY + r * Math.sin(a * Math.PI / 180)]; };
   var f = function (v) { return v.toFixed(2); };
@@ -121,11 +121,13 @@
       var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       $("principles").scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
     }
-    if (history.replaceState) history.replaceState(null, "", "#p" + (k + 1));
+    // Only after the first paint: setting the hash while the page loads makes the browser jump to it.
+    if (ready && history.replaceState) history.replaceState(null, "", "#p" + (k + 1));
   }
   var fromHash = (location.hash.match(/^#p([1-8])$/) || [])[1];
   pick(fromHash ? Number(fromHash) - 1 : 0, false);
   if (fromHash) $("principles").scrollIntoView();
+  ready = true;
   requestAnimationFrame(function () { requestAnimationFrame(function () { wheel.classList.remove("pre"); }); });
   // The staggered delays are only for the entrance; clear them so hover colors respond at once.
   setTimeout(function () { inner.concat(outer.map(function (o) { return o.el; }), labels).forEach(function (e) { e.style.transitionDelay = ""; }); }, 1800);

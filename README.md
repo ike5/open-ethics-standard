@@ -29,7 +29,7 @@
 | **Care** | Protect vulnerable people; do not profit from distress, grief, or compulsion. |
 | **Safety** | Do not sell known harms, keep service promises, and allow repair. |
 | **Accountability** | Explain decisions, offer recourse, own mistakes, and protect people who speak up. |
-| **Responsibility beyond the customer** | Workers, suppliers, communities, competitors, and the environment count too. |
+| **Responsibility** | Workers, suppliers, communities, competitors, and the environment count too. |
 
 Under them sit 804 named, numbered practices that break these principles, such as *Drip Pricing* (§ 1.1.1) or *Roach Motel Friction* (§ 2.1.3). [Read the standard](OPEN-ETHICS-STANDARD.md).
 

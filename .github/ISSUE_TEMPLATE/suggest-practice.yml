@@ -20,7 +20,7 @@ body:
       label: Which principle does it break?
       description: Pick the closest one. See Part I of the standard.
       multiple: true
-      options: [Honesty, Autonomy, Privacy, Fairness, Care, Safety, Accountability, Responsibility beyond the customer]
+      options: [Honesty, Autonomy, Privacy, Fairness, Care, Safety, Accountability, Responsibility]
   - type: textarea
     id: harmed
     attributes:

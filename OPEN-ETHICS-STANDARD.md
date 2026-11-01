@@ -145,7 +145,7 @@ It protects:
 | **Care** | Protect vulnerable people; do not profit from distress, grief, or compulsion. | Children, people in crisis, older adults, anyone vulnerable |
 | **Safety** | Do not sell known harms, keep service promises, and allow repair. | Customers, the public |
 | **Accountability** | Explain decisions, offer recourse, own mistakes, and protect people who speak up. | Everyone affected by a decision |
-| **Responsibility beyond the customer** | Workers, suppliers, communities, competitors, and the environment count too. | Workers, suppliers, communities, competitors, the environment |
+| **Responsibility** | Workers, suppliers, communities, competitors, and the environment count too. | Workers, suppliers, communities, competitors, the environment |
 
 ### Honesty
 
@@ -189,7 +189,7 @@ It protects:
 **Why it matters:** Power without a way to question it is easy to abuse. People need to know why something happened and what they can do about it.
 **Covers:** disclosure and decision opacity (5.2, 5.4), governance failures (6.6), breach notification (4.12), and governance, whistleblowing, and corporate accountability (Category 15).
 
-### Responsibility beyond the customer
+### Responsibility
 
 **Statement:** Workers, suppliers, communities, competitors, and the environment count too.
 **Why it matters:** A business can be honest with every customer and still do harm to the people who make its products, the market it competes in, or the place it operates.
@@ -596,7 +596,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 4.6 Worker / Workplace Surveillance
 
-**Principles:** Privacy, Responsibility beyond the customer
+**Principles:** Privacy, Responsibility
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -792,7 +792,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 6.3 Algorithmic Wage & Earnings Manipulation
 
-**Principles:** Fairness, Responsibility beyond the customer
+**Principles:** Fairness, Responsibility
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -872,7 +872,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 7.3 Greenwashing & Sustainability Misrepresentation
 
-**Principles:** Honesty, Responsibility beyond the customer
+**Principles:** Honesty, Responsibility
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1009,7 +1009,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 8.2 Planned Obsolescence
 
-**Principles:** Safety, Responsibility beyond the customer
+**Principles:** Safety, Responsibility
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1189,7 +1189,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 9.7 Cultural Appropriation & Disrespect
 
-**Principles:** Fairness, Responsibility beyond the customer
+**Principles:** Fairness, Responsibility
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1202,7 +1202,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 9.8 Indigenous Rights Violations
 
-**Principles:** Fairness, Responsibility beyond the customer
+**Principles:** Fairness, Responsibility
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1308,7 +1308,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 10.7 Migrant & Visa-Dependent Coercion
 
-**Principles:** Care, Responsibility beyond the customer
+**Principles:** Care, Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1320,7 +1320,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 10.8 Incarcerated Population Exploitation
 
-**Principles:** Care, Responsibility beyond the customer
+**Principles:** Care, Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1374,7 +1374,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.1 Worker Misclassification
 
-**Principles:** Responsibility beyond the customer, Fairness
+**Principles:** Responsibility, Fairness
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1386,7 +1386,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.2 Wage Theft
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1402,7 +1402,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.3 Unpaid Overtime & Crunch
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1414,7 +1414,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.4 Benefits Denial
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1425,7 +1425,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.5 Schedule Instability & Algorithmic Scheduling
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1435,7 +1435,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.6 Hazardous Conditions & PPE
 
-**Principles:** Responsibility beyond the customer, Safety
+**Principles:** Responsibility, Safety
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1453,7 +1453,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.7 Safety Incident Underreporting
 
-**Principles:** Responsibility beyond the customer, Safety
+**Principles:** Responsibility, Safety
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1466,7 +1466,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.8 Retaliation Against Reporting
 
-**Principles:** Responsibility beyond the customer, Accountability
+**Principles:** Responsibility, Accountability
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1477,7 +1477,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.9 Non-Compete Overreach
 
-**Principles:** Responsibility beyond the customer, Autonomy
+**Principles:** Responsibility, Autonomy
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1488,7 +1488,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.10 Forced Labor & Child Labor in Operations
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1499,7 +1499,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.11 Mass Layoffs After Profit & Disposable Workforce
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1510,7 +1510,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.12 Performance & Quality Management Abuse
 
-**Principles:** Responsibility beyond the customer, Care
+**Principles:** Responsibility, Care
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1520,7 +1520,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.13 Pay Disparity & Discrimination
 
-**Principles:** Responsibility beyond the customer, Fairness
+**Principles:** Responsibility, Fairness
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1529,7 +1529,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.14 Moderator & Worker Trauma
 
-**Principles:** Responsibility beyond the customer, Care
+**Principles:** Responsibility, Care
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1541,7 +1541,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.15 Unpaid Labor & Career-Path Exploitation
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1556,7 +1556,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 11.16 Restrictions on Career Mobility
 
-**Principles:** Responsibility beyond the customer, Autonomy
+**Principles:** Responsibility, Autonomy
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1571,7 +1571,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 12.1 Predatory Pricing & Cross-Subsidy
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1580,7 +1580,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 12.2 Acquisitions to Kill Competition
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1591,7 +1591,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 12.3 Self-Preferencing on Owned Platforms
 
-**Principles:** Responsibility beyond the customer, Honesty
+**Principles:** Responsibility, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1604,7 +1604,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 12.4 Tying & Forced Bundling
 
-**Principles:** Responsibility beyond the customer, Autonomy
+**Principles:** Responsibility, Autonomy
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1615,7 +1615,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 12.5 Exclusive Dealing & Foreclosure
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1626,7 +1626,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 12.6 Bid Rigging & Collusion
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1639,7 +1639,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 12.7 Monopoly Rent Extraction
 
-**Principles:** Responsibility beyond the customer, Fairness
+**Principles:** Responsibility, Fairness
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1653,7 +1653,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 12.8 Open-Source / Standards Manipulation
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1669,7 +1669,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 12.9 Merchant / Seller Exploitation
 
-**Principles:** Responsibility beyond the customer, Fairness
+**Principles:** Responsibility, Fairness
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1684,7 +1684,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 13.1 Supply Chain Opacity
 
-**Principles:** Responsibility beyond the customer, Honesty
+**Principles:** Responsibility, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1698,7 +1698,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 13.2 Forced & Child Labor in Supply Chain
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1714,7 +1714,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 13.3 Animal Cruelty in Supply Chain
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1725,7 +1725,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 13.4 Counterfeit & Sanctioned Goods
 
-**Principles:** Responsibility beyond the customer, Honesty
+**Principles:** Responsibility, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1736,7 +1736,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 13.5 Deforestation-Linked Sourcing
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1745,7 +1745,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 13.6 Supplier Squeeze & Contract Abuse
 
-**Principles:** Responsibility beyond the customer, Fairness
+**Principles:** Responsibility, Fairness
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1759,7 +1759,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.1 Emission Underreporting & Concealment
 
-**Principles:** Responsibility beyond the customer, Honesty
+**Principles:** Responsibility, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1774,7 +1774,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.2 Carbon-Offset Greenwashing
 
-**Principles:** Responsibility beyond the customer, Honesty
+**Principles:** Responsibility, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1786,7 +1786,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.3 Pollution Concealment
 
-**Principles:** Responsibility beyond the customer, Honesty
+**Principles:** Responsibility, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1803,7 +1803,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.4 Environmental Justice Siting
 
-**Principles:** Responsibility beyond the customer, Fairness
+**Principles:** Responsibility, Fairness
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1813,7 +1813,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.5 Habitat & Ecosystem Destruction
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1829,7 +1829,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.6 Microplastics & Persistent Pollutants
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1842,7 +1842,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.7 E-Waste & Disposal
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1857,7 +1857,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.8 Pesticide & Antibiotic Overuse
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1868,7 +1868,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.9 Site Abandonment & Stranded Liabilities
 
-**Principles:** Responsibility beyond the customer, Accountability
+**Principles:** Responsibility, Accountability
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1881,7 +1881,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.10 Catastrophic Risk Concealment
 
-**Principles:** Responsibility beyond the customer, Safety
+**Principles:** Responsibility, Safety
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1893,7 +1893,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.11 Lobbying Against Environmental Regulation
 
-**Principles:** Responsibility beyond the customer, Accountability
+**Principles:** Responsibility, Accountability
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1907,7 +1907,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 14.12 Resource Hoarding
 
-**Principles:** Responsibility beyond the customer
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1921,7 +1921,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 15.1 Whistleblower Suppression
 
-**Principles:** Accountability, Responsibility beyond the customer
+**Principles:** Accountability, Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -2034,7 +2034,7 @@ When a case is unclear, ask which principle it touches, who is affected, and whe
 
 ### 15.9 Strategic Bankruptcy & Corporate Restructuring
 
-**Principles:** Accountability, Responsibility beyond the customer
+**Principles:** Accountability, Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -2356,7 +2356,7 @@ provides:
 
 - eight **principles** that say what ethical conduct means: Honesty,
   Autonomy, Privacy, Fairness, Care, Safety, Accountability, and
-  Responsibility beyond the customer;
+  Responsibility;
 - a **taxonomy** of named practices that break those principles, organized
   by harm category;
 - **industry-neutral descriptions** so the same practice can be recognized
@@ -2372,8 +2372,7 @@ cancellation flow breaks Autonomy: it is a Roach Motel under OES § 2.1.1."
 ## What ethics does the OES cover?
 
 Eight principles: **Honesty**, **Autonomy**, **Privacy**, **Fairness**,
-**Care**, **Safety**, **Accountability**, and **Responsibility beyond the
-customer**. They are written in Part I. Every subsection of the catalog
+**Care**, **Safety**, **Accountability**, and **Responsibility**. They are written in Part I. Every subsection of the catalog
 names the principles its practices break.
 
 ## Does the OES only apply to software?

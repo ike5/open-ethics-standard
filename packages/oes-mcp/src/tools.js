@@ -7,7 +7,7 @@ import { catalogOverview, findPractices, searchCatalog } from "./catalog.js";
 const resourceUri = "ui://open-ethics-standard/review.html";
 
 // Shown to the model when the server connects, so it follows the workflow without being told.
-export const serverInstructions = "Open Ethics Standard: an ethical standard for any business, built on eight principles (Honesty, Autonomy, Privacy, Fairness, Care, Safety, Accountability, Responsibility beyond the customer) and a catalog of 800+ named practices that break them. These tools apply the standard to a software project. Before reviewing a project, call get_oes_review_instructions and follow it exactly. Finish a review by replying with only the report link.";
+export const serverInstructions = "Open Ethics Standard: an ethical standard for any business, built on eight principles (Honesty, Autonomy, Privacy, Fairness, Care, Safety, Accountability, Responsibility) and a catalog of 800+ named practices that break them. These tools apply the standard to a software project. Before reviewing a project, call get_oes_review_instructions and follow it exactly. Finish a review by replying with only the report link.";
 
 // Findings stay on the user's machine: the agent only calls these tools and never fetches or runs code to build a report.
 const workflow = [

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/assets/banner.svg" alt="Open Ethics Standard MCP — Teach your AI to spot harmful code." width="100%">
+  <img src="docs/assets/banner.svg" alt="Open Ethics Standard — Ethics for any business, in eight principles." width="100%">
 </p>
 
 <p align="center">
@@ -16,11 +16,30 @@
   <a href=".github/CONTRIBUTING.md"><b>Contribute</b></a>
 </p>
 
-**An MCP server that lets your AI coding assistant diagnose harmful practices in your code:** dark patterns, cancellation traps, bundled consent, and more. It's backed by the **Open Ethics Standard (OES)**, an open, citable catalog of 800+ named practices. It runs on your machine.
+**A shared ethical standard for any business.** The Open Ethics Standard (OES) says how a business should treat the people it serves, employs, buys from, and affects, and names the specific ways that goes wrong. It covers every industry: hotels, gyms, lenders, employers, manufacturers, and software.
 
-Findings are leads for you to review, not verdicts or certifications.
+## The eight principles
 
-## Get started
+| Principle | In short |
+| --- | --- |
+| **Honesty** | Tell people the truth about prices, products, services, and claims. |
+| **Autonomy** | People choose freely and knowingly, and can say no, change their mind, or leave. |
+| **Privacy** | Collect only what is needed, use it only as agreed, and protect it. |
+| **Fairness** | Treat people equally, do not discriminate, and keep services accessible. |
+| **Care** | Protect vulnerable people; do not profit from distress, grief, or compulsion. |
+| **Safety** | Do not sell known harms, keep service promises, and allow repair. |
+| **Accountability** | Explain decisions, offer recourse, own mistakes, and protect people who speak up. |
+| **Responsibility beyond the customer** | Workers, suppliers, communities, competitors, and the environment count too. |
+
+Under them sit 804 named, numbered practices that break these principles, such as *Drip Pricing* (§ 1.1.1) or *Roach Motel Friction* (§ 2.1.3). [Read the standard](OPEN-ETHICS-STANDARD.md).
+
+## Ways to use it
+
+- **Cite it.** Name a harm precisely, with a number anyone can look up: "the cancellation flow breaks Autonomy, OES § 2.1.1."
+- **Assess a business.** Work through each principle and the practices under it. Each practice has a plain description and examples from many industries.
+- **Apply it to software.** The OES MCP lets your AI coding assistant review a project against the standard. It runs on your machine. Findings are leads for you to review, not verdicts or certifications, and a code review can only see what a product does, not how a company treats its workers or suppliers.
+
+## Apply it to your software
 
 **1. Add the MCP.** It needs Node.js 20+; no account or API key:
 
@@ -42,8 +61,8 @@ You get back one link to an offline report, with every finding a click away:
 
 ## How it works
 
-1. **Your AI reads your code.** The MCP gives it the catalog and a review workflow.
-2. **It matches behavior to OES practices**, citing files, lines, and evidence.
+1. **Your AI reads your code.** The MCP gives it the principles, the catalog, and a review workflow.
+2. **It matches behavior to OES practices**, citing files, lines, evidence, and the principle each one breaks.
 3. **You decide.** Open the report, mark each finding **Applies**, **Unsure**, or **Dismiss**, and export to Markdown or PDF. After fixes, ask for a recheck; the same report tracks what's fixed.
 
 ## Your data

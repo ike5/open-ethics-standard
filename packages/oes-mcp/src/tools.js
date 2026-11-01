@@ -7,12 +7,12 @@ import { catalogOverview, findPractices, searchCatalog } from "./catalog.js";
 const resourceUri = "ui://open-ethics-standard/review.html";
 
 // Shown to the model when the server connects, so it follows the workflow without being told.
-export const serverInstructions = "Open Ethics Standard: a catalog of 800+ harmful software practices for reviewing projects. Before reviewing a project, call get_oes_review_instructions and follow it exactly. Finish a review by replying with only the report link.";
+export const serverInstructions = "Open Ethics Standard: an ethical standard for any business, built on eight principles (Honesty, Autonomy, Privacy, Fairness, Care, Safety, Accountability, Responsibility beyond the customer) and a catalog of 800+ named practices that break them. These tools apply the standard to a software project. Before reviewing a project, call get_oes_review_instructions and follow it exactly. Finish a review by replying with only the report link.";
 
 // Findings stay on the user's machine: the agent only calls these tools and never fetches or runs code to build a report.
 const workflow = [
   "If the user hasn't chosen a scope, ask: whole app (quick), a feature or journey, or one concern.",
-  "Read the code with your own tools; this MCP cannot see files. Use search_oes_catalog and get_oes_practices to match behavior to practices, and verify each against its definition.",
+  "Read the code with your own tools; this MCP cannot see files. A code review can only see what a product does, so say so when a principle (for example labor or supply-chain conduct) cannot be judged from code. Use search_oes_catalog and get_oes_practices to match behavior to practices, and verify each against its definition.",
   "Each finding: id, file, startLine, endLine, evidence (short quote), reasoning (1-2 sentences), confidence (low|medium|high). Put concerns that match no practice in notes (one line each, with file:line). Keep limitations to one sentence.",
   "Call create_oes_review with project, scope, limitations, notes, and findings (findings: [] if none).",
   "Rechecks: call get_oes_review_state on the previous statePath, pass it as previousReviewPath, reuse each findingKey, and list only verified fixes in resolvedFindings with evidence.",
@@ -41,11 +41,11 @@ export function registerOesTools(server, { catalog, reviewHtml, serverVersion = 
 
   server.registerTool("get_oes_catalog_overview", {
     title: "Get OES catalog overview",
-    description: "List catalog categories with counts and concise practice titles to help plan a broad, relevant review.",
+    description: "List the eight OES principles and the catalog categories with counts and concise practice titles to help plan a broad, relevant review.",
     inputSchema: z.object({}),
   }, async () => {
-    const categories = catalogOverview(catalog);
-    return { content: [{ type: "text", text: JSON.stringify({ catalogVersion: catalog.version, totalPractices: catalog.practices.length, categories }, null, 2) }], structuredContent: { catalogVersion: catalog.version, totalPractices: catalog.practices.length, categories } };
+    const { principles, categories } = catalogOverview(catalog);
+    return { content: [{ type: "text", text: JSON.stringify({ catalogVersion: catalog.version, totalPractices: catalog.practices.length, principles, categories }, null, 2) }], structuredContent: { catalogVersion: catalog.version, totalPractices: catalog.practices.length, principles, categories } };
   });
 
   server.registerTool("get_oes_practices", {
@@ -58,7 +58,7 @@ export function registerOesTools(server, { catalog, reviewHtml, serverVersion = 
   });
   server.registerTool("search_oes_catalog", {
     title: "Search the Open Ethics Standard",
-    description: "Search OES practices while reviewing a project. Use this to find relevant practice definitions and cite their IDs. The standard is a reference catalog, not a legal or compliance verdict.",
+    description: "Search OES practices while reviewing a project. Use this to find relevant practice definitions and cite their IDs. Each practice lists the principles it breaks. The standard is an ethical reference, not a legal or compliance verdict.",
     inputSchema: z.object({ query: z.string().min(2).max(300), limit: z.number().int().min(1).max(30).default(12) }),
   }, async ({ query, limit }) => {
     const results = searchCatalog(catalog, query, limit);

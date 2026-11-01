@@ -1,6 +1,6 @@
 # OES MCP server
 
-An MCP server that gives your AI assistant the [Open Ethics Standard](https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md) catalog and a review workflow. Your assistant reads your code; this server runs on your machine and saves the report there, so findings never leave it.
+The [Open Ethics Standard](https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md) is an ethical standard for any business, built on eight principles. This MCP server applies it to a software project: it gives your AI assistant the principles, the catalog of named practices, and a review workflow. Your assistant reads your code; this server runs on your machine and saves the report there, so findings never leave it.
 
 ## Use it
 
@@ -24,7 +24,7 @@ The same package is a catalog CLI: `npx -y open-ethics-standard-mcp@latest searc
 | Tool | Purpose |
 | --- | --- |
 | `get_oes_review_instructions` | Review workflow and reply format (call first) |
-| `get_oes_catalog_overview` | Categories and practice titles for planning |
+| `get_oes_catalog_overview` | Principles, categories, and practice titles for planning |
 | `search_oes_catalog` | Search practices |
 | `get_oes_practice` / `get_oes_practices` | Full definitions by ID |
 | `create_oes_review` (alias `show_oes_review`) | Save the offline HTML/Markdown report and return its link |

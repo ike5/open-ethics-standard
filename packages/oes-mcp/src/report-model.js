@@ -28,8 +28,8 @@ export function createReview(input, catalog, serverVersion) {
   const findings = parsed.findings.map((finding) => {
     const practice = catalog.practices.find((item) => item.id === finding.id);
     if (!practice) throw new Error(`Unknown OES practice: ${finding.id}`);
-    const { title, description, subsection, category, sourceLine } = practice;
-    return { ...finding, practice: { title, description, subsection, category, sourceLine } };
+    const { title, description, subsection, category, sourceLine, principles = [] } = practice;
+    return { ...finding, practice: { title, description, subsection, category, principles, sourceLine } };
   });
   return { ...parsed, version: catalog.version, catalogVersion: catalog.version, serverVersion, updated: catalog.updated, findings };
 }

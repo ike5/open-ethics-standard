@@ -11,6 +11,7 @@ import { StdioClientTransport } from "@modelcontextprotocol/client/stdio";
 import { compareReview, exportFindings, markdownReport, reviewCounts } from "../src/review-state.js";
 import { createReview } from "../src/report-model.js";
 import { writeLocalReview } from "../src/local-report.js";
+import { catalogOverview, searchCatalog } from "../src/catalog.js";
 
 const execFile = promisify(callbackExecFile);
 const catalog = JSON.parse(await readFile(new URL("../catalog.json", import.meta.url), "utf8"));
@@ -45,6 +46,29 @@ test("standalone report round trips evidence without executable HTML and creates
     const second = await writeLocalReview(model, template, root);
     assert.notEqual(links.htmlPath, second.htmlPath);
   } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test("every practice names at least one known principle, and findings carry them into the report", async () => {
+  assert.equal(catalog.principles.length, 8);
+  const names = new Set(catalog.principles.map((item) => item.name));
+  for (const practice of catalog.practices) {
+    assert.ok(practice.principles?.length > 0, `${practice.id} has no principles`);
+    for (const name of practice.principles) assert.ok(names.has(name), `${practice.id} names unknown principle ${name}`);
+  }
+  const model = createReview(input, catalog, "test");
+  assert.deepEqual(model.findings[0].practice.principles, catalog.practices[0].principles);
+  const root = await mkdtemp(join(tmpdir(), "oes-principles-test-"));
+  try {
+    const links = await writeLocalReview(model, template, root);
+    assert.match(await readFile(links.htmlPath, "utf8"), /pill principle/);
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test("catalog overview and search lead with principles", () => {
+  const { principles, categories } = catalogOverview(catalog);
+  assert.equal(principles.length, 8);
+  assert.equal(categories.length, 15);
+  assert.ok(searchCatalog(catalog, "Autonomy").length > 0);
 });
 
 test("rejects unknown practices and reversed ranges; accepts zero findings", () => {

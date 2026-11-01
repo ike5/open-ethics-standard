@@ -40,8 +40,9 @@ export async function main(argv, { catalog, template }) {
       return print(json ? { practices, missing } : [...practices.map((p) => `${p.id}  ${p.title}\n${p.category} › ${p.subsection}\n${p.description}\nExamples: ${p.domains}`), ...missing.map((id) => `${id}  not found`)].join("\n\n"));
     }
     if (command === "overview") {
-      const categories = catalogOverview(catalog);
-      return print(json ? categories : categories.map((c) => `${c.category} (${c.count})\n${c.practices.map((p) => `  ${p.id} ${p.title}`).join("\n")}`).join("\n\n"));
+      const { principles, categories } = catalogOverview(catalog);
+      const names = principles.map((p) => p.name).join(", ");
+      return print(json ? { principles, categories } : [`Principles: ${names}`, ...categories.map((c) => `${c.category} (${c.count})\n${c.practices.map((p) => `  ${p.id} ${p.title}`).join("\n")}`)].join("\n\n"));
     }
     if (command === "build" && args.length >= 1 && args.length <= 2) {
       const model = createReview(JSON.parse(await readInput(args[0])), catalog, "local-cli");

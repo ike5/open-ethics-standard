@@ -189,6 +189,9 @@ It protects:
 **Why it matters:** Power without a way to question it is easy to abuse. People need to know why something happened and what they can do about it.
 **Covers:** disclosure and decision opacity (5.2, 5.4), governance failures (6.6), breach notification (4.12), and governance, whistleblowing, and corporate accountability (Category 15).
 
+<!-- Renamed from "Responsibility beyond the customer"; the anchor keeps old links working. -->
+<a id="responsibility-beyond-the-customer"></a>
+
 ### Responsibility
 
 **Statement:** Workers, suppliers, communities, competitors, and the environment count too.

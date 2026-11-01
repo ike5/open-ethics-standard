@@ -13,7 +13,8 @@ export const serverInstructions = "Open Ethics Standard: an ethical standard for
 const workflow = [
   "If the user hasn't chosen a scope, ask: whole app (quick), a feature or journey, or one concern.",
   "Read the code with your own tools; this MCP cannot see files. A code review can only see what a product does, so say so when a principle (for example labor or supply-chain conduct) cannot be judged from code. Use search_oes_catalog and get_oes_practices to match behavior to practices, and verify each against its definition.",
-  "Each finding: id, file, startLine, endLine, evidence (short quote), reasoning (1-2 sentences), confidence (low|medium|high). Put concerns that match no practice in notes (one line each, with file:line). Keep limitations to one sentence.",
+  "Each finding: id, file, startLine, endLine, evidence (short quote), reasoning (1-2 sentences), confidence (low|medium|high), severity (low|medium|high: how much harm if it applies), harmed (who is harmed and how, one sentence), and alternative (what the code should do instead, 1-2 sentences). Put concerns that match no practice in notes (one line each, with file:line). Keep limitations to one sentence.",
+  "Set principlesAssessed to the principles the code let you judge; leave out ones it can't show.",
   "Call create_oes_review with project, scope, limitations, notes, and findings (findings: [] if none).",
   "Rechecks: call get_oes_review_state on the previous statePath, pass it as previousReviewPath, reuse each findingKey, and list only verified fixes in resolvedFindings with evidence.",
   "Final reply is exactly two lines: \"<N> possible matches in <scope>.\" then \"Report: <link>\". Do not list findings, setup steps, or limitations in chat; they are in the report.",
@@ -77,7 +78,7 @@ export function registerOesTools(server, { catalog, reviewHtml, serverVersion = 
 
   const reviewConfig = {
     title: "Show OES project review",
-    description: "Final step of a review: saves the offline HTML report on this machine and returns its link. Submit findings (or []), scope, limitations, and notes. For rechecks pass previousReviewPath and resolvedFindings.",
+    description: "Final step of a review: saves the offline HTML report on this machine and returns its link. Submit findings (or []), scope, limitations, principlesAssessed, and notes. For rechecks pass previousReviewPath and resolvedFindings.",
     inputSchema: reviewInputSchema,
     _meta: { ui: { resourceUri } },
   };

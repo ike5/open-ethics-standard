@@ -21,6 +21,7 @@ const previousSchema = z.object({
   })).max(5000),
   history: z.array(z.object({ runNumber: z.number().int().positive(), createdAt: z.string(), scope: z.string(),
     open: z.number().nonnegative(), fixed: z.number().nonnegative(), new: z.number().nonnegative(), notRechecked: z.number().nonnegative(), dismissed: z.number().nonnegative(),
+    byPrinciple: z.record(z.string().max(80), z.number().nonnegative()).optional(),
   })).max(100).optional(),
 });
 

@@ -32,10 +32,14 @@ If the user hasn't said what to review, ask once: the whole app (quick pass), a 
 | `evidence` | Short direct quote or description of the code |
 | `reasoning` | 1–2 sentences on why it matches |
 | `confidence` | `low`, `medium`, or `high` |
+| `severity` | How much harm if it applies: `low`, `medium`, or `high` |
+| `harmed` | Who is harmed and how, in one sentence |
+| `alternative` | What the code should do instead, in 1–2 sentences |
 | `findingKey` | Optional stable ID; reuse it on rechecks |
 
 - Concerns that match no practice go in `notes`: one line each, with `file:line`.
 - Keep `limitations` to one sentence.
+- Set `principlesAssessed` to the principles the code let you judge. Leave out ones code can't show, such as worker or supply-chain conduct.
 
 ## 4. Build the report
 
@@ -43,9 +47,11 @@ Call `create_oes_review` with the review:
 
 ```json
 { "project": "my-app", "scope": "Checkout flow", "limitations": "Static read; app not run.",
+  "principlesAssessed": ["Honesty", "Autonomy", "Privacy"],
   "findings": [ { "id": "2.1.3", "file": "src/cancel.ts", "startLine": 84, "endLine": 97,
     "evidence": "Cancel opens a 'Talk to us first' modal", "reasoning": "Mandatory retention step before cancelling.",
-    "confidence": "high" } ],
+    "confidence": "high", "severity": "high", "harmed": "Members who want to leave keep paying.",
+    "alternative": "Let people cancel in the same place, and as easily, as they signed up." } ],
   "notes": [ "Sound is on by default (sound.js:21)." ] }
 ```
 

@@ -4,6 +4,7 @@ export const reviewInputSchema = z.object({
   project: z.string().min(1).max(200),
   scope: z.string().max(2000).default("Scope not recorded"),
   limitations: z.string().max(4000).default("Limitations not recorded").describe("One or two sentences on what was not checked."),
+  principlesAssessed: z.array(z.string().min(1).max(80)).max(8).optional().describe("The OES principles this review could judge from the code. Leave out principles the code can't show (for example worker or supply-chain conduct)."),
   notes: z.array(z.string().min(1).max(600)).max(50).default([]).describe("Short observations worth a look that match no OES practice, each with its file:line."),
   previousReviewPath: z.string().min(1).max(2000).optional().describe("Local path to review.json, saved audit state JSON, or saved report HTML from the previous run. Reuse for updates."),
   resolvedFindings: z.array(z.object({
@@ -20,11 +21,17 @@ export const reviewInputSchema = z.object({
     evidence: z.string().min(1).max(2000),
     reasoning: z.string().min(1).max(2000),
     confidence: z.enum(["low", "medium", "high"]),
+    severity: z.enum(["low", "medium", "high"]).optional().describe("How much harm this does to people if it applies: high, medium, or low."),
+    harmed: z.string().min(1).max(600).optional().describe("Who is harmed and how, in one sentence."),
+    alternative: z.string().min(1).max(800).optional().describe("The ethical alternative: what the code should do instead, in one or two sentences."),
   }).refine((item) => item.endLine >= item.startLine, { message: "endLine must be at least startLine" })).max(500),
 });
 
 export function createReview(input, catalog, serverVersion) {
   const parsed = reviewInputSchema.parse(input);
+  const names = (catalog.principles ?? []).map((item) => item.name);
+  const unknown = (parsed.principlesAssessed ?? []).filter((name) => !names.includes(name));
+  if (unknown.length) throw new Error(`Unknown OES principle in principlesAssessed: ${unknown.join(", ")}. Use: ${names.join(", ")}.`);
   const findings = parsed.findings.map((finding) => {
     const practice = catalog.practices.find((item) => item.id === finding.id);
     if (!practice) throw new Error(`Unknown OES practice: ${finding.id}`);

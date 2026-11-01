@@ -17,7 +17,7 @@ If the user hasn't said what to review, ask once: the whole app (quick pass), a 
   ```sh
   claude mcp add --scope user open-ethics-standard -- npx -y open-ethics-standard-mcp@latest
   ```
-  Other clients: https://ike5.github.io/open-ethics-standard/#install. It needs Node.js 20+, and the client loads it in the next session.
+  Other clients: https://ike5.github.io/open-ethics-standard/mcp.html#install. It needs Node.js 20+, and the client loads it in the next session.
 
 ## 3. Review
 

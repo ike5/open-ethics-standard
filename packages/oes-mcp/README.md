@@ -11,7 +11,7 @@ claude mcp add --scope user open-ethics-standard -- npx -y open-ethics-standard-
 codex mcp add open-ethics-standard -- npx -y open-ethics-standard-mcp@latest
 ```
 
-Other clients: command `npx`, args `["-y", "open-ethics-standard-mcp@latest"]` ([per-client setup](https://ike5.github.io/open-ethics-standard/#install)). On native Windows, wrap it as `cmd /c npx …`.
+Other clients: command `npx`, args `["-y", "open-ethics-standard-mcp@latest"]` ([per-client setup](https://ike5.github.io/open-ethics-standard/mcp.html#install)). On native Windows, wrap it as `cmd /c npx …`.
 
 Then ask your AI: "Review my project against the Open Ethics Standard." See the [agent guide](https://ike5.github.io/open-ethics-standard/agent-setup.md).
 

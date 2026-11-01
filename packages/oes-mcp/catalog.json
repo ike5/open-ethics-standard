@@ -7,42 +7,50 @@
     {
       "name": "Honesty",
       "statement": "Tell people the truth about prices, products, services, and claims.",
-      "protects": "Customers, the public"
+      "protects": "Customers, the public",
+      "why": "People can only decide well on accurate information. Deception takes money and trust from people who never agreed to give them."
     },
     {
       "name": "Autonomy",
       "statement": "People choose freely and knowingly, and can say no, change their mind, or leave.",
-      "protects": "Customers, users, workers"
+      "protects": "Customers, users, workers",
+      "why": "A choice that was engineered, hidden, or made impossible to undo is not a real choice."
     },
     {
       "name": "Privacy",
       "statement": "Collect only what is needed, use it only as agreed, and protect it.",
-      "protects": "Customers, workers, people who never signed up"
+      "protects": "Customers, workers, people who never signed up",
+      "why": "Personal information outlives the moment it is given, and it can be used against the person it describes."
     },
     {
       "name": "Fairness",
       "statement": "Treat people equally, do not discriminate, and keep services accessible.",
-      "protects": "Customers, applicants, workers"
+      "protects": "Customers, applicants, workers",
+      "why": "Access to credit, housing, work, and services should not depend on who someone is or where they live."
     },
     {
       "name": "Care",
       "statement": "Protect vulnerable people; do not profit from distress, grief, or compulsion.",
-      "protects": "Children, people in crisis, older adults, anyone vulnerable"
+      "protects": "Children, people in crisis, older adults, anyone vulnerable",
+      "why": "Some people cannot protect themselves in the moment. A business that targets that moment is choosing profit over the person."
     },
     {
       "name": "Safety",
       "statement": "Do not sell known harms, keep service promises, and allow repair.",
-      "protects": "Customers, the public"
+      "protects": "Customers, the public",
+      "why": "People trust that what they buy will not hurt them and will work as promised. Concealing a defect turns that trust into risk."
     },
     {
       "name": "Accountability",
       "statement": "Explain decisions, offer recourse, own mistakes, and protect people who speak up.",
-      "protects": "Everyone affected by a decision"
+      "protects": "Everyone affected by a decision",
+      "why": "Power without a way to question it is easy to abuse. People need to know why something happened and what they can do about it."
     },
     {
       "name": "Responsibility",
       "statement": "Workers, suppliers, communities, competitors, and the environment count too.",
-      "protects": "Workers, suppliers, communities, competitors, the environment"
+      "protects": "Workers, suppliers, communities, competitors, the environment",
+      "why": "A business can be honest with every customer and still do harm to the people who make its products, the market it competes in, or the place it operates."
     }
   ],
   "practices": [

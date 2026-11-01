@@ -1,0 +1,35 @@
+/* Shared styles for the OES site. Fonts are self-hosted (SIL OFL 1.1, see assets/fonts) so visiting the site makes no third-party requests. */
+@font-face{font-family:Manrope;font-weight:200 800;font-display:swap;src:url(fonts/manrope-latin-wght-normal.woff2) format('woff2')}
+@font-face{font-family:'DM Sans';font-weight:100 1000;font-display:swap;src:url(fonts/dm-sans-latin-wght-normal.woff2) format('woff2')}
+@font-face{font-family:'DM Mono';font-weight:400;font-display:swap;src:url(fonts/dm-mono-latin-400-normal.woff2) format('woff2')}
+@font-face{font-family:'DM Mono';font-weight:500;font-display:swap;src:url(fonts/dm-mono-latin-500-normal.woff2) format('woff2')}
+:root{--bg:#f7f6f2;--ink:#17201d;--muted:#58615b;--line:#e3e2d9;--lime:#d8f36a;--olive:#4c5a2c;--tile:#eef1e4;font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--bg);font-synthesis:none}
+*{box-sizing:border-box}
+body{margin:0;line-height:1.55;background:var(--bg)}
+a{color:inherit}
+button{font:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid #8fb52a;outline-offset:3px}
+.wrap{width:min(1200px,100% - 40px);margin:auto}
+.header{min-height:78px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;font:700 16px Manrope,sans-serif}
+.mark{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--lime);font-weight:800}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:22px;font-size:15px}
+.nav a{text-decoration:none}
+.nav a:hover{text-decoration:underline;text-underline-offset:4px}
+.nav .github{padding:9px 16px;border:1px solid #d6d6cc;border-radius:999px;background:#fff}
+.nav .github:hover{text-decoration:none;border-color:#8fa05a}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;padding:7px 14px;border:1px solid var(--line);border-radius:99px;background:#fff;font-size:14px}
+.dot{width:8px;height:8px;border-radius:50%;background:#8fb52a}
+.olive{color:var(--olive)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 24px;border-radius:12px;text-decoration:none;font-weight:700;transition:transform .2s,box-shadow .2s,filter .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.primary{background:var(--lime);color:var(--ink)}
+.primary:hover{filter:brightness(.95);box-shadow:0 8px 20px rgba(96,113,56,.28)}
+.secondary{border:1px solid #d6d6cc;background:#fff;color:var(--ink)}
+.secondary:hover{border-color:#8fa05a;box-shadow:0 8px 20px rgba(23,32,29,.1)}
+.footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:15px;padding:28px 0;color:var(--muted);font-size:13px;border-top:1px solid var(--line)}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:10px;top:10px;background:#fff;padding:10px;z-index:4}
+@media(max-width:700px){.wrap{width:min(100% - 32px,1200px)}.nav{gap:14px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}.btn:hover{transform:none}}

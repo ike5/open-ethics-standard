@@ -47,7 +47,7 @@ Under them sit 804 named, numbered practices that break these principles, such a
 claude mcp add --scope user open-ethics-standard -- npx -y open-ethics-standard-mcp@latest
 ```
 
-For Codex: `codex mcp add open-ethics-standard -- npx -y open-ethics-standard-mcp@latest`. For Cursor, VS Code, or other clients, add a stdio server with command `npx` and args `-y open-ethics-standard-mcp@latest` ([per-client commands](https://ike5.github.io/open-ethics-standard/#install)). On native Windows, use `cmd /c npx …`. To uninstall: `claude mcp remove --scope user open-ethics-standard`.
+For Codex: `codex mcp add open-ethics-standard -- npx -y open-ethics-standard-mcp@latest`. For Cursor, VS Code, or other clients, add a stdio server with command `npx` and args `-y open-ethics-standard-mcp@latest` ([per-client commands](https://ike5.github.io/open-ethics-standard/mcp.html#install)). On native Windows, use `cmd /c npx …`. To uninstall: `claude mcp remove --scope user open-ethics-standard`.
 
 **2. Ask for a review.** Open your project and say:
 

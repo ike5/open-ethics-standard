@@ -8,9 +8,10 @@ import { execFile as callbackExecFile } from "node:child_process";
 import { promisify } from "node:util";
 import { Client } from "@modelcontextprotocol/client";
 import { StdioClientTransport } from "@modelcontextprotocol/client/stdio";
-import { compareReview, exportFindings, markdownReport, reviewCounts } from "../src/review-state.js";
+import { compareReview, exportFindings, markdownReport, principleWeights, reviewCounts } from "../src/review-state.js";
 import { createReview } from "../src/report-model.js";
 import { writeLocalReview } from "../src/local-report.js";
+import { catalogOverview, searchCatalog } from "../src/catalog.js";
 
 const execFile = promisify(callbackExecFile);
 const catalog = JSON.parse(await readFile(new URL("../catalog.json", import.meta.url), "utf8"));
@@ -33,7 +34,8 @@ test("standalone report round trips evidence without executable HTML and creates
     assert.deepEqual(JSON.parse(embedded), links.review);
     assert.equal(links.review.findings[0].evidence, model.findings[0].evidence);
     assert.match(html, /connect-src 'none'/);
-    assert.match(html, /Print \/ Save PDF/);
+    assert.match(html, /Export as/);
+    assert.match(html, /<b>PDF<\/b>/);
     const markdown = await readFile(links.markdownPath, "utf8");
     assert.match(markdown, /Billing journey/);
     assert.match(markdown, /src\/billing\.js:2-5/);
@@ -45,6 +47,29 @@ test("standalone report round trips evidence without executable HTML and creates
     const second = await writeLocalReview(model, template, root);
     assert.notEqual(links.htmlPath, second.htmlPath);
   } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test("every practice names at least one known principle, and findings carry them into the report", async () => {
+  assert.equal(catalog.principles.length, 8);
+  const names = new Set(catalog.principles.map((item) => item.name));
+  for (const practice of catalog.practices) {
+    assert.ok(practice.principles?.length > 0, `${practice.id} has no principles`);
+    for (const name of practice.principles) assert.ok(names.has(name), `${practice.id} names unknown principle ${name}`);
+  }
+  const model = createReview(input, catalog, "test");
+  assert.deepEqual(model.findings[0].practice.principles, catalog.practices[0].principles);
+  const root = await mkdtemp(join(tmpdir(), "oes-principles-test-"));
+  try {
+    const links = await writeLocalReview(model, template, root);
+    assert.match(await readFile(links.htmlPath, "utf8"), /pill principle/);
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test("catalog overview and search lead with principles", () => {
+  const { principles, categories } = catalogOverview(catalog);
+  assert.equal(principles.length, 8);
+  assert.equal(categories.length, 15);
+  assert.ok(searchCatalog(catalog, "Autonomy").length > 0);
 });
 
 test("rejects unknown practices and reversed ranges; accepts zero findings", () => {
@@ -159,6 +184,35 @@ test("repeat audits preserve stable links, carry choices, verify fixes, and reta
     const stale = join(root, "stale.json");
     await writeFile(stale, JSON.stringify(first.review));
     await assert.rejects(writeLocalReview(createReview({ project: input.project, previousReviewPath: stale, findings: [] }, catalog, "test"), template, root), /newer run/);
+  } finally { await rm(root, { recursive: true, force: true }); }
+});
+
+test("optional severity, harm, and alternative reach the report; principle weights follow severity", async () => {
+  const practice = catalog.practices[0];
+  const model = createReview({ ...input, principlesAssessed: ["Honesty", "Autonomy"], findings: [
+    { ...input.findings[0], findingKey: "a", severity: "high", harmed: "Customers who cancel are charged again.", alternative: "Cancel in the same place people sign up." },
+    { ...input.findings[0], findingKey: "b", file: "src/b.js" },
+    { ...input.findings[0], findingKey: "c", file: "src/c.js", severity: "medium", reviewStatus: "dismissed" },
+  ] }, catalog, "test");
+  const weights = principleWeights(model.findings);
+  for (const name of practice.principles) assert.equal(weights[name], 4, "high (3) + unrated (1); dismissed is left out");
+  const markdown = markdownReport(model);
+  assert.match(markdown, /Severity: high/);
+  assert.match(markdown, /Who is harmed: Customers who cancel are charged again\./);
+  assert.match(markdown, /Ethical alternative: Cancel in the same place people sign up\./);
+  assert.match(markdown, /## By principle/);
+  assert.match(markdown, /Principles assessed: Honesty, Autonomy/);
+  assert.throws(() => createReview({ ...input, principlesAssessed: ["Kindness"] }, catalog, "test"), /Unknown OES principle/);
+  assert.throws(() => createReview({ ...input, findings: [{ ...input.findings[0], severity: "extreme" }] }, catalog, "test"));
+  const root = await mkdtemp(join(tmpdir(), "oes-severity-test-"));
+  try {
+    const links = await writeLocalReview(model, template, root);
+    assert.deepEqual(links.review.history.at(-1).byPrinciple, weights);
+    const recheck = await writeLocalReview(createReview({ ...input, previousReviewPath: links.statePath, findings: [] }, catalog, "test"), template, root);
+    assert.deepEqual(recheck.review.history[0].byPrinciple, weights, "per-principle history survives a recheck");
+    const html = await readFile(links.htmlPath, "utf8");
+    assert.match(html, /id="export-menu"/);
+    assert.match(html, /id="radar"/);
   } finally { await rm(root, { recursive: true, force: true }); }
 });
 

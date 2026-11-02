@@ -10,6 +10,19 @@ export function decision(item) {
   return ["applies", "unsure", "dismissed"].includes(item.reviewStatus) ? item.reviewStatus : "unsure";
 }
 
+export const severityWeight = (item) => ({ high: 3, medium: 2, low: 1 })[item.severity] || 1;
+
+// Open concern weight per principle: each open, included finding adds its severity weight
+// to every principle its practice breaks.
+export function principleWeights(findings, status = decision) {
+  const weights = {};
+  for (const item of findings) {
+    if (status(item) === "dismissed" || ["fixed", "not_rechecked"].includes(item.lifecycle)) continue;
+    for (const name of item.practice?.principles || []) weights[name] = (weights[name] || 0) + severityWeight(item);
+  }
+  return weights;
+}
+
 export function exportFindings(model, status = decision) {
   return model.findings.filter((item) => status(item) !== "dismissed");
 }
@@ -51,7 +64,7 @@ export function compareReview(current, previous, { reviewId, createdAt }) {
   const runNumber = (previous?.runNumber || 0) + 1;
   const { previousReviewPath, resolvedFindings, ...base } = current;
   return { ...base, reviewId, createdAt, runNumber, comparedAt: previous?.createdAt || null, findings,
-    history: [...(previous?.history || []), { runNumber, createdAt, scope: current.scope, ...reviewCounts(findings) }].slice(-100) };
+    history: [...(previous?.history || []), { runNumber, createdAt, scope: current.scope, ...reviewCounts(findings), byPrinciple: principleWeights(findings) }].slice(-100) };
 }
 
 export function markdownReport(model, status = decision) {
@@ -62,9 +75,21 @@ export function markdownReport(model, status = decision) {
     ...(model.runNumber ? [`Audit run: ${model.runNumber} · ${literal(model.createdAt)}`] : []),
     `Scope: ${literal(model.scope)}`, `Limitations: ${literal(model.limitations)}`,
     "Possible matches are leads for human review, not verdicts or certification. Dismissed findings are excluded.",
+    ...principleSection(model, status, literal),
     ...(findings.length ? findings.map((item, index) =>
-      `## ${index + 1}. OES § ${item.id} — ${literal(item.practice?.title)}\n\nStatus: ${status(item)} · Progress: ${literal(item.lifecycle || "new")} · Confidence: ${item.confidence}\n\nLocation: ${literal(item.file)}:${item.startLine}-${item.endLine}\n\nEvidence:\n\n${quote(item.evidence)}\n\nReasoning: ${literal(item.reasoning)}${item.resolutionEvidence ? `\n\nFix verification:\n\n${quote(item.resolutionEvidence)}` : ""}\n\n[Read OES § ${item.id}](https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md#L${item.practice?.sourceLine || 1})`)
+      `## ${index + 1}. OES § ${item.id} — ${literal(item.practice?.title)}\n\nStatus: ${status(item)} · Progress: ${literal(item.lifecycle || "new")}${item.severity ? ` · Severity: ${item.severity}` : ""} · Confidence: ${item.confidence}${item.practice?.principles?.length ? `\n\nPrinciples: ${item.practice.principles.map(literal).join(", ")}` : ""}\n\nLocation: ${literal(item.file)}:${item.startLine}-${item.endLine}\n\nEvidence:\n\n${quote(item.evidence)}\n\nReasoning: ${literal(item.reasoning)}${item.harmed ? `\n\nWho is harmed: ${literal(item.harmed)}` : ""}${item.alternative ? `\n\nEthical alternative: ${literal(item.alternative)}` : ""}${item.resolutionEvidence ? `\n\nFix verification:\n\n${quote(item.resolutionEvidence)}` : ""}\n\n[Read OES § ${item.id}](https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md#L${item.practice?.sourceLine || 1})`)
       : ["No non-dismissed findings to export within the recorded scope."]),
     ...(model.notes?.length ? [`## Other observations\n\n${model.notes.map((note) => `- ${literal(note)}`).join("\n")}`] : [])
   ].join("\n\n") + "\n";
+}
+
+function principleSection(model, status, literal) {
+  const weights = principleWeights(model.findings || [], status);
+  const assessed = model.principlesAssessed;
+  const names = Object.keys(weights);
+  const lines = names.sort((a, b) => weights[b] - weights[a]).map((name) => `| ${literal(name)} | ${weights[name]} |`);
+  const out = [];
+  if (lines.length) out.push(["## By principle", "", "Open concern weight (high = 3, medium = 2, low or unrated = 1):", "", "| Principle | Weight |", "|---|---|", ...lines].join("\n"));
+  if (assessed?.length) out.push(`Principles assessed: ${assessed.map(literal).join(", ")}`);
+  return out;
 }

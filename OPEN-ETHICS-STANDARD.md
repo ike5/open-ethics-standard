@@ -1,6 +1,6 @@
 # Open Ethics Standard (OES)
 
-**A reference catalog of unethical software, technology, and business practices.**
+**An ethical standard for any business, and a named catalog of the practices that break it.**
 
 **Version:** 2026.1.0
 **Date:** May 2026
@@ -9,12 +9,19 @@
 
 ## About This Standard
 
-The Open Ethics Standard (OES) is a structured, citable catalog of unethical
-practices observed across software, technology, and consumer-facing
-industries. It exists so that anyone — a journalist, a regulator, a customer,
-an employee, a competitor, an analyst — can point to a specific behavior and
-say, *"that practice has a name, a definition, and a number, and it is
-listed in the Open Ethics Standard."*
+The Open Ethics Standard (OES) says how a business should treat the people
+it serves, employs, buys from, and affects. It has two parts that work
+together: eight **principles** that name the ethics, and a catalog of
+**named practices** that show what breaking them looks like. It applies to
+every kind of business in every industry — airlines and hospitals,
+construction and retail, employers and supply chains, funeral homes and
+software companies. Software is one place the standard applies, not the
+frame.
+
+It exists so that anyone — a journalist, a regulator, a customer, an
+employee, a competitor, an analyst — can point to a specific behavior and
+say, *"that practice has a name, a definition, and a number, and it breaks
+this principle in the Open Ethics Standard."*
 
 The OES is **not**:
 
@@ -24,11 +31,12 @@ The OES is **not**:
 - an enforcement program,
 - a list of commitments a company is asked to make.
 
-The OES **is** a shared vocabulary. Many harmful corporate behaviors persist
-because they are difficult to name precisely. *"They tricked me into a
-subscription"* is easier to dismiss than *"the cancellation flow violates
-OES § 2.1.3 (Roach Motel Friction)."* Naming a practice is the first step in
-holding it accountable, whether through public criticism, consumer choice,
+The OES **is** a shared set of values and a shared vocabulary. Many harmful
+business behaviors persist because they are difficult to name precisely.
+*"They tricked me into a subscription"* is easier to dismiss than *"the
+cancellation flow breaks Autonomy: OES § 2.1.3 (Roach Motel Friction)."*
+Naming a practice, and the value it violates, is the first step in holding
+it accountable, whether through public criticism, consumer choice,
 investigative reporting, or eventual regulation.
 
 The catalog draws on documented patterns of corporate malfeasance (including
@@ -65,14 +73,24 @@ behavior is recognizable, named, and documented as ethically harmful.
 
 ---
 
-## How This Catalog Is Organized
+## How This Standard Is Organized
 
-The catalog has fifteen top-level categories. Within each category,
-subsections group related practices, and each row describes one practice
-in domain-agnostic language. An **Examples** column lists concrete
-manifestations — the industries and contexts in which the practice has been
-observed. The Examples column is illustrative, not exhaustive: most
-practices recur in industries beyond those listed.
+The standard has three layers:
+
+1. **Principles** (Part I) — eight statements of what ethical conduct
+   means for any business. They are the core.
+2. **Practices** (Part II) — named, numbered ways of breaking those
+   principles, grouped into fifteen categories. Every subsection says which
+   principles its practices break.
+3. **Ways to apply it** — citing a practice in writing, assessing a
+   business against the principles, or reviewing a software project with
+   the OES MCP. These are uses of the standard, not part of it.
+
+Within each category, subsections group related practices, and each row
+describes one practice in industry-neutral language. An **Examples** column
+lists concrete manifestations — the industries and contexts in which the
+practice has been observed. The Examples column is illustrative, not
+exhaustive: most practices recur in industries beyond those listed.
 
 The fifteen categories are:
 
@@ -98,11 +116,108 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ---
 
-# Part I — Taxonomy of Unethical Practices
+# Part I — Purpose & Principles
+
+## Purpose
+
+Businesses hold power over the people they touch: customers, workers,
+suppliers, neighbors, competitors, and the environment. The OES states
+plainly how that power should be used, and names the specific ways it is
+abused, so that harm can be pointed at, reported, and fixed.
+
+It protects:
+
+- **customers**, from deception, coercion, exploitation, and unsafe products;
+- **people who are not customers**, such as people whose data is collected
+  or who are affected by a business's decisions;
+- **workers**, from unsafe, unfair, or exploitative conditions;
+- **suppliers and competitors**, from abuse of market power;
+- **communities and the environment**, from costs a business pushes onto them.
+
+## The Eight Principles
+
+| Principle | Statement | Who it protects |
+|-----------|-----------|-----------------|
+| **Honesty** | Tell people the truth about prices, products, services, and claims. | Customers, the public |
+| **Autonomy** | People choose freely and knowingly, and can say no, change their mind, or leave. | Customers, users, workers |
+| **Privacy** | Collect only what is needed, use it only as agreed, and protect it. | Customers, workers, people who never signed up |
+| **Fairness** | Treat people equally, do not discriminate, and keep services accessible. | Customers, applicants, workers |
+| **Care** | Protect vulnerable people; do not profit from distress, grief, or compulsion. | Children, people in crisis, older adults, anyone vulnerable |
+| **Safety** | Do not sell known harms, keep service promises, and allow repair. | Customers, the public |
+| **Accountability** | Explain decisions, offer recourse, own mistakes, and protect people who speak up. | Everyone affected by a decision |
+| **Responsibility** | Workers, suppliers, communities, competitors, and the environment count too. | Workers, suppliers, communities, competitors, the environment |
+
+### Honesty
+
+**Statement:** Tell people the truth about prices, products, services, and claims.
+**Why it matters:** People can only decide well on accurate information. Deception takes money and trust from people who never agreed to give them.
+**Covers:** pricing and billing (Category 1), marketing and capability claims (Category 7), sneaking and urgency patterns (3.1–3.2), misleading privacy and authority claims (5.3, 5.5), and AI misrepresentation (6.4).
+
+### Autonomy
+
+**Statement:** People choose freely and knowingly, and can say no, change their mind, or leave.
+**Why it matters:** A choice that was engineered, hidden, or made impossible to undo is not a real choice.
+**Covers:** subscriptions, contracts, and lock-in (Category 2), misdirection, obstruction, and forced action (3.3–3.5), and consent manipulation (5.1).
+
+### Privacy
+
+**Statement:** Collect only what is needed, use it only as agreed, and protect it.
+**Why it matters:** Personal information outlives the moment it is given, and it can be used against the person it describes.
+**Covers:** data collection, tracking, retention, sale, and breach handling (Category 4), and consent to data use (5.1).
+
+### Fairness
+
+**Statement:** Treat people equally, do not discriminate, and keep services accessible.
+**Why it matters:** Access to credit, housing, work, and services should not depend on who someone is or where they live.
+**Covers:** automated and human decisions about people (6.1–6.3, 6.5), and access, equity, and discrimination (Category 9).
+
+### Care
+
+**Statement:** Protect vulnerable people; do not profit from distress, grief, or compulsion.
+**Why it matters:** Some people cannot protect themselves in the moment. A business that targets that moment is choosing profit over the person.
+**Covers:** exploitation of vulnerable populations (Category 10), emotional manipulation and engagement-addiction design (3.6–3.8), and crisis pricing and predatory lending (1.2, 1.7).
+
+### Safety
+
+**Statement:** Do not sell known harms, keep service promises, and allow repair.
+**Why it matters:** People trust that what they buy will not hurt them and will work as promised. Concealing a defect turns that trust into risk.
+**Covers:** service quality, safety, recalls, repair, and refunds (Category 8).
+
+### Accountability
+
+**Statement:** Explain decisions, offer recourse, own mistakes, and protect people who speak up.
+**Why it matters:** Power without a way to question it is easy to abuse. People need to know why something happened and what they can do about it.
+**Covers:** disclosure and decision opacity (5.2, 5.4), governance failures (6.6), breach notification (4.12), and governance, whistleblowing, and corporate accountability (Category 15).
+
+<!-- Renamed from "Responsibility beyond the customer"; the anchor keeps old links working. -->
+<a id="responsibility-beyond-the-customer"></a>
+
+### Responsibility
+
+**Statement:** Workers, suppliers, communities, competitors, and the environment count too.
+**Why it matters:** A business can be honest with every customer and still do harm to the people who make its products, the market it competes in, or the place it operates.
+**Covers:** worker and workplace conduct (Category 11), anti-competitive behavior (Category 12), supply chains (Category 13), and environmental conduct (Category 14).
+
+## How to Judge Gray Areas
+
+Naming a practice does not replace judgment.
+
+- **Context matters.** A real countdown for a real sale is honest; a timer that resets is not.
+- **Effect counts more than intent.** A practice that predictably harms people is on the list whether or not anyone meant harm.
+- **Legitimate uses exist.** Collecting an address to deliver a package is not over-collection. Ask whether the practice is needed for what the person agreed to.
+- **Many practices are legal.** The OES describes ethical harm, not legal liability.
+
+When a case is unclear, ask which principle it touches, who is affected, and whether they could have known and chosen differently.
+
+---
+
+# Part II — Taxonomy of Unethical Practices
 
 ## 1. Pricing, Billing & Monetization Manipulation
 
 ### 1.1 Hidden Costs & Drip Pricing
+
+**Principles:** Honesty
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -115,6 +230,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 1.2 Surge & Crisis Pricing
 
+**Principles:** Honesty, Care
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 1.2.1 | **Crisis-Period Price Gouging**   | Algorithmically raising prices on essential goods or services during emergencies, weather events, or supply shocks when consumers cannot defer purchase.          | Grocery, e-commerce, ride-hailing, food delivery, plumbing/home repair, pest control         |
@@ -124,6 +241,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 1.2.5 | **Tourist-Targeted Overcharging** | Charging higher prices to visibly identifiable visitors who lack local knowledge of fair prices, sometimes refusing meters or quoting opaque flat rates.          | Taxi services, retail in tourist zones, hospitality, currency exchange                       |
 
 ### 1.3 Bait-and-Switch Pricing
+
+**Principles:** Honesty
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -136,6 +255,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 1.3.7 | **Renewal-Time Feature Downgrade**  | Removing or restricting features included in the prior term and offering them only at a higher tier upon renewal.                                                 | Cloud / SaaS, streaming, mobile carriers, fitness                                            |
 
 ### 1.4 Markup Concealment & Junk Fees
+
+**Principles:** Honesty
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -154,6 +275,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 1.5 Loyalty Penalty & Incumbency Pricing
 
+**Principles:** Fairness, Honesty
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 1.5.1 | **Price Creep**                   | Gradual, repeated price increases above inflation, exploiting customer inertia and switching costs.                                                               | SaaS, streaming, insurance, mobile carriers, cleaning services                               |
@@ -163,6 +286,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 1.5.5 | **Mile / Point Devaluation**      | Unilaterally reducing the value, redemption availability, or expiration window of accumulated loyalty points or miles.                                            | Airlines, hotels, retail loyalty programs, credit-card rewards                               |
 
 ### 1.6 Quantity & Quality Manipulation
+
+**Principles:** Honesty
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -175,6 +300,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 1.6.7 | **Checkout-Scanner Discrepancy**  | Shelf and scanned prices disagree, consistently in the seller's favor.                                                                                            | Grocery, retail                                                                              |
 
 ### 1.7 Predatory Lending & Consumer Finance
+
+**Principles:** Care, Fairness
 
 | §     | Practice                              | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|---------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -190,6 +317,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 1.8 Billing Errors & Unauthorized Charges
 
+**Principles:** Honesty, Accountability
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 1.8.1 | **Bill Cramming**                   | Adding unauthorized charges — third-party services, premium SMS, mystery fees — to invoices without explicit consent.                                             | Telecom, utilities, hospitality                                                              |
@@ -201,6 +330,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 1.8.7 | **Insurance Code Upcoding**         | Coding procedures at higher reimbursement levels than clinically warranted to inflate insurance billing.                                                          | Healthcare, dental                                                                           |
 
 ### 1.9 Tipping Manipulation
+
+**Principles:** Honesty, Autonomy
 
 | §     | Practice                                  | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -214,6 +345,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 2.1 Cancellation Friction (Roach Motel)
 
+**Principles:** Autonomy
+
 | §     | Practice                         | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 2.1.1 | **Asymmetric Signup/Cancel**     | Allowing instant online signup while requiring phone calls, certified mail, or in-person visits to cancel.                                                        | Fitness/gyms, dating, gambling, cosmetics, cleaning, mental health, telecom                  |
@@ -224,6 +357,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 2.2 Auto-Renewal Manipulation
 
+**Principles:** Autonomy, Honesty
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 2.2.1 | **Hidden Renewal**                  | Auto-renewing subscriptions or contracts without prominent advance notice, banking on user inattention.                                                           | Streaming, telecom, fitness, dating, supplements, pest control, waste management             |
@@ -233,6 +368,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 2.2.5 | **Silent Coverage Erosion**         | Renewing policies or contracts with reduced coverage at the same or higher price without highlighting the changes.                                                | Insurance, cloud/SaaS, telecom                                                               |
 
 ### 2.3 Tier Degradation & Feature Gating
+
+**Principles:** Autonomy, Honesty
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -246,6 +383,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 2.3.8 | **Grind-or-Pay Design**           | Intentionally slowing free progression to push players or users toward paid shortcuts.                                                                            | Gaming, dating                                                                               |
 
 ### 2.4 Vendor Lock-In
+
+**Principles:** Autonomy
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -262,6 +401,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 2.5 Forced Bundling & Tying
 
+**Principles:** Autonomy, Fairness
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 2.5.1 | **Tying of Unwanted Products**    | Requiring purchase of unrelated products or services as a condition of obtaining the desired one.                                                                 | Insurance, financial services, e-commerce, agriculture (seed-herbicide bundling)            |
@@ -271,6 +412,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 2.6 Forced Arbitration & Class-Action Waivers
 
+**Principles:** Autonomy, Accountability
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 2.6.1 | **Mandatory Arbitration Clause**  | Requiring arbitration in EULAs, employment contracts, or service terms that strips users or workers of access to courts and class actions.                        | Financial services, gaming (EULAs), tobacco, internal company ethics, gig economy           |
@@ -278,6 +421,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 2.6.3 | **EULA Retroactive Modification** | Unilaterally changing EULAs or terms after purchase to reduce user rights or expand data collection.                                                              | Gaming, software, social media                                                               |
 
 ### 2.7 Contract Imbalance
+
+**Principles:** Autonomy, Fairness
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -294,6 +439,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 3.1 Sneaking Patterns
 
+**Principles:** Honesty, Autonomy
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 3.1.1 | **Hidden Costs at Checkout**      | Revealing fees only on the final step of checkout, after the user has invested time in the flow.                                                                  | E-commerce, hospitality, ticketing, food delivery                                            |
@@ -302,6 +449,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 3.1.4 | **Bait & Switch (Outcome)**       | Promising one outcome (free download, simple signup) and delivering a different one (subscription, account creation).                                             | Software, dating, e-commerce, fitness                                                        |
 
 ### 3.2 Urgency & Scarcity Patterns
+
+**Principles:** Honesty, Autonomy
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -313,6 +462,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 3.3 Misdirection Patterns
 
+**Principles:** Autonomy, Honesty
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 3.3.1 | **Confirmshaming**                | Using guilt-inducing or self-deprecating language for the opt-out option ("No thanks, I don't want to save money").                                               | E-commerce, fitness, nonprofits, supplements                                                 |
@@ -321,6 +472,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 3.3.4 | **Pre-Checked Boxes**             | Defaulting to opt-in for marketing, data sharing, or ancillary purchases.                                                                                         | E-commerce, nonprofits, financial services, advertising                                      |
 
 ### 3.4 Obstruction Patterns
+
+**Principles:** Autonomy
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -331,6 +484,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 3.5 Forced Action
 
+**Principles:** Autonomy, Privacy
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 3.5.1 | **Forced Registration**           | Requiring account creation for actions that don't need persistent identity (viewing prices, completing a one-time purchase).                                      | E-commerce, news/media, software downloads                                                   |
@@ -340,6 +495,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 3.5.5 | **Aggressive In-Person Solicitation** | Verbal solicitation, shouting, harassment, or physical blocking of potential customers in transit hubs and tourist zones to coerce a transaction before they can compare alternatives. | Taxi services at airports/stations, timeshare reps, street vendors                            |
 
 ### 3.6 Behavioral Reinforcement
+
+**Principles:** Care, Autonomy
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -355,6 +512,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 3.7 Emotional Manipulation
 
+**Principles:** Care, Autonomy
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 3.7.1 | **Fear Appeals**                  | Marketing that exaggerates risks ("Your data is at risk!") to drive action.                                                                                       | Cybersecurity, supplements, baby products, insurance, pet industry, home services            |
@@ -365,6 +524,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 3.7.6 | **Dignity-Language Exploitation** | Steering grieving or vulnerable customers toward expensive options through implied judgments about love, respect, or duty.                                        | Funeral services, senior care, wedding planning                                              |
 
 ### 3.8 Engagement-Addiction Optimization
+
+**Principles:** Care
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -380,6 +541,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 4.1 Over-Collection
 
+**Principles:** Privacy
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 4.1.1 | **Excessive Data Collection**       | Gathering more data than is necessary for the stated purpose.                                                                                                     | Cross-domain (mobile apps, automotive infotainment, smart appliances, fitness, gaming)       |
@@ -390,6 +553,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 4.2 Shadow Profiling of Non-Users
 
+**Principles:** Privacy
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 4.2.1 | **Shadow Profiling**                | Building behavioral, demographic, or social-graph profiles of individuals who have never created accounts, via pixels, contact uploads, or third-party data.      | Social media, advertising, data brokers, internal company ethics                             |
@@ -397,6 +562,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 4.2.3 | **Inferred-Attribute Profiling**    | Using algorithms to infer protected or sensitive characteristics (health conditions, sexuality, religion, immigration status) from behavioral data.               | Data brokers, advertising, insurance                                                         |
 
 ### 4.3 Cross-Device & Cross-Platform Tracking
+
+**Principles:** Privacy
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -408,6 +575,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 4.4 Location Tracking Beyond Necessity
 
+**Principles:** Privacy
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 4.4.1 | **Background Location Tracking**    | Continuing to collect precise location when the app is closed or backgrounded, beyond what is needed.                                                             | Dating, ride-hailing, food delivery, social media                                            |
@@ -418,6 +587,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 4.5 Biometric Collection Without Consent
 
+**Principles:** Privacy, Autonomy
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 4.5.1 | **Biometric Boarding/Entry Coercion** | Defaulting to facial recognition, fingerprint, or iris scans for boarding or venue entry, with opt-out paths intentionally burdensome.                         | Airlines, ticketing/venues, government services                                              |
@@ -427,6 +598,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 4.5.5 | **Wearable Biometric Sale**         | Collecting heart rate, body composition, recovery, or fitness assessment data and selling to insurers, employers, or brokers.                                     | Fitness, sports, healthcare wearables                                                        |
 
 ### 4.6 Worker / Workplace Surveillance
+
+**Principles:** Privacy, Responsibility
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -440,6 +613,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 4.7 Sensitive-Attribute Inference
 
+**Principles:** Privacy, Fairness
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 4.7.1 | **Mental-Health Inference for Targeting** | Inferring depression, anxiety, grief, or emotional vulnerability from posting patterns and using it for ad targeting or feature manipulation.               | Social media, advertising                                                                    |
@@ -449,6 +624,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 4.7.5 | **Emotion-Recognition Pseudoscience** | Deploying affect-detection systems for hiring, security, or border control as if scientifically validated.                                                     | AI, HR/recruitment, government                                                               |
 
 ### 4.8 Children's Data Collection
+
+**Principles:** Privacy, Care
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -462,6 +639,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 4.9 Indefinite Retention
 
+**Principles:** Privacy
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 4.9.1 | **Indefinite Personal-Data Retention** | Storing personal data beyond functional need, with no retention schedule or deletion mechanism.                                                                | Cross-domain (search engines, social media, government, telecom, retail)                     |
@@ -471,6 +650,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 4.9.5 | **Customs / Logistics Metadata Retention** | Retaining shipment, customs, or routing data beyond operational, legal, or service-required windows.                                                       | Logistics, shipping                                                                          |
 
 ### 4.10 Data Sale to Brokers / Third Parties
+
+**Principles:** Privacy, Autonomy
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -485,6 +666,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 4.11 Smart-Device & IoT Harvesting
 
+**Principles:** Privacy
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 4.11.1 | **Smart-Appliance Surveillance**   | Gathering household composition, usage patterns, and behavioral data from connected appliances.                                                                   | Home appliances                                                                              |
@@ -497,6 +680,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 4.12 Breach Notification Failures
 
+**Principles:** Privacy, Accountability
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 4.12.1 | **Breach Notification Delay**      | Delaying disclosure of data breaches beyond legally required timelines to manage PR or assess liability.                                                          | Cross-domain (financial services, cloud, credit reporting, telecom, data brokers, retail)    |
@@ -505,6 +690,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 4.12.4 | **Breach-Insurance Vacuum for Affected** | Carrying no provision or insurance to compensate data subjects harmed by breaches, leaving victims without recourse.                                        | Data brokers                                                                                 |
 
 ### 4.13 Insider & Access Abuse
+
+**Principles:** Privacy, Accountability
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -518,6 +705,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 5.1 Consent Manipulation
 
+**Principles:** Autonomy, Privacy
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 5.1.1 | **Bundled Consent**                 | Requiring users to accept broad data collection, tracking, and analytics as a single all-or-nothing package rather than granular choices.                         | Internal company ethics, social media, mobile apps                                            |
@@ -530,6 +719,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 5.2 Disclosure Failures
 
+**Principles:** Accountability, Honesty
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 5.2.1 | **Hidden Policies in Long Documents** | Burying material terms, data uses, or surveillance practices in long EULAs or terms of service.                                                                 | Internal company ethics, social media, software, gaming                                       |
@@ -541,6 +732,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 5.3 Misleading Privacy Claims
 
+**Principles:** Honesty, Privacy
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 5.3.1 | **Deceptive De-Identification Claims** | Claiming telemetry or shared data is "anonymous," "aggregated," or "crash-only" when it is sufficient to identify or re-identify individuals.                | Internal company ethics, healthcare                                                          |
@@ -550,6 +743,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 5.4 Algorithmic Decision Opacity
 
+**Principles:** Accountability, Fairness
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 5.4.1 | **Black-Box Decisioning**           | Using AI-driven scoring for credit, insurance, hiring, or benefits decisions without disclosing factors or allowing appeal.                                       | Financial services, insurance, HR/recruitment, government                                    |
@@ -558,6 +753,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 5.4.4 | **Score Opacity**                   | Providing a credit, risk, or behavioral score without explaining how specific behaviors affect it, preventing informed improvement.                               | Credit reporting, insurance, gig economy                                                     |
 
 ### 5.5 Misleading Authority Claims
+
+**Principles:** Honesty
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -573,6 +770,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 6.1 Bias in Critical Decisions
 
+**Principles:** Fairness
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 6.1.1 | **Discriminatory Training Data**    | Building decision systems on historically biased datasets without auditing or mitigation, perpetuating discrimination in hiring, lending, or law enforcement.     | AI, HR/recruitment, credit reporting, insurance, healthcare                                  |
@@ -585,6 +784,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 6.2 Automated Termination & Deactivation
 
+**Principles:** Fairness, Accountability
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 6.2.1 | **Algorithmic Deactivation Without Appeal** | Terminating or suspending worker accounts based on automated metrics (ratings, acceptance rates, fraud signals) without human review or meaningful appeal.  | Ride-hailing, food delivery, freelance/gig, e-commerce sellers                              |
@@ -594,6 +795,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 6.3 Algorithmic Wage & Earnings Manipulation
 
+**Principles:** Fairness, Responsibility
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 6.3.1 | **Algorithmic Pay Adjustment**      | Using opaque algorithms to adjust per-task pay based on predicted worker acceptance, systematically suppressing earnings.                                         | Ride-hailing, food delivery, freelance/gig                                                   |
@@ -602,6 +805,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 6.3.4 | **Opaque Worker Reliability Scores** | Internal performance/reliability scores that gate placement opportunities without disclosed criteria or appeal.                                                  | Staffing/temp, gig economy, freelance                                                        |
 
 ### 6.4 AI Misrepresentation
+
+**Principles:** Honesty
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -616,6 +821,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 6.5 Algorithmic Content Suppression
 
+**Principles:** Fairness
+
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 6.5.1 | **Self-Preferencing on Owned Platforms** | Designing recommendation, search, or marketplace algorithms to prefer the platform's own products or content over superior third-party alternatives.       | Search engines, e-commerce, streaming, music, AI platforms                                  |
@@ -624,6 +831,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 6.5.4 | **Engagement-Optimized Matching Over Compatibility** | Ranking matches, trades, or pairings to maximize platform engagement rather than user-stated goals.                                                  | Dating, job platforms                                                                        |
 
 ### 6.6 Algorithmic Governance Failures
+
+**Principles:** Accountability
 
 | §     | Practice                            | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -637,6 +846,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 7.1 Capability & Outcome Misrepresentation
 
+**Principles:** Honesty
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 7.1.1 | **Outcome Misrepresentation**     | Advertising inflated job placement, success rates, or salary outcomes without disclosing methodology or sample bias.                                              | Education, legal services, fitness                                                           |
@@ -646,6 +857,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 7.1.5 | **Comparative-Advertising Inaccuracy** | Comparative claims about firm capabilities, results, or qualifications that are not verifiable.                                                              | Legal services, professional services                                                        |
 
 ### 7.2 Health & Safety Claim Misrepresentation
+
+**Principles:** Honesty, Safety
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -662,6 +875,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 7.3 Greenwashing & Sustainability Misrepresentation
 
+**Principles:** Honesty, Responsibility
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 7.3.1 | **Vague Eco Claims**              | Marketing products as "natural," "clean," "eco-friendly," "sustainable," or "non-toxic" without standardized definitions or verification.                          | Beauty, food, fashion, baby products, cleaning, personal care                                |
@@ -677,6 +892,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 7.4 Cause-Washing & Purpose-Washing
 
+**Principles:** Honesty
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 7.4.1 | **Purpose-Washing**               | Aligning brands with social causes through campaigns while core business practices contradict those values.                                                       | PR/marketing, fashion, food                                                                  |
@@ -687,6 +904,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 7.4.6 | **Savior-Complex Marketing**      | Portraying communities as helpless and the organization as sole rescuer rather than amplifying community agency.                                                  | Nonprofits                                                                                   |
 
 ### 7.5 Origin & Authenticity Fraud
+
+**Principles:** Honesty
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -699,6 +918,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 7.6 Astroturfing & Fake Reviews
 
+**Principles:** Honesty
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 7.6.1 | **Astroturfing**                  | Creating fake grassroots campaigns, front groups, or paid "independent" voices to simulate public support.                                                        | PR/marketing, lobbying                                                                       |
@@ -709,6 +930,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 7.6.6 | **Ghost-Profile Inflation**       | Creating or maintaining fake user profiles to simulate platform activity and inflate match rates.                                                                  | Dating                                                                                       |
 
 ### 7.7 Undisclosed Sponsored Content
+
+**Principles:** Honesty
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -723,6 +946,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 7.8 Manipulative Imagery & Body Standards
 
+**Principles:** Care, Honesty
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 7.8.1 | **Photoshopped Results Without Disclosure** | Displaying digitally altered before/after images or retouched model photography to exaggerate effectiveness.                                          | Beauty, cosmetics, fitness                                                                   |
@@ -731,6 +956,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 7.8.4 | **Survivor / Cherry-Picked Testimonials** | Showcasing only exceptional results while suppressing typical outcomes.                                                                                   | Fitness, supplements, education                                                              |
 
 ### 7.9 Political & Dark-Ad Practices
+
+**Principles:** Honesty, Autonomy
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -742,6 +969,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 7.10 Ad Fraud & Inventory Manipulation
 
+**Principles:** Honesty
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 7.10.1 | **Bot-Traffic Selling**          | Selling impressions or clicks generated by bots, botnets, or scripts as if they represent genuine human audiences.                                                | Digital advertising, social media                                                            |
@@ -751,6 +980,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 7.10.5 | **Attribution Fabrication**      | Manipulating last-click or view-through attribution to claim credit for conversions that occurred through other channels.                                         | Digital advertising                                                                          |
 
 ### 7.11 Vulnerability-Targeting Marketing
+
+**Principles:** Care, Honesty
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -766,6 +997,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 8.1 Recall Delay & Safety Defect Concealment
 
+**Principles:** Safety, Honesty
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 8.1.1 | **Recall Delay**                  | Delaying recalls of known-defective products to avoid financial impact, even when defects are known to cause harm.                                                | Automotive, baby/children's products, firearms, food/beverage manufacturing, pet industry, pharma, home appliances |
@@ -779,6 +1012,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 8.2 Planned Obsolescence
 
+**Principles:** Safety, Responsibility
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 8.2.1 | **Limited-Lifespan Design**       | Engineering products with intentionally shortened lifespans through material or component choices.                                                                | Home appliances, electronics, consumer goods                                                 |
@@ -788,6 +1023,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 8.2.5 | **Implantable / Critical-Device Lifespan Limits** | Designing implantable or critical devices with unnecessarily limited lifespans.                                                                       | Healthcare (medical devices)                                                                 |
 
 ### 8.3 Repair Restriction
+
+**Principles:** Safety, Autonomy
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -801,6 +1038,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 8.4 Service Quality Throttling & Sunsetting
 
+**Principles:** Safety, Honesty
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 8.4.1 | **Sunsetting Without Refund**     | Shutting down online-only games or services and making purchased content permanently inaccessible without refund or offline mode.                                 | Gaming, IoT devices                                                                          |
@@ -812,6 +1051,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 8.5 Counterfeit & Substandard Materials
 
+**Principles:** Safety
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 8.5.1 | **Substandard Material Substitution** | Replacing specified materials with cheaper alternatives without disclosure or engineering approval.                                                          | Construction, plumbing, dental, wedding planning, defense                                    |
@@ -822,6 +1063,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 8.5.6 | **Material Grade Downgrade**      | Placing lower-grade materials while billing for premium specifications.                                                                                           | Dental, jewelry, construction                                                                |
 
 ### 8.6 Contamination & Adulteration
+
+**Principles:** Safety
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -836,6 +1079,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 8.7 Inspection & Testing Evasion
 
+**Principles:** Safety, Honesty
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 8.7.1 | **Inspection Bribery**            | Offering payments, gifts, or favors to inspectors to overlook deficiencies.                                                                                       | Construction                                                                                 |
@@ -847,6 +1092,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 8.8 Refunds, Warranties & Returns
 
+**Principles:** Safety, Accountability
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 8.8.1 | **Return-Window Erosion**         | Shortening return windows or imposing arbitrary conditions (tags attached, original packaging) that defeat ordinary use.                                          | E-commerce, fashion                                                                          |
@@ -857,6 +1104,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 8.8.6 | **Lost-Package Accountability Gaps** | Claim processes with short windows, burdensome proof, or liability caps that leave consumers uncompensated.                                                  | Logistics, shipping/freight                                                                  |
 
 ### 8.9 Crypto-Specific Irreversibility Harms
+
+**Principles:** Safety, Honesty
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -871,6 +1120,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 9.1 Service Desert Creation
 
+**Principles:** Fairness
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 9.1.1 | **Service Desert Creation**       | Consolidating facilities or service in affluent areas while withdrawing from rural, low-income, or minority areas.                                                | Healthcare, dental, veterinary, banking, grocery, telecom, mobile carriers, transit, government |
@@ -879,6 +1130,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 9.1.4 | **Childcare Geographic Redlining** | Concentrating facilities in affluent areas while avoiding lower-income neighborhoods, creating childcare deserts.                                               | Childcare/daycare                                                                            |
 
 ### 9.2 Algorithmic Discrimination in Targeting & Decisioning
+
+**Principles:** Fairness
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -890,6 +1143,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 9.3 Source-of-Income & Demographic Discrimination
 
+**Principles:** Fairness
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 9.3.1 | **Source-of-Income Discrimination** | Refusing tenants or customers who use vouchers or subsidies despite ability to pay.                                                                            | Real estate                                                                                  |
@@ -898,6 +1153,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 9.3.4 | **Gendered Pricing**              | Pricing identical or substantially similar products differently based on gendered marketing or packaging.                                                         | Personal care, dating (subscriptions), fashion                                               |
 
 ### 9.4 Accessibility (ADA / WCAG) Failures
+
+**Principles:** Fairness
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -911,6 +1168,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 9.5 Language Access Barriers
 
+**Principles:** Fairness
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 9.5.1 | **Language Access Failures**      | Providing critical forms, notices, or services only in one language in multilingual communities.                                                                  | Government, public transit, water utilities, healthcare                                      |
@@ -919,6 +1178,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 9.5.4 | **Non-English Interpretation Absence in Legal Aid** | Failing to offer interpretation or translated materials, excluding non-English speakers from legal representation.                                  | Legal services                                                                               |
 
 ### 9.6 Administrative Burden as Exclusion
+
+**Principles:** Fairness
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -931,6 +1192,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 9.7 Cultural Appropriation & Disrespect
 
+**Principles:** Fairness, Responsibility
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 9.7.1 | **Cultural Appropriation in Branding** | Co-opting traditional practices, designs, or aesthetics from marginalized communities without attribution or compensation.                                  | Beauty, fashion, film/television, travel                                                     |
@@ -942,6 +1205,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 9.8 Indigenous Rights Violations
 
+**Principles:** Fairness, Responsibility
+
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 9.8.1 | **FPIC Violation**                | Proceeding with extraction, infrastructure, or development on indigenous lands without free, prior, and informed consent.                                         | Mining, oil/gas, renewable energy                                                            |
@@ -950,6 +1215,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 9.8.4 | **Community Benefit Agreement Failure** | Failing to deliver promised community investments, jobs, or infrastructure after project approval.                                                          | Renewable energy, oil/gas, mining, public transit, waste management                          |
 
 ### 9.9 Paywalling Public-Interest / Critical Information
+
+**Principles:** Fairness
 
 | §     | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |-------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -963,6 +1230,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 ## 10. Exploitation of Vulnerable Populations
 
 ### 10.1 Predatory Targeting of Children & Minors
+
+**Principles:** Care
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -980,6 +1249,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 10.2 Predatory Targeting of Financial Distress
 
+**Principles:** Care, Fairness
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 10.2.1 | **Subprime / Distress Targeting** | Marketing high-interest or predatory financial products specifically to low-income, minority, or financially distressed communities.                              | Financial services, advertising                                                              |
@@ -988,6 +1259,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 10.2.4 | **Family-Support Fee Extraction** | Imposing excessive fees on money transfers to incarcerated relatives.                                                                                             | Prison/corrections                                                                           |
 
 ### 10.3 Self-Exclusion Sabotage
+
+**Principles:** Care, Autonomy
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -998,6 +1271,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 10.4 Grief & End-of-Life Exploitation
 
+**Principles:** Care
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 10.4.1 | **Upselling During Grief**        | Pressuring grieving families through implied judgments about love or respect for the deceased to upgrade caskets, vaults, or services.                            | Funeral & death care                                                                         |
@@ -1007,6 +1282,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 10.4.5 | **Compassionate-Use Denial**      | Refusing expanded access for terminally ill patients with no treatment alternatives, particularly when safety data exists.                                        | Pharma/biotech                                                                               |
 
 ### 10.5 Senior & Cognitive Vulnerability
+
+**Principles:** Care
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1022,6 +1299,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 10.6 Crisis & Disaster Exploitation
 
+**Principles:** Care
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 10.6.1 | **Disaster Price Gouging**        | Exploiting urgent situations (storm damage, water emergencies) to charge multiples of standard rates.                                                             | Plumbing, home services, ride-hailing, grocery                                               |
@@ -1032,6 +1311,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 10.7 Migrant & Visa-Dependent Coercion
 
+**Principles:** Care, Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 10.7.1 | **Visa-Dependent Worker Coercion** | Recruiting workers under temporary visas with housing deductions, restricted mobility, or deportation threats if they complain.                                  | Hospitality, agriculture, travel/tourism, defense                                            |
@@ -1041,6 +1322,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 10.7.5 | **Migrant Recruitment-Fee Brokering** | Hiring through labor brokers who charge fees, withhold wages, or impose contracts that create indebtedness.                                                  | Seafood, agriculture, construction                                                           |
 
 ### 10.8 Incarcerated Population Exploitation
+
+**Principles:** Care, Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1053,12 +1336,16 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 10.9 Domestic-Violence Survivor Endangerment
 
+**Principles:** Care, Privacy
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 10.9.1 | **Inadequate DV Survivor Protections** | Failing to offer profile hiding, location masking, or block-list portability for users fleeing abusers.                                                     | Dating, social media                                                                         |
 | 10.9.2 | **Image-Abuse Enablement**        | Allowing screenshots, scraping, or unencrypted message storage that enables revenge porn or harassment.                                                           | Dating, social media                                                                         |
 
 ### 10.10 Patient Vulnerability During Treatment
+
+**Principles:** Care
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1072,6 +1359,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 10.10.8 | **Genetic Counseling Data Exploitation** | Using or licensing genetic data for secondary commercial use without explicit consent.                                                                    | Pharma/biotech                                                                               |
 
 ### 10.11 Pet-Owner & Family Exploitation
+
+**Principles:** Care
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1088,6 +1377,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 11.1 Worker Misclassification
 
+**Principles:** Responsibility, Fairness
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 11.1.1 | **Forced Contractor Status**      | Classifying workers as independent contractors when the role meets the legal definition of employment.                                                            | Ride-hailing, food delivery, gig economy, cleaning, construction, plumbing, home services, logistics, gaming, oil/gas, waste management, wedding |
@@ -1097,6 +1388,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 11.1.5 | **Buyout-Fee Suppression**        | Setting prohibitively high temp-to-perm conversion fees to discourage clients from hiring directly.                                                               | Staffing/temp                                                                                |
 
 ### 11.2 Wage Theft
+
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1112,6 +1405,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 11.3 Unpaid Overtime & Crunch
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 11.3.1 | **Overtime Denial**               | Requiring schedules above 40 hours while refusing overtime compensation.                                                                                          | Cleaning, construction, hospitality                                                          |
@@ -1122,6 +1417,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 11.4 Benefits Denial
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 11.4.1 | **Benefits Denial Through Misclassification** | Structuring engagements to avoid health insurance, retirement, or paid leave.                                                                              | Gig economy, ride-hailing, food delivery, freelance, staffing/temp                            |
@@ -1131,6 +1428,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 11.5 Schedule Instability & Algorithmic Scheduling
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 11.5.1 | **On-Call / Just-in-Time Scheduling** | Publishing schedules with minimal notice, split shifts, or on-call requirements that prevent second jobs or childcare.                                       | Hospitality, retail, fast food                                                                |
@@ -1138,6 +1437,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 11.5.3 | **Scheduling Practices Suppressing Wages** | Schedules designed to keep workers below full-time hours or prevent reliable second employment.                                                            | Grocery, retail                                                                               |
 
 ### 11.6 Hazardous Conditions & PPE
+
+**Principles:** Responsibility, Safety
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1155,6 +1456,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 11.7 Safety Incident Underreporting
 
+**Principles:** Responsibility, Safety
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 11.7.1 | **OSHA Violation Concealment**    | Hiding or failing to report workplace injuries, OSHA violations, or hazardous conditions.                                                                         | Construction, oil/gas                                                                        |
@@ -1166,6 +1469,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 11.8 Retaliation Against Reporting
 
+**Principles:** Responsibility, Accountability
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 11.8.1 | **Retaliation Against Workers Reporting Safety** | Penalizing workers who report safety violations through reduced hours, termination, or blacklisting.                                                  | Cleaning, childcare, construction, hospitality                                                |
@@ -1174,6 +1479,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 11.8.4 | **NDAs Silencing Misconduct**     | Using NDAs or separation agreements to prevent employees from speaking publicly about unethical practices, surveillance, or safety concerns.                      | Internal company ethics, consulting, PR/marketing                                            |
 
 ### 11.9 Non-Compete Overreach
+
+**Principles:** Responsibility, Autonomy
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1184,6 +1491,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 11.10 Forced Labor & Child Labor in Operations
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 11.10.1 | **Forced Labor on Vessels / Sites** | Using debt bondage, confiscated documents, or coercion to retain workers without freedom to leave.                                                            | Seafood, agriculture, hospitality                                                            |
@@ -1192,6 +1501,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 11.10.4 | **Child Labor in Operations / Supply Chain** | Sourcing from operations that employ underage workers, or using subcontracting to obscure child-labor involvement.                                       | Agriculture, fashion, mining, food                                                            |
 
 ### 11.11 Mass Layoffs After Profit & Disposable Workforce
+
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1202,6 +1513,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 11.12 Performance & Quality Management Abuse
 
+**Principles:** Responsibility, Care
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 11.12.1 | **Performance-Review Weaponization** | Using opaque performance review processes to justify predetermined attrition rather than genuine development.                                                | Consulting                                                                                   |
@@ -1210,12 +1523,16 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 11.13 Pay Disparity & Discrimination
 
+**Principles:** Responsibility, Fairness
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 11.13.1 | **Demographic Pay Gaps**         | Maintaining persistent pay disparities for women, people of color, or LGBTQ+ workers compared to peers in equivalent roles.                                      | Film/television, internal company                                                            |
 | 11.13.2 | **Salary History Exploitation**  | Using prior salary to set compensation, perpetuating historical pay gaps.                                                                                         | HR/recruitment                                                                               |
 
 ### 11.14 Moderator & Worker Trauma
+
+**Principles:** Responsibility, Care
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1226,6 +1543,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 11.14.5 | **Unsafe Working Hours**          | Scheduling shoots exceeding 14 hours, mandating turnaround under 8 hours.                                                                                         | Film/television                                                                              |
 
 ### 11.15 Unpaid Labor & Career-Path Exploitation
+
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1240,6 +1559,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 11.16 Restrictions on Career Mobility
 
+**Principles:** Responsibility, Autonomy
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 11.16.1 | **Profile Data Lock-In**         | Preventing workers from exporting reviews, portfolios, or professional history when leaving a platform.                                                          | Freelance/gig                                                                                |
@@ -1253,12 +1574,16 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 12.1 Predatory Pricing & Cross-Subsidy
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 12.1.1 | **Predatory Pricing**             | Below-cost pricing to drive competitors out of business before raising prices.                                                                                    | Cross-domain (PE-funded price wars, ride-hailing vs. transit, alcohol)                       |
 | 12.1.2 | **Predatory Pricing vs. Public Infrastructure** | Subsidizing services below cost to draw users from public transit or other public services, then raising prices once those alternatives are weakened.    | Ride-hailing                                                                                 |
 
 ### 12.2 Acquisitions to Kill Competition
+
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1268,6 +1593,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 12.2.4 | **Imprint Opacity**               | Operating dozens of imprints under a single corporate parent while presenting them as independent.                                                                | Publishing                                                                                   |
 
 ### 12.3 Self-Preferencing on Owned Platforms
+
+**Principles:** Responsibility, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1280,6 +1607,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 12.4 Tying & Forced Bundling
 
+**Principles:** Responsibility, Autonomy
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 12.4.1 | **Tying Arrangements**            | Forcing purchase of unwanted products as a condition of obtaining the desired one.                                                                                | Cloud/SaaS, agriculture (seed-herbicide), insurance                                          |
@@ -1289,6 +1618,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 12.5 Exclusive Dealing & Foreclosure
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 12.5.1 | **Price-Parity / MFN Enforcement** | Contractually prohibiting sellers from offering lower prices on other platforms, inflating consumer prices.                                                      | E-commerce, hospitality                                                                      |
@@ -1297,6 +1628,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 12.5.4 | **Independent-Bookstore Disadvantage** | Negotiating exclusive terms or early-release windows with large retailers that independents cannot match.                                                    | Publishing                                                                                   |
 
 ### 12.6 Bid Rigging & Collusion
+
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1309,6 +1642,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 12.7 Monopoly Rent Extraction
 
+**Principles:** Responsibility, Fairness
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 12.7.1 | **Commission / Fee Escalation**   | Progressively increasing platform commissions, license fees, or per-seat pricing without proportional value, exploiting switching costs.                          | Cloud/SaaS, food delivery, e-commerce, mobile carriers                                       |
@@ -1320,6 +1655,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 12.7.7 | **Publisher Dependency Exploitation** | Leveraging traffic dominance to impose unilateral terms on publishers (revenue share, format, content access).                                                | Search engines                                                                               |
 
 ### 12.8 Open-Source / Standards Manipulation
+
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1335,6 +1672,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 12.9 Merchant / Seller Exploitation
 
+**Principles:** Responsibility, Fairness
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 12.9.1 | **Seller Data Extraction**        | Requiring sellers to share detailed product, pricing, and sales data that the platform then uses to compete against them.                                         | E-commerce                                                                                   |
@@ -1348,6 +1687,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 13.1 Supply Chain Opacity
 
+**Principles:** Responsibility, Honesty
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 13.1.1 | **Supply Chain Opacity**          | Constructing complex multi-tier supply chains with insufficient documentation, making it impossible to trace inputs from origin to consumer.                      | Seafood, fashion, agriculture, beauty, cannabis, food/beverage manufacturing                  |
@@ -1359,6 +1700,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 13.1.7 | **Quota Shell Games**             | Transferring quotas between vessels, regions, or corporate entities to obscure true catch and evade limits.                                                       | Seafood                                                                                      |
 
 ### 13.2 Forced & Child Labor in Supply Chain
+
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1374,6 +1717,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 13.3 Animal Cruelty in Supply Chain
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 13.3.1 | **Wildlife-Exploitation Tours**   | Selling animal-encounter experiences (elephant rides, dolphin swims, tiger photos) sourced from abusive facilities.                                               | Travel/tourism                                                                               |
@@ -1382,6 +1727,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 13.3.4 | **Antibiotic Overuse in Livestock** | Administering antibiotics prophylactically at scale to compensate for crowded conditions, accelerating resistance.                                            | Agriculture                                                                                  |
 
 ### 13.4 Counterfeit & Sanctioned Goods
+
+**Principles:** Responsibility, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1392,12 +1739,16 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 13.5 Deforestation-Linked Sourcing
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 13.5.1 | **Deforestation-Linked Inputs**   | Sourcing palm oil, soy, cocoa, beef, or paper from suppliers linked to illegal or unsustainable deforestation without traceability.                               | Food/beverage manufacturing, beauty (palm oil), agriculture                                  |
 | 13.5.2 | **Deforestation for Farmland**    | Clearing forested or ecologically significant land for agricultural expansion without environmental review.                                                       | Agriculture                                                                                  |
 
 ### 13.6 Supplier Squeeze & Contract Abuse
+
+**Principles:** Responsibility, Fairness
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1410,6 +1761,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 ## 14. Environmental Conduct
 
 ### 14.1 Emission Underreporting & Concealment
+
+**Principles:** Responsibility, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1424,6 +1777,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 14.2 Carbon-Offset Greenwashing
 
+**Principles:** Responsibility, Honesty
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 14.2.1 | **Carbon-Offset Greenwashing**    | Claiming carbon neutrality through low-quality, non-additional, or unverifiable offsets while absolute emissions rise.                                            | AI, crypto, airlines, oil/gas, logistics, shipping, travel, renewable energy                  |
@@ -1433,6 +1788,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 14.2.5 | **Curtailment Concealment**       | Failing to disclose when renewable generation is curtailed, overstating actual clean energy delivered.                                                            | Renewable energy                                                                             |
 
 ### 14.3 Pollution Concealment
+
+**Principles:** Responsibility, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1449,6 +1806,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 14.4 Environmental Justice Siting
 
+**Principles:** Responsibility, Fairness
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 14.4.1 | **Polluting-Facility Siting in Vulnerable Communities** | Concentrating new infrastructure (power plants, substations, pipelines, transfer stations, landfills) in low-income or minority communities.        | Energy utilities, waste management, public transit, oil/gas                                  |
@@ -1456,6 +1815,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 14.4.3 | **NIMBY Exploitation**            | Siting renewable or other projects in low-income or minority communities to avoid affluent opposition.                                                            | Renewable energy                                                                             |
 
 ### 14.5 Habitat & Ecosystem Destruction
+
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1471,6 +1832,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 14.6 Microplastics & Persistent Pollutants
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 14.6.1 | **Microplastic Ingredients**      | Formulating with microbeads, glitter, or synthetic polymers that enter waterways despite known damage.                                                            | Beauty, personal care                                                                        |
@@ -1481,6 +1844,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 14.6.6 | **Microplastic in Children's Feeding Products** | Manufacturing bottles, utensils, or plates from materials that shed microplastics during normal use.                                                    | Baby/children's products                                                                     |
 
 ### 14.7 E-Waste & Disposal
+
+**Principles:** Responsibility
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1495,6 +1860,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 14.8 Pesticide & Antibiotic Overuse
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 14.8.1 | **Pesticide Application Beyond Label** | Applying chemicals at concentrations, frequencies, or locations exceeding label specifications.                                                              | Pest control                                                                                 |
@@ -1503,6 +1870,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 14.8.4 | **Antibiotic Overprescription in Veterinary** | Prescribing antibiotics without proper diagnostics, contributing to resistance.                                                                           | Veterinary, agriculture                                                                      |
 
 ### 14.9 Site Abandonment & Stranded Liabilities
+
+**Principles:** Responsibility, Accountability
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1515,6 +1884,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 14.10 Catastrophic Risk Concealment
 
+**Principles:** Responsibility, Safety
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 14.10.1 | **Tailings Dam Risk Concealment** | Understating structural risk of tailings dams to avoid costly upgrades or closure.                                                                              | Mining                                                                                       |
@@ -1524,6 +1895,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 14.10.5 | **Conjunction-Data Opacity**      | Withholding satellite conjunction data, refusing to coordinate maneuvers, or concealing near-miss events.                                                         | Space/aerospace                                                                              |
 
 ### 14.11 Lobbying Against Environmental Regulation
+
+**Principles:** Responsibility, Accountability
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1537,6 +1910,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 14.12 Resource Hoarding
 
+**Principles:** Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 14.12.1 | **Water Rights Exploitation**    | Diverting or hoarding water beyond sustainable needs, depleting community supplies in drought-prone regions.                                                      | Agriculture, food/beverage manufacturing, oil/gas, mining                                    |
@@ -1549,6 +1924,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 15.1 Whistleblower Suppression
 
+**Principles:** Accountability, Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 15.1.1 | **Whistleblower Retaliation**     | Demoting, terminating, blacklisting, or otherwise retaliating against employees who report fraud, safety failures, or unethical practices.                        | Internal company ethics, defense, government, mining, accounting, healthcare, pharma, nonprofits, accounting, oil/gas |
@@ -1558,6 +1935,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 15.2 Ethics Theater
 
+**Principles:** Accountability, Honesty
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 15.2.1 | **Ethics Theater**                | Establishing internal AI ethics boards, privacy councils, or review teams with no decision-making authority and routinely overridden recommendations.            | Internal company ethics                                                                      |
@@ -1566,6 +1945,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 15.2.4 | **Selective Transparency Reporting** | Publishing transparency or sustainability reports that omit unfavorable categories (proprietary surveillance, internal monitoring, fenceline emissions).      | Internal company ethics, PR/marketing                                                        |
 
 ### 15.3 Regulatory Capture & Lobbying
+
+**Principles:** Accountability
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1579,6 +1960,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 15.4 Revolving Door
 
+**Principles:** Accountability
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 15.4.1 | **Revolving Door with Regulators** | Hiring former regulators to lobby their former agencies or leveraging government relationships for client access.                                              | PR/marketing, defense, chemical manufacturing, tax preparation                               |
@@ -1587,6 +1970,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 15.4.4 | **Government Advisory to Regulated Industry** | Advising government on policy formulation while simultaneously advising regulated clients on navigating that policy.                                     | Consulting                                                                                   |
 
 ### 15.5 Audit Independence Failure
+
+**Principles:** Accountability
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1598,6 +1983,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 15.5.6 | **Disciplinary Opacity**          | Handling disciplinary matters internally without transparency, allowing firms to conceal misconduct patterns.                                                     | Accounting & auditing                                                                        |
 
 ### 15.6 Conflict-of-Interest Concealment
+
+**Principles:** Accountability, Honesty
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1611,6 +1998,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 15.6.8 | **Sportsbook Sponsorship Conflict** | Accepting sponsorship from sportsbooks while controlling integrity enforcement.                                                                              | Sports/athletics                                                                             |
 
 ### 15.7 Procurement Favoritism & Public-Fund Misuse
+
+**Principles:** Accountability
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1632,6 +2021,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 15.8 Transparency Evasion
 
+**Principles:** Accountability, Honesty
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 15.8.1 | **FOIA Delay Tactics**            | Using excessive redactions, inflated fee estimates, endless extensions, or "search and review" backlogs to deny FOIA requests.                                    | Government services                                                                          |
@@ -1646,6 +2037,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 15.9 Strategic Bankruptcy & Corporate Restructuring
 
+**Principles:** Accountability, Responsibility
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 15.9.1 | **Warranty Evasion Through Restructuring** | Using corporate restructuring, shell entities, or vague contract language to avoid honoring warranties.                                                  | Construction                                                                                 |
@@ -1654,6 +2047,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 | 15.9.4 | **Government Contract Opacity for Surveillance** | Classifying or concealing surveillance contracts to prevent public awareness.                                                                            | Surveillance technology                                                                      |
 
 ### 15.10 Boundary Misconduct
+
+**Principles:** Accountability
 
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
@@ -1665,6 +2060,8 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ### 15.11 Religious / Authoritarian Complicity
 
+**Principles:** Accountability
+
 | §      | Practice                          | Description                                                                                                                                                       | Example domains                                                                              |
 |--------|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|
 | 15.11.1 | **Sales to Human Rights Violators** | Selling weapons, surveillance, or AI capabilities to governments or entities with documented human rights abuses.                                              | Defense, AI, surveillance technology, space/aerospace                                        |
@@ -1674,7 +2071,7 @@ catalog, followed by a **Glossary**, a **Regulatory Reference**, and a
 
 ---
 
-# Part II — Quick Reference & Appendices
+# Part III — Quick Reference & Appendices
 
 ## Quick Reference Index
 
@@ -1953,16 +2350,19 @@ also apply outside the listed domains.
 
 ---
 
-# Part III — Frequently Asked Questions
+# Part IV — Frequently Asked Questions
 
 ## What is the Open Ethics Standard?
 
-The Open Ethics Standard (OES) is a structured catalog of unethical
-practices in software, technology, and consumer-facing industries. It
+The Open Ethics Standard (OES) is an ethical standard for any business. It
 provides:
 
-- a **taxonomy** of practices, organized by harm category;
-- **domain-agnostic descriptions** so the same practice can be recognized
+- eight **principles** that say what ethical conduct means: Honesty,
+  Autonomy, Privacy, Fairness, Care, Safety, Accountability, and
+  Responsibility;
+- a **taxonomy** of named practices that break those principles, organized
+  by harm category;
+- **industry-neutral descriptions** so the same practice can be recognized
   across industries;
 - **example domains** showing where the practice has been observed;
 - **stable reference numbers** so any specific practice can be cited
@@ -1970,7 +2370,27 @@ provides:
 
 It exists so that ordinary descriptions like "they tricked me into a
 subscription" can be replaced with precise, citable claims like "the
-cancellation flow is a Roach Motel under OES § 2.1.1."
+cancellation flow breaks Autonomy: it is a Roach Motel under OES § 2.1.1."
+
+## What ethics does the OES cover?
+
+Eight principles: **Honesty**, **Autonomy**, **Privacy**, **Fairness**,
+**Care**, **Safety**, **Accountability**, and **Responsibility**. They are written in Part I. Every subsection of the catalog
+names the principles its practices break.
+
+## Does the OES only apply to software?
+
+No. It applies to any business that serves, employs, buys from, or affects
+people. Hotels, gyms, lenders, employers, manufacturers, and delivery
+platforms are all covered. Software is one place the standard applies, and
+the OES MCP is one tool for reviewing a software project against it.
+
+## Is the OES a code linter?
+
+No. The OES is a standard of conduct, not a code checker. Some practices
+show up in a product's behavior, and a review of software can look for
+those. Many others, such as labor conditions, supply chains, and governance,
+cannot be seen in code at all.
 
 ## Is the OES legally binding?
 
@@ -2079,7 +2499,7 @@ proposals.
 
 ---
 
-# Part IV — Contributing
+# Part V — Contributing
 
 To propose a change, edit the relevant part of this file and open a pull
 request. Do not replace the whole document. Sources for the reasoning are
@@ -2091,6 +2511,6 @@ pull request. The standard text is licensed under [CC BY-ND 4.0]; see
 
 [CC BY-ND 4.0]: https://creativecommons.org/licenses/by-nd/4.0/
 
-# Part V — Code of Conduct
+# Part VI — Code of Conduct
 
 Project participation follows the [Code of Conduct](.github/CODE_OF_CONDUCT.md).

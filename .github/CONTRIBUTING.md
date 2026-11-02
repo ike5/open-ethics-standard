@@ -9,6 +9,7 @@ Edit the relevant part of [`OPEN-ETHICS-STANDARD.md`](../OPEN-ETHICS-STANDARD.md
 Keep the format the catalog generator and CI expect:
 
 - Categories use `## N. Category name`; subsections use `### N.N Subsection name`.
+- Put a `**Principles:** Honesty, Autonomy` line directly under every subsection heading. Use names from the principles table in Part I; the build fails on a missing or unknown name.
 - Each practice is one table row: identifier, practice, description, example domains.
 - Identifiers are unique `N.N.N`. Escape any `|` inside text.
 - Don't replace the whole document, and don't edit the generated `packages/oes-mcp/catalog.json`.
@@ -18,7 +19,7 @@ When a change merges, automation bumps the standard's version and date. Optional
 | Label | Use for |
 | --- | --- |
 | `version:patch` | Corrections and clarifications (default) |
-| `version:minor` | New practices |
+| `version:minor` | New practices or principles |
 | `version:major` | Significant catalog changes |
 
 ## Change the MCP code

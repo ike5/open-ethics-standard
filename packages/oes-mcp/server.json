@@ -2,18 +2,18 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "io.github.ike5/open-ethics-standard",
   "title": "Open Ethics Standard",
-  "description": "MCP server that lets your AI diagnose dark patterns, privacy traps, and other harmful practices in your code, backed by the Open Ethics Standard.",
+  "description": "MCP server that applies the Open Ethics Standard, an ethical standard for any business, to your software project so your AI can flag harmful practices in your code.",
   "repository": {
     "url": "https://github.com/ike5/open-ethics-standard",
     "source": "github"
   },
-  "version": "0.4.3",
+  "version": "0.5.0",
   "websiteUrl": "https://ike5.github.io/open-ethics-standard/",
   "packages": [
     {
       "registryType": "npm",
       "identifier": "open-ethics-standard-mcp",
-      "version": "0.4.3",
+      "version": "0.5.0",
       "transport": {
         "type": "stdio"
       }

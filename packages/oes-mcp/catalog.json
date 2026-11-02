@@ -8,49 +8,57 @@
       "name": "Honesty",
       "statement": "Tell people the truth about prices, products, services, and claims.",
       "protects": "Customers, the public",
-      "why": "People can only decide well on accurate information. Deception takes money and trust from people who never agreed to give them."
+      "why": "People can only decide well on accurate information. Deception takes money and trust from people who never agreed to give them.",
+      "covers": "pricing and billing (Category 1), marketing and capability claims (Category 7), sneaking and urgency patterns (3.1–3.2), misleading privacy and authority claims (5.3, 5.5), and AI misrepresentation (6.4)."
     },
     {
       "name": "Autonomy",
       "statement": "People choose freely and knowingly, and can say no, change their mind, or leave.",
       "protects": "Customers, users, workers",
-      "why": "A choice that was engineered, hidden, or made impossible to undo is not a real choice."
+      "why": "A choice that was engineered, hidden, or made impossible to undo is not a real choice.",
+      "covers": "subscriptions, contracts, and lock-in (Category 2), misdirection, obstruction, and forced action (3.3–3.5), and consent manipulation (5.1)."
     },
     {
       "name": "Privacy",
       "statement": "Collect only what is needed, use it only as agreed, and protect it.",
       "protects": "Customers, workers, people who never signed up",
-      "why": "Personal information outlives the moment it is given, and it can be used against the person it describes."
+      "why": "Personal information outlives the moment it is given, and it can be used against the person it describes.",
+      "covers": "data collection, tracking, retention, sale, and breach handling (Category 4), and consent to data use (5.1)."
     },
     {
       "name": "Fairness",
       "statement": "Treat people equally, do not discriminate, and keep services accessible.",
       "protects": "Customers, applicants, workers",
-      "why": "Access to credit, housing, work, and services should not depend on who someone is or where they live."
+      "why": "Access to credit, housing, work, and services should not depend on who someone is or where they live.",
+      "covers": "automated and human decisions about people (6.1–6.3, 6.5), and access, equity, and discrimination (Category 9)."
     },
     {
       "name": "Care",
       "statement": "Protect vulnerable people; do not profit from distress, grief, or compulsion.",
       "protects": "Children, people in crisis, older adults, anyone vulnerable",
-      "why": "Some people cannot protect themselves in the moment. A business that targets that moment is choosing profit over the person."
+      "why": "Some people cannot protect themselves in the moment. A business that targets that moment is choosing profit over the person.",
+      "covers": "exploitation of vulnerable populations (Category 10), emotional manipulation and engagement-addiction design (3.6–3.8), and crisis pricing and predatory lending (1.2, 1.7)."
     },
     {
       "name": "Safety",
       "statement": "Do not sell known harms, keep service promises, and allow repair.",
       "protects": "Customers, the public",
-      "why": "People trust that what they buy will not hurt them and will work as promised. Concealing a defect turns that trust into risk."
+      "why": "People trust that what they buy will not hurt them and will work as promised. Concealing a defect turns that trust into risk.",
+      "covers": "service quality, safety, recalls, repair, and refunds (Category 8)."
     },
     {
       "name": "Accountability",
       "statement": "Explain decisions, offer recourse, own mistakes, and protect people who speak up.",
       "protects": "Everyone affected by a decision",
-      "why": "Power without a way to question it is easy to abuse. People need to know why something happened and what they can do about it."
+      "why": "Power without a way to question it is easy to abuse. People need to know why something happened and what they can do about it.",
+      "covers": "disclosure and decision opacity (5.2, 5.4), governance failures (6.6), breach notification (4.12), and governance, whistleblowing, and corporate accountability (Category 15)."
     },
     {
       "name": "Responsibility",
       "statement": "Workers, suppliers, communities, competitors, and the environment count too.",
       "protects": "Workers, suppliers, communities, competitors, the environment",
-      "why": "A business can be honest with every customer and still do harm to the people who make its products, the market it competes in, or the place it operates."
+      "why": "A business can be honest with every customer and still do harm to the people who make its products, the market it competes in, or the place it operates.",
+      "covers": "worker and workplace conduct (Category 11), anti-competitive behavior (Category 12), supply chains (Category 13), and environmental conduct (Category 14)."
     }
   ],
   "practices": [

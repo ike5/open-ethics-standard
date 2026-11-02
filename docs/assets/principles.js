@@ -4,12 +4,10 @@
   var D = window.OES_DATA;
   if (!D) return;
   var P = D.principles, n = P.length;
-  var STANDARD = "https://github.com/ike5/open-ethics-standard/blob/main/OPEN-ETHICS-STANDARD.md";
   var NS = "http://www.w3.org/2000/svg";
   var $ = function (id) { return document.getElementById(id); };
   var areaName = function (c) { return c.replace(/^\d+\.\s*/, ""); };
   var areaNum = function (c) { return c.match(/^\d+/)[0]; };
-  var slug = function (t) { return t.toLowerCase().replace(/[^a-z0-9 -]/g, "").replace(/ /g, "-"); };
   var el = function (tag, attrs, text) { var e = document.createElement(tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; };
   $("total").textContent = D.total;
   $("ver").textContent = "· version " + D.version;
@@ -67,6 +65,7 @@
     left.appendChild(el("span", { "class": "n" }, "0" + (k + 1) + " / 0" + n));
     left.appendChild(el("h3", {}, p.name));
     left.appendChild(el("p", { "class": "st" }, p.statement));
+    left.appendChild(el("a", { "class": "deep", href: "principles/" + p.slug + ".html" }, "Read " + p.name + " in depth →"));
     var side = el("div", { "class": "side" });
     var blk = function (label, text) { var d = el("div"); d.appendChild(el("p", { "class": "lbl" }, label)); d.appendChild(el("p", {}, text)); side.appendChild(d); };
     blk("Protects", p.protects);
@@ -74,7 +73,7 @@
     var cov = el("div"); cov.appendChild(el("p", { "class": "lbl" }, p.practices + " practices, in these parts of the catalog"));
     var chips = el("div", { "class": "areas" });
     p.areas.slice().sort(function (x, y) { return y.count - x.count; }).forEach(function (area) {
-      chips.appendChild(el("a", { href: STANDARD + "#" + slug(area.category) }, "§" + areaNum(area.category) + " " + areaName(area.category) + " · " + area.count));
+      chips.appendChild(el("a", { href: "principles/" + p.slug + ".html#" + area.anchor }, "§" + areaNum(area.category) + " " + areaName(area.category) + " · " + area.count));
     });
     cov.appendChild(chips); side.appendChild(cov);
     s.appendChild(left); s.appendChild(side);

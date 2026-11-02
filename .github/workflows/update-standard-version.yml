@@ -58,7 +58,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add OPEN-ETHICS-STANDARD.md packages/oes-mcp/catalog.json packages/oes-mcp/package.json packages/oes-mcp/package-lock.json
+          git add OPEN-ETHICS-STANDARD.md packages/oes-mcp/catalog.json packages/oes-mcp/package.json packages/oes-mcp/package-lock.json docs/assets/principles-data.js docs/principles
           git commit -m "chore: update standard version and date"
           git push origin main
       - name: Publish the npm package

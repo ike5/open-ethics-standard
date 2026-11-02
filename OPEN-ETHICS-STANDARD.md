@@ -2,8 +2,8 @@
 
 **An ethical standard for any business, and a named catalog of the practices that break it.**
 
-**Version:** 2026.1.0
-**Date:** May 2026
+**Version:** 2026.1.1
+**Date:** November 2, 2026
 
 ---
 
